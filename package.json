@@ -1,7 +1,7 @@
 {
-  "name": "Bulma-Plates",
+  "name": "StoryTime",
   "version": "0.1.1",
-  "description": "A webpack React starter",
+  "description": "A Social Story App",
   "repository": "https://github.com/harrison-symes/Bulma-Plates.git",
   "main": "server/index.js",
   "scripts": {
