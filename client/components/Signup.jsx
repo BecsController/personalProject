@@ -1,6 +1,7 @@
 import React from 'react'
+import {newUser} from '../apiClient.js'
 
-const newUser = {
+let baseUser = {
   name: '',
   email: '',
   avatar: ''
@@ -11,7 +12,7 @@ class Signup extends React.Component {
         super (props)
 
         this.state = {
-          user: {...newUser}
+          user: {...baseUser}
         }
         this.submit = this.submit.bind(this)
         this.updateUser = this.updateUser.bind(this)
@@ -20,22 +21,21 @@ class Signup extends React.Component {
       submit(e) {
         e.preventDefault()
         const user = this.state.user
-        this.props.addUser(user)
+        newUser(user)
         this.setState({
-          user: {...newUser}
+          user: {...baseUser}
         })
       }
 
       updateUser(e) {
         const user = this.state.user
         user[event.target.name] = event.target.value
-
         this.setState ({
           user
         })
       }
 
-    render() {
+  render() {
 
   return (
     <div className="hero-body columns">

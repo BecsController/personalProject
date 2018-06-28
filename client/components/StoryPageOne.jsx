@@ -1,8 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {getPages} from '../apiClient.js'
-import Options from './Options'
-import EmotionButtons from './EmotionButtons'
+import Options from './popuplayers/Options'
+import EmotionButtons from './popuplayers/EmotionButtons'
 
 class StoriesPageOne extends React.Component {
   constructor (props){

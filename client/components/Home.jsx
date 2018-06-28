@@ -7,7 +7,7 @@ const Homepage = (props) => {
         <h1 className="is-size-1 is-full-width is-spaced has-text-grey">StoryTime</h1>
         <div className="box is-flex">
         <figure className="image is-148x148">
-        <img src="http://static.oprah.com/images/201111/omag/200304-omag-book-publish-600x411.jpg" />
+        <img style={{width: '50vw'}} src="http://static.oprah.com/images/201111/omag/200304-omag-book-publish-600x411.jpg" />
         </figure>
         </div>
       </div>

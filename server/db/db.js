@@ -1,14 +1,22 @@
 const db = require('./connection')
-//
-// function getUsers() {
-//   return db('users').select()
-// }
-//
-// function createUser(newUser) {
-//   return db('users')
-//   .insert(newUser)
-// }
-//
+
+function getUsers() {
+  return db('users').select()
+}
+
+function createUser(newUser) {
+  return db('users')
+  .insert(newUser)
+}
+
+function getStories () {
+  return db('stories').select()
+}
+
+function getPages () {
+  return db('pages').select()
+}
+
 // function getUser(id) {
 //   return db('users')
 //   .where('id', id).first()
@@ -20,38 +28,12 @@ const db = require('./connection')
 //   .update(updatedInfo)
 // }
 //
-// function getStories () {
-//   return db('stories').select()
-// }
-//
-// function getStory (id) {
-//   return db('stories')
-//   .where('id', id).first()
-// }
-//
-// function addPageToUserStory (currentPage) {
-//   return db('userstories')
-//   .insert(currentPage)
-// }
-//
-// function addEmotionToPage (currentEmotion) {
-//   return db('pages')
-//   .where('emotion')
-//   .update(currentEmotion)
-// }
-
-function getPages () {
-  return db('pages').select()
-}
 
 module.exports = {
-  // createUser,
-  // getUsers,
+  createUser,
+  getUsers,
   // getUser,
   // updateUser,
-  // getStories,
-  // getStory
-  // currentPage,
-  // addEmotionToPage,
+  getStories,
   getPages
 }
