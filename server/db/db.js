@@ -13,6 +13,10 @@ function getStories () {
   return db('stories').select()
 }
 
+function getStory (id) {
+  return db('stories').select().where({id}).first()
+}
+
 function getPages () {
   return db('pages').select()
 }
@@ -35,5 +39,6 @@ module.exports = {
   // getUser,
   // updateUser,
   getStories,
+  getStory,
   getPages
 }

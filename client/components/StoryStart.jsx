@@ -1,25 +1,41 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {getStoryById} from '../apiClient.js'
 
-const StoryStart = (props) =>{
-  console.log(props);
+
+class StoryStart extends React.Component {
+  constructor (props) {
+    super (props)
+
+    this.state  = {
+      story: []
+    }
+  }
+
+  componentDidMount () {
+    getStoryById(this.props.match.params.id)
+    .then(story =>{
+      this.setState({story})
+    })
+  }
+
+  render () {
   return (
     <div className="columns is-two-thirds">
-      <div className="box top-box column is-10 is-offset-1">
-        <h1 className="column is-10 has-text-centered is-size-1 has-text-grey">{props.match.params.story}</h1>
-          <div className="box column is-10">
+          <div className="box column is-8 is-offset-2">
+            <h1 style={{marginLeft: '5vw'}} className="column is-10 is-size-1 has-text-grey">
+            {this.state.story.title}
+            </h1>
             <figure className="image column is-10">
-              <img src='/images/backgrounds/inside-a-kindergarten-classroom-background.jpg' />
+              <img style={{width: '45vw', marginLeft: '10vw'}} src={this.state.story.image} />
             </figure>
+            <Link className="button is-primary is-rounded is-outlined is-large" to={`/story/${this.state.story.id}/1`}>
+              <i className="fas fa-play"></i>&nbsp;Click here to start
+              </Link>
           </div>
-
-          <Link className="button is-primary is-rounded is-outlined is-large" to={`/story/${props.match.params.story}/1`}>
-            <i className="fas fa-play"></i>&nbsp;Click here to start
-          </Link>
-      </div>
-
     </div>
   )
+ }
 }
 
 export default StoryStart

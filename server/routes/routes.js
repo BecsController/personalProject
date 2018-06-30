@@ -17,6 +17,14 @@ router.get('/stories', (req, res) => {
   })
 })
 
+router.get('/stories/:id', (req, res) => {
+  let id = req.params.id
+  db.getStory(id)
+    .then(story => {
+      res.json(story)
+    })
+})
+
 router.get('/pages', (req, res) => {
   db.getPages()
   .then(pages => {
@@ -24,7 +32,7 @@ router.get('/pages', (req, res) => {
   })
 })
 
-router.post('/new', (req, res) => {
+router.post('/users', (req, res) => {
   let newUser = {
     name: req.body.name,
     email: req.body.email,
@@ -32,7 +40,7 @@ router.post('/new', (req, res) => {
   }
   db.createUser(newUser)
   .then(() => {
-    res.redirect('/users')
+    res.sendStatus(200)
   })
 })
 //

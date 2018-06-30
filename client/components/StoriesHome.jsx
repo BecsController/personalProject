@@ -62,7 +62,7 @@ class StoriesHome extends React.Component {
             return (
           <div key={story.key} className="column is-3 is-3-widescreen is-flex">
             <div className="card">
-              <Link to={`/story/${story.title}`}>
+              <Link to={`/story/${story.id}`}>
                 <div className="card-title title is-4">
                   <h3 className="has-text-grey-dark">{story.title}</h3>
               </div>
