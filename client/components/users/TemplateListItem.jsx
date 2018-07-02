@@ -4,7 +4,7 @@ export default class TemplateListItem extends React.Component{
 
     localAddToCanvas = (e) => {
         e.preventDefault()
-        this.props.addToCanvas(e.target, this.props.property_type, this.props.zIndex)
+        this.props.addToCanvas(e.target, this.props.propertyType, this.props.zIndex)
     }
 
     render(){

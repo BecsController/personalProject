@@ -26,12 +26,12 @@ class User extends React.Component {
         <div className="columns box is-multiline" id="grid">
               <div key={this.state.user.name} className="column is-3 is-3-widescreen is-flex">
 
-                <div className="card is-flex" style={{width: '30vw', height: '20vw'}}>
-                    <div className="card-title title is-3">
+                <div className="card is-flex" style={{height: '20vw'}}>
+                    <div style={{width: '100%'}} className="card-title title is-3">
                       <h3 className="has-text-grey-dark">{this.state.user.name}</h3>
                       </div>
 
-                    <div style={{marginLeft: '1.7vw', width: '15vw', height: '15vw'}} className="box card-image">
+                    <div style={{marginTop: '5vw', width: '30vw', height: '15vw'}} className="box card-image">
                       <figure className="image is-1by1">
                         <img src={this.state.user.avatar} alt={this.state.user.name}/>
                       </figure>

@@ -1,7 +1,7 @@
 import React from 'react'
 import TemplateListItem from './TemplateListItem'
 
-export default class TemplateList extends React.Component{
+class TemplateList extends React.Component{
 
     render(){
 
@@ -10,7 +10,7 @@ export default class TemplateList extends React.Component{
 
             <TemplateListItem
                 url={item}
-                property_type = {this.props.property_type}
+                propertyType = {this.props.property_type}
                 zIndex = {this.props.zIndex}
                 addToCanvas = {this.props.addtocanvas}
                 key={item}
@@ -25,3 +25,5 @@ export default class TemplateList extends React.Component{
         )
     }
 }
+
+export default TemplateList

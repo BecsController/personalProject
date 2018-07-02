@@ -47,7 +47,7 @@ class StoriesPageOne extends React.Component {
                  <div className="container is-full-height ">
                    <img style={{width: '20vw', position: 'absolute', top: '-20vw', left: '-2vw', zIndex: '3'}} src={this.state.pages[this.state.pageTracker].population} alt="teacher"/>
                      <Link className="button is-medium" to={`#`} onClick={this.showEmotionButtons}>
-                       Show emotion buttons
+                       How are you feeling?
                      </Link>
                     {this.state.buttonsVisible && <EmotionButtons page={this.state.pages} tracker={this.state.pageTracker}/>}
                       <div className="box column is-10 textarea">

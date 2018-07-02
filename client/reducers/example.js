@@ -1,7 +1,10 @@
-// function reducer (state = [], action) {
+//const initialState = [
+// {name: 'thing'}
+//]
+// function reducer (state = initialState, action) {
 //   switch (action.type) {
-//     case 'REDUCER_CASE':
-//       return newState
+//     case 'ADD_CAT':
+//       return [....state, action.cat]
 //     default:
 //       return state
 //   }
