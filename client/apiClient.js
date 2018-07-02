@@ -16,6 +16,13 @@ export function getUsers () {
   })
 }
 
+export function getUser (id) {
+  return request.get(rootUrl + '/users/' + id)
+  .then(res => {
+    return res.body
+  })
+}
+
 export function newUser (newUser) {
   return request.post(rootUrl + '/users')
   .send(newUser)
@@ -34,7 +41,6 @@ export function getStories () {
 export function getStoryById (id) {
   return request.get(rootUrl + '/stories/' + id)
   .then(res => {
-    console.log(res.body);
     return res.body
   })
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import {newUser} from '../apiClient.js'
+import {newUser} from '../../apiClient.js'
 
 let baseUser = {
   name: '',
@@ -26,7 +26,6 @@ class Signup extends React.Component {
         this.setState({
           user: {...baseUser}
         })
-        res.redirect('/users')
       }
 
       updateUser(e) {

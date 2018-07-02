@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {getUsers} from '../apiClient.js'
+import {getUsers} from '../../apiClient.js'
 
 class Users extends React.Component {
 
@@ -36,7 +36,7 @@ class Users extends React.Component {
                 return (
                   <div key={item.name} className="column is-3 is-3-widescreen is-flex">
                     <div className="card is-flex" style={{width: '30vw', height: '20vw'}}>
-                      <Link to={`/user/${item.name}`}>
+                      <Link to={`/user/${item.id}`}>
                         <div className="card-title title is-3">
                           <h3 className="has-text-grey-dark">{item.name}</h3>
                           </div>

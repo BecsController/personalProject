@@ -5,6 +5,8 @@ exports.up = function(knex, Promise) {
     table.string("name");
     table.string("email");
     table.string("avatar");
+    table.string("saved_stories");
+    table.string("saved_avatar");
   })
 };
 

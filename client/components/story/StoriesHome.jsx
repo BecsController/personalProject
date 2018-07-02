@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {getStories} from '../apiClient.js'
+import {getStories} from '../../apiClient.js'
 
 class StoriesHome extends React.Component {
   constructor (props){

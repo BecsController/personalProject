@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {getStoryById} from '../apiClient.js'
+import {getStoryById} from '../../apiClient.js'
 
 
 class StoryStart extends React.Component {

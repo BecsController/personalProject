@@ -10,6 +10,14 @@ router.get('/users', (req, res) => {
   })
 })
 
+router.get('/users/:id', (req, res) => {
+  let id = req.params.id
+  db.getUser(id)
+  .then(user => {
+    res.json(user)
+  })
+})
+
 router.get('/stories', (req, res) => {
   db.getStories()
   .then((stories) => {
