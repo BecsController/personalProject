@@ -17,9 +17,12 @@ class Avatar extends React.Component {
 
   changeActiveTab(tab) {
     this.setState({activeTab: tab})
-    let element = document.getElementById(tab)
+    let elements = document.getElementsByTagName('li')
+    console.log(elements);
+    for (let element of elements){
     element.classList.toggle('is-active')
   }
+}
 
   addToCanvas = (imgElement, propertyType, zIndex) => {
     let imgInstance = new fabric.Image(imgElement, {
@@ -82,9 +85,7 @@ class Avatar extends React.Component {
             </div>
 
             <div className="tab-content box is-flex wrap">
-
               {this.renderTab(this.state.activeTab)}
-
             </div>
           </div>
         </div>
