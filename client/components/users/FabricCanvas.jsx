@@ -51,10 +51,10 @@ class FabricCanvas extends React.Component{
         return (
             <div className= "main-canvas-container">
 
-                <canvas id= 'main-canvas'>
+                <canvas style={{border: '3px solid black'}} id= 'main-canvas'>
                 </canvas>
 
-                <button onClick = {this.saveToCanvas}>
+                <button style={{marginTop: '25vw'}} className="is-rounded button is-medium is-outlined" onClick = {this.saveToCanvas}>
                     Download Avatar
                 </button>
             </div>

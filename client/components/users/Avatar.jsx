@@ -16,7 +16,9 @@ class Avatar extends React.Component {
   }
 
   changeActiveTab(tab) {
-    this.setState({activeTab: tab});
+    this.setState({activeTab: tab})
+    let element = document.getElementById(tab)
+    element.classList.toggle('is-active')
   }
 
   addToCanvas = (imgElement, propertyType, zIndex) => {
@@ -31,57 +33,61 @@ class Avatar extends React.Component {
 
   renderTab(tab) {
     switch (tab) {
-    case 1:
-    return <TemplateList
-      data-content="1"
-      data = {facelist}
-      propertyType = 'face'
-      zIndex = '0'
-      addtocanvas = {this.addToCanvas}
-      />
+      case 1:
+      return <TemplateList
+        data-content="1"
+        data = {facelist}
+        propertyType = 'face'
+        zIndex = '0'
+        addtocanvas = {this.addToCanvas}
+        />
 
-    case 2:
-    return <TemplateList
-      data-content="2"
-      data = {eyeslist}
-      propertyType= "eyes"
-      zIndex = '99'
-      addtocanvas ={this.addToCanvas}
-      />
+      case 2:
+      return <TemplateList
+        data-content="2"
+        data = {eyeslist}
+        propertyType= "eyes"
+        zIndex = '99'
+        addtocanvas ={this.addToCanvas}
+        />
 
-    case 3:
-    return <TemplateList 
-      data-content="3"
-      data = {hairlist}
-      propertyType= "hair"
-      zIndex = '99'
-      addtocanvas ={this.addToCanvas}
-      />
-    default:
-    break
+      case 3:
+      return <TemplateList
+        data-content="3"
+        data = {hairlist}
+        propertyType= "hair"
+        zIndex = '99'
+        addtocanvas ={this.addToCanvas}
+        />
+      default:
+      break
+    }
   }
-}
 
   render() {
-    console.log(this.state.activeTab)
     return (
       <div>
         <h1 className="is-size-2">Create your avatar!</h1>
-        <div className='tabs is-toggle is-boxed is-full-width is-centered is-medium'>
-          <ul>
-            <li className="is-active" onClick={() => this.changeActiveTab(1)} data-tab="1" title="Faces"><a>Faces</a></li>
-            <li onClick={() => this.changeActiveTab(2)} data-tab="2" title="Eyes"><a>Eyes</a></li>
-            <li onClick={() => this.changeActiveTab(3)} data-tab="3" title="Hair"><a>Hair</a></li>
-          </ul>
+        <div className='columns'>
+          <div className='column is-6'>
+            <FabricCanvas activeProperty = {this.state.activeProperty} />
+          </div>
+          <div className='column is-6'>
+            <div className='tabs is-toggle is-boxed is-full-width is-centered is-medium'>
+              <ul>
+                <li className='is-active' onClick={() => this.changeActiveTab(1)} id="1" title="Faces"><a>Faces</a></li>
+                <li className='' onClick={() => this.changeActiveTab(2)} id="2" title="Eyes"><a>Eyes</a></li>
+                <li className='' onClick={() => this.changeActiveTab(3)} id="3" title="Hair"><a>Hair</a></li>
+              </ul>
+            </div>
+
+            <div className="tab-content box is-flex wrap">
+
+              {this.renderTab(this.state.activeTab)}
+
+            </div>
+          </div>
         </div>
-
-        <div className="tab-content">
-
-        {this.renderTab(this.state.activeTab)}
-
-
-        </div>
-        <FabricCanvas activeProperty = {this.state.activeProperty} />
       </div>
     )
   }
