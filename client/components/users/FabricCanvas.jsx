@@ -46,6 +46,12 @@ class FabricCanvas extends React.Component{
         link.click()
     }
 
+    saveToProfile = () => {
+      let saveLink = document.createElement("a")
+      saveLink.href = this.the_canvas.toDataURL({format: 'png'})
+      console.log(saveLink);
+    }
+
     render(){
 
         return (
@@ -53,8 +59,10 @@ class FabricCanvas extends React.Component{
 
                 <canvas style={{border: '3px solid black'}} id= 'main-canvas'>
                 </canvas>
-
-                <button style={{marginTop: '25vw'}} className="is-rounded button is-medium is-outlined" onClick = {this.saveToCanvas}>
+                <button style={{marginTop: '25vw', marginLeft: '5vw'}} className="is-rounded button is-medium is-pulled-left is-outlined" onClick = {this.saveToProfile}>
+                    Save Avatar
+                </button>
+                <button style={{marginTop: '25vw', marginRight: '5vw'}} className="is-rounded button is-medium is-outlined" onClick = {this.saveToCanvas}>
                     Download Avatar
                 </button>
             </div>

@@ -23,8 +23,8 @@ const App = () => {
         <Route path='/stories' component={StoriesHome}/>
         <Route exact path='/story/:id' component={StoryStart}/>
         <Route path='/story/:id/1' component={StoryPageOne}/>
-        <Route path='/user/:id' component={UserPage} />
-        <Route path='/createAvatar' component={Avatar}/>
+        <Route exact path='/user/:id' component={UserPage} />
+        <Route path='/user/:id/createAvatar' component={Avatar}/>
         </section>
     </div>
     </Router>

@@ -56,7 +56,7 @@ class Users extends React.Component {
         <div className="column is-10 is-offset-1">
           <div className="box">
           <h3 className="has-text-centered is-size-1 has-text-grey">
-            Click your profile picture to edit your profile
+            Click your profile picture to edit your profile and create an Avatar
           </h3>
           </div>
         </div>
