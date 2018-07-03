@@ -23,6 +23,11 @@ export function getUser (id) {
   })
 }
 
+export function appendUserWithAvatar (id, user) {
+  return request.put(rootUrl + '/users/' + id)
+  .send(user)
+}
+
 export function newUser (newUser) {
   return request.post(rootUrl + '/users')
   .send(newUser)

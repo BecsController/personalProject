@@ -1,5 +1,6 @@
 import React from 'react'
 import {newUser} from '../../apiClient.js'
+import {Redirect, HashRouter as Router, Route} from 'react-router-dom'
 
 let baseUser = {
   name: '',
@@ -12,7 +13,8 @@ class Signup extends React.Component {
         super (props)
 
         this.state = {
-          user: {...baseUser}
+          user: {...baseUser},
+          userCreated: false
         }
         this.submit = this.submit.bind(this)
         this.updateUser = this.updateUser.bind(this)
@@ -24,7 +26,8 @@ class Signup extends React.Component {
         newUser(user)
         console.log(user);
         this.setState({
-          user: {...baseUser}
+          user: {...baseUser},
+          userCreated: true
         })
       }
 
@@ -70,6 +73,7 @@ class Signup extends React.Component {
 
                   <input style={{marginTop: '.5vw'}} className="button is-info is-medium" type="submit" value="Create Profile"/>
             </form>
+            {this.state.userCreated === true ? <Redirect to='/users'/> : <Redirect to='/signup'/>}
           </div>
         </div>
     </div>

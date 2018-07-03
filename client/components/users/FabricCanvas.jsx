@@ -1,5 +1,6 @@
 import React from 'react';
 import {fabric} from 'fabric';
+import {appendUserWithAvatar, getUser} from '../../apiClient.js'
 
 class FabricCanvas extends React.Component{
 
@@ -47,9 +48,20 @@ class FabricCanvas extends React.Component{
     }
 
     saveToProfile = () => {
-      let saveLink = document.createElement("a")
-      saveLink.href = this.the_canvas.toDataURL({format: 'png'})
+      let saveLink = this.the_canvas.toDataURL({format: 'png'})
       console.log(saveLink);
+      // link.download = 'true';
+      // document.body.appendChild(link);
+      // link.click();
+      // document.body.removeChild(link);
+      // delete link;
+      console.log();
+      getUser(this.props.match.params.id)
+      .then(user => {
+        console.log(user);
+
+        appendUserWithAvatar()
+      })
     }
 
     render(){
