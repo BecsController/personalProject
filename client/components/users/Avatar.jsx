@@ -17,11 +17,13 @@ class Avatar extends React.Component {
 
   changeActiveTab(tab) {
     this.setState({activeTab: tab})
+    let currentTab = document.getElementById(tab)
     let elements = document.getElementsByTagName('li')
     console.log(elements);
     for (let element of elements){
-    element.classList.toggle('is-active')
+    element.classList.remove('is-active')
   }
+  currentTab.classList.add('is-active')
 }
 
   addToCanvas = (imgElement, propertyType, zIndex) => {
