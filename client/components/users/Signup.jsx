@@ -1,6 +1,6 @@
 import React from 'react'
 import {newUser} from '../../apiClient.js'
-import {Redirect, HashRouter as Router, Route} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 
 let baseUser = {
   name: '',
@@ -24,7 +24,6 @@ class Signup extends React.Component {
         e.preventDefault()
         let user = this.state.user
         newUser(user)
-        console.log(user);
         this.setState({
           user: {...baseUser},
           userCreated: true

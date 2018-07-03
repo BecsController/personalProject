@@ -15,7 +15,6 @@ class User extends React.Component {
   componentDidMount () {
     getUser(this.props.match.params.id)
     .then(user =>{
-      console.log(user)
       this.setState({user})
     })
   }
@@ -40,7 +39,7 @@ class User extends React.Component {
             <div className="box">
               <h4 className="has-text-grey-dark">Email: {this.state.user.email}</h4>
               <h4 className="has-text-grey-dark">Stories: {this.state.user.saved_stories}</h4>
-            <Link to={`/user/${this.state.user.id}/createAvatar`}><button className="is-rounded button is-medium">Create Avatar</button>    
+            <Link to={`/user/${this.state.user.id}/createAvatar`}><button className="is-rounded button is-medium">Create Avatar</button>
             </Link>
             </div>
             {this.state.user.saved_avatar && <div className="box card-image">

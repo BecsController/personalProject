@@ -15,7 +15,6 @@ class Users extends React.Component {
   componentDidMount () {
     getUsers()
     .then(users =>{
-      console.log(users)
       this.setState({users})
     })
   }

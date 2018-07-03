@@ -61,6 +61,7 @@ class FabricCanvas extends React.Component{
         console.log(user);
 
         appendUserWithAvatar()
+        //display button here to redirect back to profile page
       })
     }
 
@@ -77,6 +78,7 @@ class FabricCanvas extends React.Component{
                 <button style={{marginTop: '25vw', marginRight: '5vw'}} className="is-rounded button is-medium is-outlined" onClick = {this.saveToCanvas}>
                     Download Avatar
                 </button>
+                // <Link to="" ><button>Back To Profile Page</button></Link>
             </div>
         )
     }
