@@ -19,7 +19,7 @@ class TemplateList extends React.Component{
 
         return(
 
-            <div className="card is-flex" style={{height: '20vw'}}>
+            <div className="card is-flex" style={{height: '15vw'}}>
                {templates}
             </div>
         )
