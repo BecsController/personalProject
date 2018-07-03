@@ -14,9 +14,6 @@ class FabricCanvas extends React.Component{
     }
 
     componentWillReceiveProps = (newprops) =>{
-
-        // If Updated Item is not the same as the old one
-        //      => Update the canvas with newer item
         if(newprops.activeProperty !== this.props.activeProperty){
             this.updateCanvasforImage(this.props.activeProperty,newprops.activeProperty);
         }

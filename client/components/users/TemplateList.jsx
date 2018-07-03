@@ -10,7 +10,7 @@ class TemplateList extends React.Component{
 
             <TemplateListItem
                 url={item}
-                propertyType = {this.props.property_type}
+                propertyType = {this.props.propertyType}
                 zIndex = {this.props.zIndex}
                 addToCanvas = {this.props.addtocanvas}
                 key={item}
