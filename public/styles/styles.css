@@ -1,0 +1,4 @@
+#avatar {
+  flex-wrap: wrap;
+  overflow: scroll;
+}
