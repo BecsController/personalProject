@@ -61,6 +61,7 @@ class User extends React.Component {
             </div>}
           </div>
         </div>
+        <Link to={`/users`}><button className="button is-medium is-rounded is-link">Back To Users Page</button></Link>
       </div>
     )
   }

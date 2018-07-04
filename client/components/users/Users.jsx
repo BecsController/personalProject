@@ -42,7 +42,8 @@ class Users extends React.Component {
 
                         <div style={{marginLeft: '1.7vw', width: '15vw', height: '15vw'}} className="box card-image">
                           <figure className="image is-1by1">
-                            <img src={item.avatar} alt={item.name}/>
+                              {!item.saved_avatar && <img src={item.avatar} alt={item.name}/>}
+                              {item.saved_avatar && <img src={item.saved_avatar} alt={item.name}/>}
                           </figure>
                         </div>
                       </Link>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {fabric} from 'fabric';
+import {Link} from 'react-router-dom'
 import {appendUserWithAvatar, getUser} from '../../apiClient.js'
 
 
@@ -56,6 +57,7 @@ class FabricCanvas extends React.Component{
         console.log(err)
       })
         //display button here to redirect back to profile page
+
     }
 
     render(){
@@ -70,6 +72,7 @@ class FabricCanvas extends React.Component{
                 <button style={{marginTop: '25vw', marginRight: '5vw'}} className="is-rounded button is-medium is-outlined" onClick = {this.saveToCanvas}>
                     Download Avatar
                 </button>
+                  <Link to={`/user/${this.props.activeUser}`}>Back To Profile Page</Link>
             </div>
         )
     }
