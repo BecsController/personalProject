@@ -7,7 +7,7 @@ const server = express()
 
 server.use(cors('*'))
 
-server.use(bodyParser.json())
+server.use(bodyParser.json({limit: 500000}))
 server.use(express.static(path.join(__dirname, '../public')))
 
 server.use('/api', require('./routes/routes'))

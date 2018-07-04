@@ -48,6 +48,7 @@ class FabricCanvas extends React.Component{
     saveToProfile = () => {
       let saveLink = this.the_canvas.toDataURL({format: 'png'})
       let id = this.props.activeUser
+      console.log(saveLink)
       getUser(id)
       .then(user => {
         user.saved_avatar = saveLink
