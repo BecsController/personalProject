@@ -24,19 +24,19 @@ function getPages () {
 function getUser(id) {
   return db('users').select().where({id}).first()
 }
-//
-// function updateUser(id, updatedInfo) {
-//   return db('users')
-//   .where('id', id)
-//   .update(updatedInfo)
-// }
-//
+
+function updateUser(id, updatedInfo) {
+  return db('users')
+  .where('id', id)
+  .update(updatedInfo)
+}
+
 
 module.exports = {
   createUser,
   getUsers,
   getUser,
-  // updateUser,
+  updateUser,
   getStories,
   getStory,
   getPages

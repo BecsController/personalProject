@@ -75,7 +75,7 @@ class Avatar extends React.Component {
         <h1 className="is-size-2">Create your avatar!</h1>
         <div className='columns'>
           <div className='column is-6'>
-            <FabricCanvas activeProperty = {this.state.activeProperty} />
+            <FabricCanvas activeProperty = {this.state.activeProperty} activeUser={this.props.match.params.id}  />
           </div>
           <div className='column is-6'>
             <div className='tabs is-toggle is-boxed is-full-width is-centered is-medium'>

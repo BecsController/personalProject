@@ -46,12 +46,14 @@ class FabricCanvas extends React.Component{
 
     saveToProfile = () => {
       let saveLink = this.the_canvas.toDataURL({format: 'png'})
-      getUser(3)
+      let id = this.props.activeUser
+      getUser(id)
       .then(user => {
-        console.log(user)
         user.saved_avatar = saveLink
-        console.log(user)
-        appendUserWithAvatar(3, user)
+        appendUserWithAvatar(id, user)
+      })
+      .catch((err) => {
+        console.log(err)
       })
         //display button here to redirect back to profile page
     }

@@ -16,6 +16,7 @@ class StoriesPageOne extends React.Component {
     }
   this.showAnswerOptions = this.showAnswerOptions.bind(this)
   this.showEmotionButtons = this.showEmotionButtons.bind(this)
+  this.chooseAnswer = this.chooseAnswer.bind(this)
   }
 
   componentDidMount () {
@@ -30,6 +31,10 @@ class StoriesPageOne extends React.Component {
     optionsVisible: true
   })
 }
+
+  chooseAnswer () {
+
+  }
 
   showEmotionButtons () {
     this.setState ({
@@ -60,6 +65,7 @@ class StoriesPageOne extends React.Component {
                           </span>
                           </Link>
                         </p>
+                        {this.state.answerVisible && <Answers option={this.state.option}/>}
                         {this.state.optionsVisible && <Options page={this.state.pages} tracker={this.state.pageTracker}/>}
                       </div>
                   </div>

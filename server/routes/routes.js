@@ -18,6 +18,15 @@ router.get('/users/:id', (req, res) => {
   })
 })
 
+router.put('/users/:id', (req, res) => {
+  let id = req.params.id
+  let user = req.body
+  db.updateUser(id, user)
+  .then(user => {
+    res.json(user)
+  })
+})
+
 router.get('/stories', (req, res) => {
   db.getStories()
   .then((stories) => {
