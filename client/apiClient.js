@@ -9,12 +9,12 @@ export function getPages () {
     })
 }
 
-export function getUsers () {
-  return request.get(rootUrl + '/users')
-  .then(res => {
-    return res.body.users
-  })
-}
+// export function getUsers () {
+//   return request.get(rootUrl + '/users')
+//   .then(res => {
+//     return res.body.users
+//   })
+// }
 
 export function getUser (id) {
   return request.get(rootUrl + '/users/' + id)
@@ -31,20 +31,20 @@ export function appendUserWithAvatar (id, user) {
   })
 }
 
-export function newUser (newUser) {
-  return request.post(rootUrl + '/users')
-  .send(newUser)
-  .then(res => {
-    return res.body
-  })
-}
+// export function newUser (newUser) {
+//   return request.post(rootUrl + '/users')
+//   .send(newUser)
+//   .then(res => {
+//     return res.body
+//   })
+// }
 
-export function getStories () {
-  return request.get(rootUrl + '/stories')
-  .then(res => {
-    return res.body.stories
-  })
-}
+// export function getStories () {
+//   return request.get(rootUrl + '/stories')
+//   .then(res => {
+//     return res.body.stories
+//   })
+// }
 
 export function getStoryById (id) {
   return request.get(rootUrl + '/stories/' + id)

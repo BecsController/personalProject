@@ -1,8 +1,11 @@
 import {combineReducers} from 'redux'
 
-// import cats from './cats'
+import pages from './pages'
+import stories from './stories'
+import users from './users'
 
 export default combineReducers({
-  // example
-  //cats: cats
+  pages,
+  stories,
+  users
 })

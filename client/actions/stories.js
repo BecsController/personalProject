@@ -1,15 +1,15 @@
 import request from 'superagent'
 
-export const getStories = (stories) => {
+export const receiveStories = (stories) => {
   return {
-    type: 'GET_STORIES',
+    type: 'RECEIVE_STORIES',
     stories
   }
 }
 
-export const getPages = (pages) => {
+export const receivePages = (pages) => {
   return {
-    type: 'GET_PAGES',
+    type: 'RECEIVE_PAGES',
     pages
   }
 }
@@ -29,7 +29,7 @@ export function getStories () {
 }
 
 export function getPages () {
-  return (dispatch) => {
+return (dispatch) => {
     request
       .get(`/api/pages`)
       .end((err, res) => {

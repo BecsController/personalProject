@@ -3,9 +3,9 @@ import request from 'superagent'
 //Below are an example of both an action creator and an async request
 
 //action:
-export const getUsers = (users) => {
+export const receiveUsers = (users) => {
   return {
-    type: 'GET_USERS',
+    type: 'RECEIVE_USERS',
     users
   }
 }
@@ -25,18 +25,13 @@ export const addUser = (users) => {
 }
 
 //Request:
-
-export function grabUsers () {
+export function getUsers () {
   return (dispatch) => {
     request
       .get(`/api/users`)
       .then(res => {
-         res.body
-         dispatch(getUsers(res.body))
-      })
-      .catch(err => {
-         err is an error
-      })
+      dispatch(receiveUsers(res.body))
+    })
   }
 }
 
@@ -65,7 +60,7 @@ export function newUser (newUser) {
   }
 }
 
-export function appendUserWithAvatar (id, user) {
+export function addAvatar (id, user) {
   return (dispatch) => {
     request
       .put(`/api/users/${id}`)

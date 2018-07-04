@@ -1,6 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {getStories} from '../../apiClient.js'
+import {connect} from 'react-redux'
+
+import {getStories} from '../../actions/stories'
 
 class StoriesHome extends React.Component {
   constructor (props){
@@ -11,11 +13,7 @@ class StoriesHome extends React.Component {
   }
 
   componentDidMount () {
-    getStories()
-    .then(stories =>{
-      console.log(stories)
-      this.setState({stories})
-    })
+    this.props.dispatch(getStories())
   }
 
   render() {
@@ -91,4 +89,10 @@ class StoriesHome extends React.Component {
  }
 }
 
-export default StoriesHome
+const mapStateToProps = (state) => {
+  return {
+    stories: state.stories
+  }
+}
+
+export default connect(mapStateToProps)(StoriesHome)

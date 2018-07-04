@@ -1,11 +1,11 @@
-const initialState = []
 
-function users (state = initialState, action) {
+
+function users (state = [], action) {
   switch (action.type) {
-    case 'GET_USERS':
-      return [....action.users]
+    case 'RECEIVE_USERS':
+      return [...action.users]
     case 'ADD_USER':
-      return [....state, action.users]
+      return [...state, action.users]
     default:
       return state
   }
