@@ -19,7 +19,7 @@ class Avatar extends React.Component {
     this.setState({activeTab: tab})
     let currentTab = document.getElementById(tab)
     let elements = document.getElementsByTagName('li')
-    console.log(elements);
+
     for (let element of elements){
     element.classList.remove('is-active')
   }

@@ -2,10 +2,10 @@ import React from 'react';
 import {fabric} from 'fabric';
 import {appendUserWithAvatar, getUser} from '../../apiClient.js'
 
+
 class FabricCanvas extends React.Component{
 
     componentDidMount(){
-
         // Make a New Canvas
         this.the_canvas = new fabric.StaticCanvas('main-canvas', {
             preserveObjectStacking: true,
@@ -21,9 +21,7 @@ class FabricCanvas extends React.Component{
     }
 
     updateCanvasforImage = (prev,next) => {
-
         if(next){
-
             let to_remove
             // Find the same kind of element
             this.the_canvas.forEachObject( (object) => {
@@ -32,7 +30,6 @@ class FabricCanvas extends React.Component{
                     to_remove = object
                 }
             } )
-
             this.the_canvas.remove(to_remove)
             this.the_canvas.add(next)
             this.the_canvas.moveTo(next, next.zIndex)
@@ -49,27 +46,20 @@ class FabricCanvas extends React.Component{
 
     saveToProfile = () => {
       let saveLink = this.the_canvas.toDataURL({format: 'png'})
-      console.log(saveLink);
-      // link.download = 'true';
-      // document.body.appendChild(link);
-      // link.click();
-      // document.body.removeChild(link);
-      // delete link;
-      console.log();
-      getUser(this.props.match.params.id)
+      getUser(3)
       .then(user => {
-        console.log(user);
-
-        appendUserWithAvatar()
-        //display button here to redirect back to profile page
+        console.log(user)
+        user.saved_avatar = saveLink
+        console.log(user)
+        appendUserWithAvatar(3, user)
       })
+        //display button here to redirect back to profile page
     }
 
     render(){
 
         return (
             <div className= "main-canvas-container">
-
                 <canvas style={{border: '3px solid black'}} id= 'main-canvas'>
                 </canvas>
                 <button style={{marginTop: '25vw', marginLeft: '5vw'}} className="is-rounded button is-medium is-pulled-left is-outlined" onClick = {this.saveToProfile}>
@@ -78,10 +68,9 @@ class FabricCanvas extends React.Component{
                 <button style={{marginTop: '25vw', marginRight: '5vw'}} className="is-rounded button is-medium is-outlined" onClick = {this.saveToCanvas}>
                     Download Avatar
                 </button>
-                // <Link to="" ><button>Back To Profile Page</button></Link>
             </div>
         )
     }
 }
 
-export default FabricCanvas;
+export default FabricCanvas

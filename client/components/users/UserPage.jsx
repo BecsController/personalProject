@@ -50,6 +50,15 @@ class User extends React.Component {
                 Edit Avatar
               </Link>
             </div>}
+            {this.state.user.saved_stories && <div className="box card-image">
+              <ul>
+                {this.state.user.saved_stories.map(story => {
+                  return (
+                    <li>story</li>
+                  )
+                })}
+              </ul>
+            </div>}
           </div>
         </div>
       </div>
