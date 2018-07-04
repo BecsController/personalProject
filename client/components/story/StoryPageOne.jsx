@@ -33,7 +33,7 @@ class StoriesPageOne extends React.Component {
 }
 
   chooseAnswer () {
-
+    
   }
 
   showEmotionButtons () {

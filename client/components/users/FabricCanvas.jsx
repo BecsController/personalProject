@@ -1,6 +1,6 @@
 import React from 'react';
 import {fabric} from 'fabric';
-import {Link} from 'react-router-dom'
+
 import {appendUserWithAvatar, getUser} from '../../apiClient.js'
 
 
@@ -46,6 +46,8 @@ class FabricCanvas extends React.Component{
     }
 
     saveToProfile = () => {
+      let message = document.getElementsByTagName('h3')[0]
+      message.classList.remove('is-hidden')
       let saveLink = this.the_canvas.toDataURL({format: 'png'})
       let id = this.props.activeUser
       console.log(saveLink)
@@ -64,16 +66,20 @@ class FabricCanvas extends React.Component{
     render(){
 
         return (
-            <div className= "main-canvas-container">
-                <canvas style={{border: '3px solid black'}} id= 'main-canvas'>
+            <div className= "main-canvas-container has-text-centered">
+              <div style={{marginTop: '5vw'}}>
+              <h3 className="is-hidden is-size-4 is-uppercase">Thanks! That's saved</h3>
+            </div>
+                <canvas style={{border: '3px solid black', float: 'center'}} id= 'main-canvas'>
                 </canvas>
-                <button style={{marginTop: '25vw', marginLeft: '5vw'}} className="is-rounded button is-medium is-pulled-left is-outlined" onClick = {this.saveToProfile}>
-                    Save Avatar
+                <div style={{marginTop: '5vw', marginLeft: '10vw'}}>
+                <button className="is-rounded button is-medium is-pulled-left is-outlined" onClick = {this.saveToProfile}>
+                    Save Avatar To Profile
                 </button>
-                <button style={{marginTop: '25vw', marginRight: '5vw'}} className="is-rounded button is-medium is-outlined" onClick = {this.saveToCanvas}>
+                <button className="is-rounded button is-medium is-outlined" onClick = {this.saveToCanvas}>
                     Download Avatar
                 </button>
-                  <Link to={`/user/${this.props.activeUser}`}>Back To Profile Page</Link>
+              </div>
             </div>
         )
     }
