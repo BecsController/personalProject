@@ -77,7 +77,7 @@ class Avatar extends React.Component {
 
         <div className='columns'>
           <div className='column is-6'>
-            <FabricCanvas activeProperty = {this.state.activeProperty} />
+            <FabricCanvas activeProperty = {this.state.activeProperty} activeUser = {this.props.match.params.id} />
           </div>
 
           <div style={{marginTop: '5vw'}} className='column is-6'>

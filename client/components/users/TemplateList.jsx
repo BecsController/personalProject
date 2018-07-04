@@ -18,10 +18,14 @@ class TemplateList extends React.Component{
         )
 
         return(
+            <div className="columns box is-fluid is-multiline">
+            <div className='column is-12 is-flex'>
 
-            <div className="card is-flex" style={{height: '15vw'}}>
+            <div className="card is-flex" style={{height: '25vw'}}>
                {templates}
             </div>
+            </div>
+</div>
         )
     }
 }

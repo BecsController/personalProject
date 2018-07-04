@@ -50,7 +50,7 @@ class FabricCanvas extends React.Component{
       message.classList.remove('is-hidden')
       let saveLink = this.the_canvas.toDataURL({format: 'png'})
       let id = this.props.activeUser
-      console.log(saveLink)
+      console.log(id)
       getUser(id)
       .then(user => {
         user.saved_avatar = saveLink
