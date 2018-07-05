@@ -10,7 +10,7 @@ class Users extends React.Component {
     super (props)
 
     this.state = {
-      users: []
+      users: this.props.users
     }
   }
 
@@ -25,8 +25,9 @@ class Users extends React.Component {
   }
 
   renderUsers () {
+console.log(this.state.users.users);
     return (
-      this.state.users.map(item => {
+      this.state.users.users.map(item => {
         return (
           <div key={item.name} className="column is-3 is-3-widescreen is-flex">
             <div className="card is-flex" style={{width: '30vw', height: '20vw'}}>
