@@ -23,7 +23,7 @@ export function getStories () {
           console.error(err.message)
           return
         }
-        dispatch(receiveStories(res.body))
+        dispatch(receiveStories(res.body.stories))
       })
   }
 }

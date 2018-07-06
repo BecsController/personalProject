@@ -61,8 +61,7 @@ class StoriesHome extends React.Component {
           <div className="column is-8">
             <div className="box">
               <div className="columns is-multiline" id="grid">
-                {this.state.stories.map(story => {
-                  return (
+                {this.state.stories.map(story => (
                     <div key={story.key} className="column is-3 is-3-widescreen is-flex">
                       <div className="card">
                         <Link to={`/story/${story.id}`}>
@@ -84,7 +83,7 @@ class StoriesHome extends React.Component {
                         </Link>
                       </div>
                     </div>
-                  )})}
+                  ))}
                 </div>
               </div>
             </div>
