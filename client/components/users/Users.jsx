@@ -75,7 +75,6 @@ class Users extends React.Component {
   }
 
   const mapStateToProps = (state) => {
-    console.log(state)
     return {
       users: state.users
     }

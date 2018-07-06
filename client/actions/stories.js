@@ -37,7 +37,7 @@ return (dispatch) => {
           console.error(err.message)
           return
         }
-        dispatch(receivePages(res.body))
+        dispatch(receivePages(res.body.pages))
       })
   }
 }
