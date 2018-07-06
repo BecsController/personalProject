@@ -10,9 +10,8 @@ class Users extends React.Component {
     super (props)
 
     this.state = {
-      users: this.props.users
+      users: []
     }
-  this.renderUsers = this.renderUsers.bind(this)
   }
 
   componentDidMount () {
@@ -26,9 +25,8 @@ class Users extends React.Component {
   }
 
   renderUsers (users) {
-        console.log(users)
     return (
-    <div>
+  <div className="columns box is-multiline" id="grid">
       {users.map(item => (
           <div key={item.name} className="column is-3 is-3-widescreen is-flex">
             <div className="card is-flex" style={{width: '30vw', height: '20vw'}}>
@@ -47,9 +45,9 @@ class Users extends React.Component {
             </div>
           </div>
         ))}
-    </div>
+  </div>
   )
-  }
+}
 
     render() {
       return (
@@ -61,9 +59,7 @@ class Users extends React.Component {
           </div>
 
           <div className="column is-10 is-offset-1">
-            <div className="columns box is-multiline" id="grid">
               {this.renderUsers(this.state.users)}
-            </div>
           </div>
 
           <div className="column is-10 is-offset-1">
@@ -79,6 +75,7 @@ class Users extends React.Component {
   }
 
   const mapStateToProps = (state) => {
+    console.log(state)
     return {
       users: state.users
     }

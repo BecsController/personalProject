@@ -30,7 +30,7 @@ export function getUsers () {
     request
       .get(`/api/users`)
       .then(res => {
-      dispatch(receiveUsers(res.body))
+      dispatch(receiveUsers(res.body.users))
     })
   }
 }
