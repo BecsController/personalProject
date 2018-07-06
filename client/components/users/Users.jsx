@@ -12,6 +12,7 @@ class Users extends React.Component {
     this.state = {
       users: this.props.users
     }
+  this.renderUsers = this.renderUsers.bind(this)
   }
 
   componentDidMount () {
@@ -24,11 +25,11 @@ class Users extends React.Component {
     })
   }
 
-  renderUsers () {
-console.log(this.state.users.users);
+  renderUsers (users) {
+        console.log(users)
     return (
-      this.state.users.users.map(item => {
-        return (
+    <div>
+      {users.map(item => (
           <div key={item.name} className="column is-3 is-3-widescreen is-flex">
             <div className="card is-flex" style={{width: '30vw', height: '20vw'}}>
               <Link to={`/user/${item.id}`}>
@@ -45,9 +46,10 @@ console.log(this.state.users.users);
               </Link>
             </div>
           </div>
-        )})
-      )
-    }
+        ))}
+    </div>
+  )
+  }
 
     render() {
       return (
@@ -60,7 +62,7 @@ console.log(this.state.users.users);
 
           <div className="column is-10 is-offset-1">
             <div className="columns box is-multiline" id="grid">
-              {this.renderUsers()}
+              {this.renderUsers(this.state.users)}
             </div>
           </div>
 
