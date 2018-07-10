@@ -38,3 +38,7 @@ test('can get stories from db', () => {
         expect(stories.hasOwnProperty('title')).toBeTruthy()
   })
 })
+
+test('createUser can add new user', () => {
+    
+})
