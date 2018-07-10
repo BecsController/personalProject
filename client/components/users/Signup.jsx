@@ -1,6 +1,8 @@
 import React from 'react'
-import {newUser} from '../../apiClient.js'
 import {Redirect} from 'react-router-dom'
+import {connect} from 'react-redux'
+
+import {newUser} from '../../actions/users'
 
 let baseUser = {
   name: '',
@@ -24,7 +26,7 @@ class Signup extends React.Component {
       submit(e) {
         e.preventDefault()
         let user = this.state.user
-        newUser(user)
+        this.props.dispatch(newUser(user))
         this.setState({
           user: {...baseUser},
           userCreated: true
@@ -86,4 +88,10 @@ class Signup extends React.Component {
  }
 }
 
-export default Signup
+const mapStateToProps = (state) => {
+  return {
+    users: state.users
+  }
+}
+
+export default connect(mapStateToProps)(Signup)
