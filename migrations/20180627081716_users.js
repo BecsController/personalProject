@@ -7,6 +7,7 @@ exports.up = function(knex, Promise) {
     table.string("avatar");
     table.string("saved_stories");
     table.string("saved_avatar", 500000);
+    table.string("password");
   })
 };
 

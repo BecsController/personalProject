@@ -5,7 +5,8 @@ import {Redirect} from 'react-router-dom'
 let baseUser = {
   name: '',
   email: '',
-  avatar: ''
+  avatar: '',
+  password: ''
 }
 
 class Signup extends React.Component {
@@ -68,6 +69,11 @@ class Signup extends React.Component {
               <div className="field control">
                 <input className="input is-medium" placeholder="Insert Image URL"
                   name="avatar" onChange={this.updateUser} value={this.state.avatar} />
+              </div>
+
+              <div className="field control">
+                <input className="input is-medium" placeholder="Choose a password"
+                  name="avatar" onChange={this.updateUser} value={this.state.password} />
               </div>
 
                   <input style={{marginTop: '.5vw'}} className="button is-info is-medium" type="submit" value="Create Profile"/>
