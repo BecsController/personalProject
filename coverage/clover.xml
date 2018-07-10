@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1531195247394" clover="3.2.0">
+  <project timestamp="1531195247394" name="All files">
+    <metrics statements="96" coveredstatements="75" conditionals="20" coveredconditionals="4" methods="35" coveredmethods="23" elements="151" coveredelements="102" complexity="0" loc="96" ncloc="96" packages="6" files="13" classes="13">
+      <package name="storyTime">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="knexfile.js" path="/home/bec/Documents/Code/phase-zero/storyTime/knexfile.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="3" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="storyTime.migrations">
+        <metrics statements="44" coveredstatements="40" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="8"/>
+        <file name="20180627081716_users.js" path="/home/bec/Documents/Code/phase-zero/storyTime/migrations/20180627081716_users.js">
+          <metrics statements="11" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="3" count="3" type="stmt"/>
+          <line num="4" count="3" type="stmt"/>
+          <line num="5" count="3" type="stmt"/>
+          <line num="6" count="3" type="stmt"/>
+          <line num="7" count="3" type="stmt"/>
+          <line num="8" count="3" type="stmt"/>
+          <line num="9" count="3" type="stmt"/>
+          <line num="10" count="3" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="15" count="0" type="stmt"/>
+        </file>
+        <file name="20180627081918_pages.js" path="/home/bec/Documents/Code/phase-zero/storyTime/migrations/20180627081918_pages.js">
+          <metrics statements="15" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="3" count="3" type="stmt"/>
+          <line num="4" count="3" type="stmt"/>
+          <line num="5" count="3" type="stmt"/>
+          <line num="6" count="3" type="stmt"/>
+          <line num="7" count="3" type="stmt"/>
+          <line num="8" count="3" type="stmt"/>
+          <line num="9" count="3" type="stmt"/>
+          <line num="10" count="3" type="stmt"/>
+          <line num="11" count="3" type="stmt"/>
+          <line num="12" count="3" type="stmt"/>
+          <line num="13" count="3" type="stmt"/>
+          <line num="14" count="3" type="stmt"/>
+          <line num="18" count="1" type="stmt"/>
+          <line num="19" count="0" type="stmt"/>
+        </file>
+        <file name="20180627083655_stories.js" path="/home/bec/Documents/Code/phase-zero/storyTime/migrations/20180627083655_stories.js">
+          <metrics statements="10" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="3" count="3" type="stmt"/>
+          <line num="4" count="3" type="stmt"/>
+          <line num="5" count="3" type="stmt"/>
+          <line num="6" count="3" type="stmt"/>
+          <line num="7" count="3" type="stmt"/>
+          <line num="8" count="3" type="stmt"/>
+          <line num="9" count="3" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+        </file>
+        <file name="20180704133128_associations.js" path="/home/bec/Documents/Code/phase-zero/storyTime/migrations/20180704133128_associations.js">
+          <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="3" count="3" type="stmt"/>
+          <line num="4" count="3" type="stmt"/>
+          <line num="5" count="3" type="stmt"/>
+          <line num="6" count="3" type="stmt"/>
+          <line num="7" count="3" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="storyTime.seeds">
+        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="8"/>
+        <file name="associations.js" path="/home/bec/Documents/Code/phase-zero/storyTime/seeds/associations.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="4" count="3" type="stmt"/>
+          <line num="7" count="3" type="stmt"/>
+        </file>
+        <file name="pages.js" path="/home/bec/Documents/Code/phase-zero/storyTime/seeds/pages.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="4" count="3" type="stmt"/>
+          <line num="7" count="3" type="stmt"/>
+        </file>
+        <file name="stories.js" path="/home/bec/Documents/Code/phase-zero/storyTime/seeds/stories.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="4" count="3" type="stmt"/>
+          <line num="7" count="3" type="stmt"/>
+        </file>
+        <file name="users.js" path="/home/bec/Documents/Code/phase-zero/storyTime/seeds/users.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="4" count="3" type="stmt"/>
+          <line num="7" count="3" type="stmt"/>
+        </file>
+      </package>
+      <package name="storyTime.server.auth">
+        <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <file name="hash.js" path="/home/bec/Documents/Code/phase-zero/storyTime/server/auth/hash.js">
+          <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="storyTime.server.db">
+        <metrics statements="28" coveredstatements="13" conditionals="20" coveredconditionals="4" methods="10" coveredmethods="3"/>
+        <file name="connection.js" path="/home/bec/Documents/Code/phase-zero/storyTime/server/db/connection.js">
+          <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
+          <line num="1" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+        </file>
+        <file name="db.js" path="/home/bec/Documents/Code/phase-zero/storyTime/server/db/db.js">
+          <metrics statements="24" coveredstatements="9" conditionals="18" coveredconditionals="3" methods="10" coveredmethods="3"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="5" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="13" count="0" type="stmt"/>
+          <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="19" count="0" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="34" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="35" count="1" type="stmt"/>
+          <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="40" count="0" type="stmt"/>
+          <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="45" count="0" type="stmt"/>
+          <line num="49" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="50" count="1" type="stmt"/>
+          <line num="54" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="55" count="0" type="stmt"/>
+          <line num="61" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="storyTime.test.server">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <file name="test-environment.js" path="/home/bec/Documents/Code/phase-zero/storyTime/test/server/test-environment.js">
+          <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="7" count="3" type="stmt"/>
+          <line num="12" count="3" type="stmt"/>
+          <line num="14" count="3" type="stmt"/>
+          <line num="20" count="3" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>

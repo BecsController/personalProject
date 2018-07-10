@@ -44,7 +44,7 @@ export function getUserById (id) {
         console.error(err.message)
         return
       }
-console.log(res.body)
+  console.log(res.body)
       dispatch(getUser(res.body))
     })
   }

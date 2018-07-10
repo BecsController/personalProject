@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for storyTime/seeds/pages.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">storyTime/seeds</a> pages.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>3/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>3/3</span>
+      </div>
+    </div>
+    <p class="quiet">
+      Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+    </p>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+exports.seed = function(knex, Promise) {
+  // Deletes ALL existing entries
+  return knex('pages').del()
+    .then(function () {
+      // Inserts seed entries
+      return knex('pages').insert([
+        {id: 1, title: 'Beginnings', background: '/images/backgrounds/house.jpeg', population: '/images/parents.jpeg', emotionOne: 'I am feeling Anxious', emotionTwo: 'I am feeling Excited', emotionThree: 'I am feeling Scared', pageText: `It\'s the first day of school. It\'s time to get ready to go.\n Your parents say, "Do you remember why it\'s important to go to school?"`, optionOne: 'Reply, "I\'m not ready to go to school"', optionTwo: 'Reply, "Yes, I\'m ready to go"', story_id: 1},
+        {id: 2, title: 'The Days', background: '/images/backgrounds/house.jpeg', population: '/images/seven-days-of-the-week.jpg', emotionOne: 'I am feeling Anxious', emotionTwo: 'I am feeling Excited', emotionThree: 'I am feeling Scared', pageText: `You remember your parents told you there are days you go to school and ones you don\'t, can you remember which is which?"`, optionOne: 'Reply, "There\'s no school Saturday and Sunday"', optionTwo: 'Reply, "School is every day"', story_id: 1},
+        {id: 3, title: 'Getting Ready', background: '/images/backgrounds/house.jpeg', population: '', emotionOne: 'I am feeling Anxious', emotionTwo: 'I am feeling Excited', emotionThree: 'I am feeling Scared', pageText: "You have been left alone in your room.  Now what will you do?", optionOne: 'Reply, ""', optionTwo: 'Reply, ""', story_id: 1},
+        {id: 4, title: 'The Classroom', background: '/images/backgrounds/inside-a-kindergarten-classroom-background.jpg', population: '/images/teacher.jpeg', emotionOne: 'I am feeling Anxious', emotionTwo: 'I am feeling Excited', emotionThree: 'I am feeling Scared', pageText: 'In the classroom, your teacher comes over to introduce herself. \n Hi, I\'m Miss Davis, what\'s your name? \n She holds out her hand.', optionOne: 'Reply, ""', optionTwo: 'Reply, ""', story_id: 1}
+      ]);
+    });
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 10 2018 16:00:47 GMT+1200 (NZST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+<script src="../../block-navigation.js"></script>
+</body>
+</html>
