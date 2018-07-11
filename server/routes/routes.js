@@ -53,7 +53,8 @@ router.post('/users', (req, res) => {
   let newUser = {
     name: req.body.name,
     email: req.body.email,
-    avatar: req.body.avatar
+    avatar: req.body.avatar,
+    password: req.body.password
   }
   db.createUser(newUser)
   .then(() => {

@@ -44,7 +44,6 @@ export function getUserById (id) {
         console.error(err.message)
         return
       }
-  console.log(res.body)
       dispatch(getUser(res.body))
     })
   }
@@ -56,7 +55,7 @@ export function newUser (newUser) {
       .post(`/api/users`)
       .send(newUser)
       .then(res => {
-console.log(res.body)
+      console.log(res.body)
       dispatch(addUser(res.body))
     })
   }

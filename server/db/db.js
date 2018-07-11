@@ -6,12 +6,13 @@ function getUsers(testDb) {
   return db('users').select()
 }
 
-function createUser(newUser, password, testDb) {
+function createUser(newUser, testDb) {
   const db = testDb || conn
+  let password = newUser.password
   const passwordHash = hash.generate(password)
-  console.log(newUser, password)
+  console.log(newUser)
   return db('users')
-  .insert({username, hash: passwordHash})
+  .insert({name, hash: passwordHash})
 }
 
 function userExists (username, testDb) {

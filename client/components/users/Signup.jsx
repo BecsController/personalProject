@@ -75,10 +75,10 @@ class Signup extends React.Component {
 
               <div className="field control">
                 <input className="input is-medium" placeholder="Choose a password"
-                  name="avatar" onChange={this.updateUser} value={this.state.password} />
+                  name="password" onChange={this.updateUser} value={this.state.password} />
               </div>
 
-                  <input style={{marginTop: '.5vw'}} className="button is-info is-medium" type="submit" value="Create Profile"/>
+                <input style={{marginTop: '.5vw'}} className="button is-info is-medium" type="submit" value="Create Profile"/>
             </form>
             {this.state.userCreated === true ? <Redirect to='/users'/> : <Redirect to='/signup'/>}
           </div>
