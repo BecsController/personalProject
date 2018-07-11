@@ -18,6 +18,7 @@ const Header = (props) => {
 
       <div className="navbar-dropdown is-right is-boxed">
          <Link className="navbar-item is-size-5 has-text-grey-light" to={`/signup`}><i className="far fa-address-card"></i>&nbsp; Sign Up</Link>
+         <Link className="navbar-item is-size-5 has-text-grey-light" to={`/login`}><i className="fas fa-unlock-alt"></i>&nbsp; Login</Link>
          <Link className="navbar-item is-size-5 has-text-grey-light" to={`/users`}><i className="far fa-user"></i>&nbsp; Profiles</Link>
       </div>
       </div>

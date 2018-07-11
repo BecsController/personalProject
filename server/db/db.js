@@ -6,13 +6,31 @@ function getUsers(testDb) {
   return db('users').select()
 }
 
+function getAuthUsers(testDb) {
+  const db = testDb || conn
+  return db('userAuth').select()
+}
+
 function createUser(newUser, testDb) {
   const db = testDb || conn
-  let password = newUser.password
-  const passwordHash = hash.generate(password)
-  console.log(newUser)
+  let authInfo = {
+  password: newUser.password,
+  name: newUser.name,
+}
+  let addUser = {
+  name: newUser.name,
+  email: newUser.email,
+  avatar: newUser.avatar,
+  saved_stories: newUser.saved_stories,
+}
+  // const passwordHash = hash.generate(newUser.password)
+  console.log(authInfo, newUser, addUser)
   return db('users')
-  .insert({name, hash: passwordHash})
+  .insert(addUser)
+  .then(() => {
+  return db('userAuth')
+  .insert(authInfo)
+})
 }
 
 function userExists (username, testDb) {

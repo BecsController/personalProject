@@ -10,6 +10,12 @@ router.get('/users', (req, res) => {
   })
 })
 
+router.get('/auth', (req, res) => {
+  db.getAuthUsers().then(auth => {
+    res.json({auth})
+  })
+})
+
 router.get('/users/:id', (req, res) => {
   let id = req.params.id
   db.getUser(id)
@@ -37,9 +43,9 @@ router.get('/stories', (req, res) => {
 router.get('/stories/:id', (req, res) => {
   let id = req.params.id
   db.getStory(id)
-    .then(story => {
-      res.json(story)
-    })
+  .then(story => {
+    res.json(story)
+  })
 })
 
 router.get('/pages', (req, res) => {

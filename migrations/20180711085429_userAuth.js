@@ -4,7 +4,6 @@ exports.up = function(knex, Promise) {
     table.increments("id");
     table.string("name");
     table.string("password");
-    table.integer("user_id")
   })
 };
 
