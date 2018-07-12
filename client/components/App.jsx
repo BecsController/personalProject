@@ -11,6 +11,7 @@ import StoryPageOne from './story/StoryPageOne'
 import UserPage from './users/UserPage'
 import Avatar from './users/Avatar'
 import EditAvatar from './users/EditAvatar'
+import Login from './users/Login'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path='/signup' component={Signup}/>
         <Route path='/users' component={Users}/>
         <Route path='/stories' component={StoriesHome}/>
+        <Route path='/login' component={Login} />
         <Route exact path='/story/:id' component={StoryStart}/>
         <Route path='/story/:id/1' component={StoryPageOne}/>
         <Route exact path='/user/:id' component={UserPage} />

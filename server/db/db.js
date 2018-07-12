@@ -13,40 +13,40 @@ function getAuthUsers(testDb) {
 
 function createUser(newUser, testDb) {
   const db = testDb || conn
+  const passwordHash = hash.generate(newUser.password)
   let authInfo = {
-  password: newUser.password,
-  name: newUser.name,
-}
+    password: passwordHash,
+    name: newUser.name,
+  }
   let addUser = {
-  name: newUser.name,
-  email: newUser.email,
-  avatar: newUser.avatar,
-  saved_stories: newUser.saved_stories,
-}
-  // const passwordHash = hash.generate(newUser.password)
+    name: newUser.name,
+    email: newUser.email,
+    avatar: newUser.avatar,
+    saved_stories: newUser.saved_stories,
+  }
   console.log(authInfo, newUser, addUser)
   return db('users')
   .insert(addUser)
   .then(() => {
-  return db('userAuth')
-  .insert(authInfo)
-})
+    return db('userAuth')
+    .insert(authInfo)
+  })
 }
 
 function userExists (username, testDb) {
   const db = testDb || conn
   return db('users')
-    .count('id as n')
-    .where('username', username)
-    .then(count => {
-      return count[0].n > 0
-    })
+  .count('id as n')
+  .where('username', username)
+  .then(count => {
+    return count[0].n > 0
+  })
 }
 
 function getUserByName (username, testDb) {
   const db = testDb || conn
   return db('users').select()
-    .where('username', username).first()
+  .where('username', username).first()
 }
 
 function getStories (testDb) {

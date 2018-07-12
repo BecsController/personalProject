@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 const Header = (props) => {
+const navItemStyle = "navbar-item is-size-5 has-text-grey-light"
   return (
 <div>
 <nav className="navbar hero-header is-primary is-fixed-top has-shadow">
@@ -17,9 +18,9 @@ const Header = (props) => {
          <a className="navbar-link is-size-4" href="#"><i className="fas fa-align-right"></i>&nbsp;Users</a>
 
       <div className="navbar-dropdown is-right is-boxed">
-         <Link className="navbar-item is-size-5 has-text-grey-light" to={`/signup`}><i className="far fa-address-card"></i>&nbsp; Sign Up</Link>
-         <Link className="navbar-item is-size-5 has-text-grey-light" to={`/login`}><i className="fas fa-unlock-alt"></i>&nbsp; Login</Link>
-         <Link className="navbar-item is-size-5 has-text-grey-light" to={`/users`}><i className="far fa-user"></i>&nbsp; Profiles</Link>
+         <Link className={navItemStyle} to={`/signup`}><i className="far fa-address-card"></i>&nbsp; Sign Up</Link>
+         <Link className={navItemStyle} to={`/login`}><i className="fas fa-unlock-alt"></i>&nbsp; Login</Link>
+         <Link className={navItemStyle} to={`/users`}><i className="far fa-user"></i>&nbsp; Profiles</Link>
       </div>
       </div>
     </div>
