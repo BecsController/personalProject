@@ -29,7 +29,7 @@ function issue (req, res) {
 }
 
 function createToken (user, secret) {
-console.log(secret);
+console.log('whaaaaaat?', secret);
   return jwt.sign({
     id: user.id,
     username: user.name
