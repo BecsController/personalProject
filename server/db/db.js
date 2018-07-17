@@ -22,7 +22,6 @@ function createUser(newUser, testDb) {
         name,
       }
       delete newUser.password
-      console.log(hash, authInfo);
       return db('users')
       .insert(newUser)
       .then((id) => {

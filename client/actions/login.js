@@ -33,9 +33,8 @@ export function loginUser (creds) {
     return request('post', 'v1/auth/login', creds)
       .then((response) => {
         const userInfo = saveUserToken(response.body.token)
-        console.log('is this the right log?', userInfo);
         dispatch(receiveLogin(userInfo))
-        document.location = "/#/profiles"
+        document.location = "/#/users"
       })
       .catch(err => {
         dispatch(loginError(err.response.body.message))
