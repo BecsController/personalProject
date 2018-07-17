@@ -1,14 +1,14 @@
-const sodium = require('sodium').api
+var bcrypt = require('bcrypt')
 
-function generate (password) {
-  const passwordBuffer = Buffer.from(password, 'utf8')
-  return sodium.crypto_pwhash_str(
-    passwordBuffer,
-    sodium.crypto_pwhash_OPSLIMIT_INTERACTIVE,
-    sodium.crypto_pwhash_MEMLIMIT_INTERACTIVE
-  )
+function generate(password, cb) {
+  bcrypt.hash(password, 12, cb)
+}
+
+function compare (password, hash, cb) {
+  bcrypt.compare(password, hash, cb)
 }
 
 module.exports = {
-  generate
+  generate,
+  compare
 }

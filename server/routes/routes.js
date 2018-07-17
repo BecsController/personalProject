@@ -56,15 +56,9 @@ router.get('/pages', (req, res) => {
 })
 
 router.post('/users', (req, res) => {
-  let newUser = {
-    name: req.body.name,
-    email: req.body.email,
-    avatar: req.body.avatar,
-    password: req.body.password
-  }
-  db.createUser(newUser)
-  .then(() => {
-    res.sendStatus(200)
+  db.createUser(req.body)
+  .then((user) => {
+    res.status(202).json(user)
   })
 })
 //

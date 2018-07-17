@@ -6,22 +6,9 @@ import {getUsers} from '../../actions/users'
 
 class Users extends React.Component {
 
-  constructor(props) {
-    super (props)
-
-    this.state = {
-      users: []
-    }
-  }
 
   componentDidMount () {
     this.props.dispatch(getUsers())
-  }
-
-  componentWillReceiveProps (nextProps){
-    this.setState({
-      users: nextProps.users
-    })
   }
 
   renderUsers (users) {
@@ -58,7 +45,7 @@ class Users extends React.Component {
         </div>
 
         <div className="column is-10 is-offset-1">
-          {this.renderUsers(this.state.users)}
+          {this.renderUsers(this.props.users)}
         </div>
 
         <div className="column is-10 is-offset-1">
@@ -74,6 +61,7 @@ class Users extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+console.log({state});
   return {
     users: state.users
   }

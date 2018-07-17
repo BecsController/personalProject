@@ -5,7 +5,7 @@ function users (state = [], action) {
     case 'RECEIVE_USERS':
       return action.users
     case 'ADD_USER':
-      return [...state, action.users]
+      return [...state, action.user]
     default:
       return state
   }

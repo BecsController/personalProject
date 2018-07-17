@@ -12,41 +12,41 @@ function getAuthUsers(testDb) {
 }
 
 function createUser(newUser, testDb) {
-  const db = testDb || conn
-  const passwordHash = hash.generate(newUser.password)
-  let authInfo = {
-    password: passwordHash,
-    name: newUser.name,
-  }
-  let addUser = {
-    name: newUser.name,
-    email: newUser.email,
-    avatar: newUser.avatar,
-    saved_stories: newUser.saved_stories,
-  }
-  console.log(authInfo, newUser, addUser)
-  return db('users')
-  .insert(addUser)
-  .then(() => {
-    return db('userAuth')
-    .insert(authInfo)
-  })
+  return new Promise(function(resolve, reject) {
+    const db = testDb || conn
+    const {name, password} = newUser
+
+    hash.generate(password, (err, hash) => {
+      let authInfo = {
+        password: hash,
+        name,
+      }
+      delete newUser.password
+      console.log(hash, authInfo);
+      return db('users')
+      .insert(newUser)
+      .then((id) => {
+        return db('userAuth')
+        .insert(authInfo)
+        .then(() => getUser(id[0]))
+        .then(user => resolve(user))
+      })
+    })
+
+  });
 }
 
-function userExists (username, testDb) {
+function userExists (name, testDb) {
   const db = testDb || conn
   return db('users')
-  .count('id as n')
-  .where('username', username)
-  .then(count => {
-    return count[0].n > 0
-  })
+    .where('name', name)
+    .first()
 }
 
-function getUserByName (username, testDb) {
+function getUserByName (name, testDb) {
   const db = testDb || conn
-  return db('users').select()
-  .where('username', username).first()
+  return db('userAuth').select()
+  .where('name', name).first()
 }
 
 function getStories (testDb) {
@@ -81,6 +81,7 @@ module.exports = {
   createUser,
   getUsers,
   getUser,
+  getAuthUsers,
   updateUser,
   getStories,
   getStory,
