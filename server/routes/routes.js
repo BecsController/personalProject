@@ -1,10 +1,11 @@
 // this is an example of a basic router
 //copy or rename this file, but dont build all your routes in here
+const token = require('../auth/token')
 
 const router = require('express').Router()
 const db = require('../db/db')
 
-router.get('/users', (req, res) => {
+router.get('/users', token.decode, (req, res) => {
   db.getUsers().then(users => {
     res.json({users})
   })
