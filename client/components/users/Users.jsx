@@ -5,7 +5,12 @@ import {connect} from 'react-redux'
 import {getUsers} from '../../actions/users'
 
 class Users extends React.Component {
-
+  constructor(props) {
+    super(props)
+    this.state = {
+      users: []
+    }
+  }
 
   componentDidMount () {
     this.props.dispatch(getUsers())

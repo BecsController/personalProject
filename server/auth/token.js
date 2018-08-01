@@ -7,7 +7,8 @@ const db = require('../db/db')
 module.exports = {
   issue,
   decode,
-  createToken
+  createToken,
+  getSecret
 }
 
 function issue (req, res) {
@@ -31,7 +32,9 @@ function issue (req, res) {
 function createToken (user, secret) {
   return jwt.sign({
     id: user.id,
-    username: user.name
+    username: user.name,
+    email: user.email,
+    avatar: user.avatar
   }, secret, {
     expiresIn: '24h'
   })

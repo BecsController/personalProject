@@ -1,7 +1,7 @@
 import React from 'react'
 import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
-
+import {registerUserRequest} from '../../actions/register'
 import {newUser} from '../../actions/users'
 
 let baseUser = {
