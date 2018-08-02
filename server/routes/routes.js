@@ -5,7 +5,7 @@ const token = require('../auth/token')
 const router = require('express').Router()
 const db = require('../db/db')
 
-router.get('/users', token.decode, (req, res) => {
+router.get('/users', (req, res) => {
   db.getUsers().then(users => {
     res.json({users})
   })
