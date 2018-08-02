@@ -1,8 +1,5 @@
 import request from 'superagent'
 
-//Below are an example of both an action creator and an async request
-
-//action:
 export const receiveUsers = (users) => {
   return {
     type: 'RECEIVE_USERS',
@@ -24,12 +21,11 @@ export const addUser = (user) => {
   }
 }
 
-//Request:
 export function getUsers () {
   return (dispatch) => {
     request
-      .get(`/api/users`)
-      .then(res => {
+    .get(`/api/users`)
+    .then(res => {
       dispatch(receiveUsers(res.body.users))
     })
   }
@@ -38,9 +34,9 @@ export function getUsers () {
 export function getUserById (id) {
   return (dispatch) => {
     request
-      .get(`/api/users/${id}`)
-      .end((err, res) => {
-        if (err) {
+    .get(`/api/users/${id}`)
+    .end((err, res) => {
+      if (err) {
         console.error(err.message)
         return
       }
@@ -52,9 +48,9 @@ export function getUserById (id) {
 export function newUser (newUser) {
   return (dispatch) => {
     request
-      .post(`/api/users`)
-      .send(newUser)
-      .then(res => {
+    .post(`/api/users`)
+    .send(newUser)
+    .then(res => {
       dispatch(addUser(res.body))
     })
   }
@@ -63,9 +59,9 @@ export function newUser (newUser) {
 export function addAvatar (id, user) {
   return (dispatch) => {
     request
-      .put(`/api/users/${id}`)
-      .send(user)
-      .then(res => {
+    .put(`/api/users/${id}`)
+    .send(user)
+    .then(res => {
       dispatch(appendUserWithAvatar(res.body))
     })
   }

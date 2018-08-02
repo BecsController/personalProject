@@ -31,13 +31,13 @@ export function loginUser (creds) {
   return dispatch => {
     dispatch(requestLogin(creds))
     return request('post', 'v1/auth/login', creds)
-      .then((response) => {
-        const userInfo = saveUserToken(response.body.token)
-        dispatch(receiveLogin(userInfo))
-        document.location = "/#/users"
-      })
-      .catch(err => {
-        dispatch(loginError(err.response.body.message))
-      })
+    .then((response) => {
+      const userInfo = saveUserToken(response.body.token)
+      dispatch(receiveLogin(userInfo))
+      document.location = "/#/users"
+    })
+    .catch(err => {
+      dispatch(loginError(err.response.body.message))
+    })
   }
 }

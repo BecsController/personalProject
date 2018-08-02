@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function EmotionButtons ({page, tracker}) {
 
-return (
+  return (
     <div>
       <button id="anxious" className="is-warning is-rounded button is-medium">
         {page[tracker].emotionOne}

@@ -1,6 +1,8 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {getPages} from '../../apiClient.js'
+import {getPages} from '../../actions/stories'
+
 import Options from '../popuplayers/Options'
 import EmotionButtons from '../popuplayers/EmotionButtons'
 
@@ -20,11 +22,14 @@ class StoriesPageOne extends React.Component {
   }
 
   componentDidMount () {
-    getPages()
-    .then(pages => {
-      this.setState({pages})
-    })
-  }
+    this.props.dispatch(getPages())
+}
+
+componentWillReceiveProps (nextProps) {
+  this.setState({
+    pages: nextProps.pages
+  })
+}
 
   showAnswerOptions () {
   this.setState({
@@ -33,7 +38,7 @@ class StoriesPageOne extends React.Component {
 }
 
   chooseAnswer () {
-    
+
   }
 
   showEmotionButtons () {
@@ -76,4 +81,6 @@ class StoriesPageOne extends React.Component {
  }
 }
 
-export default StoriesPageOne
+const mapStateToProps = state => state
+
+export default connect(mapStateToProps)(StoriesPageOne)
