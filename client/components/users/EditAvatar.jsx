@@ -22,10 +22,10 @@ class EditAvatar extends React.Component {
     let elements = document.getElementsByTagName('li')
 
     for (let element of elements){
-    element.classList.remove('is-active')
+      element.classList.remove('is-active')
+    }
+    currentTab.classList.add('is-active')
   }
-  currentTab.classList.add('is-active')
-}
 
   addToCanvas = (imgElement, propertyType, zIndex) => {
     let imgInstance = new fabric.Image(imgElement, {

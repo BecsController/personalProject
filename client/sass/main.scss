@@ -3,3 +3,8 @@
 .description {
   height: 10vw;
 }
+
+#avatar {
+  flex-wrap: wrap;
+  overflow: auto;
+}

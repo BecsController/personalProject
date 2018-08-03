@@ -11,8 +11,8 @@ export default class TemplateListItem extends React.Component{
 
         return(
 
-              <div style={{height: '10vw'}} className="box card-image is-3 column">
-                <a href="#" className="thumbnail" onClick={this.localAddToCanvas}>
+              <div style={{height: '13vw'}} className="box is-3 column">
+                <a href="#" onClick={this.localAddToCanvas}>
                     <img alt ="" src={this.props.url} />
                 </a>
             </div>
