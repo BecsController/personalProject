@@ -78,9 +78,10 @@ class Avatar extends React.Component {
         <div className='columns'>
           <div className='column is-6'>
             <FabricCanvas activeProperty = {this.state.activeProperty} activeUser = {this.props.match.params.id} />
+            <Link className="is-pulled-center is-size-5" to={`/user/${this.props.match.params.id}`}>Back To Profile Page</Link>
           </div>
 
-          <div style={{marginTop: '5vw'}} className='column is-6'>
+          <div style={{marginTop: '2vw'}} className='column is-6'>
             <div className='tabs is-toggle is-boxed is-full-width is-centered is-medium'>
               <ul>
                 <li className='is-active' onClick={() => this.changeActiveTab(1)} id="1" title="Faces"><a>Faces</a></li>
@@ -94,7 +95,6 @@ class Avatar extends React.Component {
             </div>
           </div>
         </div>
-        <Link className="is-pulled-center is-size-5" to={`/user/${this.props.match.params.id}`}>Back To Profile Page</Link>
       </div>
     )
   }

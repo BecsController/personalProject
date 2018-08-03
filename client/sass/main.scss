@@ -1,5 +1,9 @@
 @import './my_bulma.scss';
 
+html {
+  overflow: auto;
+}
+
 .description {
   height: 10vw;
 }

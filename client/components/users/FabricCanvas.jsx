@@ -67,12 +67,12 @@ class FabricCanvas extends React.Component{
 
         return (
             <div className= "main-canvas-container has-text-centered">
-              <div style={{marginTop: '5vw'}}>
+              <div style={{marginTop: '2vw'}}>
               <h3 className="is-hidden is-size-4 is-uppercase">Thanks! That's saved</h3>
             </div>
                 <canvas style={{border: '3px solid black', float: 'center'}} id= 'main-canvas'>
                 </canvas>
-                <div style={{marginTop: '5vw', marginLeft: '10vw'}}>
+                <div style={{marginTop: '2.5vw', marginLeft: '10vw', marginBottom: '2vw'}}>
                 <button className="is-rounded button is-medium is-pulled-left is-outlined" onClick = {this.saveToProfile}>
                     Save Avatar To Profile
                 </button>
