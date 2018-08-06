@@ -10,7 +10,6 @@ import StoryStart from './story/StoryStart'
 import StoryPageOne from './story/StoryPageOne'
 import UserPage from './users/UserPage'
 import Avatar from './users/Avatar'
-import EditAvatar from './users/EditAvatar'
 import Login from './users/Login'
 
 const App = () => {
@@ -27,8 +26,7 @@ const App = () => {
         <Route exact path='/story/:id' component={StoryStart}/>
         <Route path='/story/:id/1' component={StoryPageOne}/>
         <Route exact path='/user/:id' component={UserPage} />
-        <Route path='/user/:id/createAvatar' component={Avatar}/>
-        <Route path='/user/:id/editAvatar' component={EditAvatar}/>
+        <Route path='/user/:id/avatar' component={Avatar}/>
         </section>
     </div>
     </Router>

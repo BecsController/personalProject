@@ -59,8 +59,6 @@ class FabricCanvas extends React.Component{
       .catch((err) => {
         console.log(err)
       })
-        //display button here to redirect back to profile page
-
     }
 
     render(){

@@ -1,6 +1,7 @@
 import React from 'react'
 import {fabric} from 'fabric'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 import FabricCanvas from './FabricCanvas'
 import TemplateList from './TemplateList'
@@ -11,7 +12,8 @@ class Avatar extends React.Component {
     super (props)
 
     this.state = {
-      activeTab: 1
+      users: [],
+      activeTab: 1,
     }
     this.changeActiveTab = this.changeActiveTab.bind(this)
   }
@@ -71,9 +73,10 @@ class Avatar extends React.Component {
   }
 
   render() {
+  console.log(this.state)
     return (
       <div>
-        <h1 className="is-size-2">Create your avatar!</h1>
+        <h1 className="is-size-2">{this.state.users.saved_avatar ? 'Change up yo avatar!' : 'Create your avatar!'}</h1>
 
         <div className='columns'>
           <div className='column is-6'>
@@ -100,4 +103,7 @@ class Avatar extends React.Component {
   }
 }
 
-export default Avatar
+const mapStateToProps = state => state
+
+
+export default connect(mapStateToProps)(Avatar)
