@@ -20,7 +20,6 @@ class TemplateList extends React.Component{
     return(
       <div className="columns is-multiline is-gapless">
         <div className='column is-12 is-flex is-gaplesss'>
-
           <div className="is-flex is-gapless" id='avatar' style={{height: '28vw'}}>
             {templates}
           </div>

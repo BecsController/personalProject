@@ -12,7 +12,6 @@ class Avatar extends React.Component {
     super (props)
 
     this.state = {
-      users: [],
       activeTab: 1,
     }
     this.changeActiveTab = this.changeActiveTab.bind(this)
@@ -73,10 +72,11 @@ class Avatar extends React.Component {
   }
 
   render() {
-  console.log(this.state)
+  let activeUser = this.props.users.find(e => e.id == this.props.match.params.id)
+  console.log('da fuck?', activeUser)
     return (
       <div>
-        <h1 className="is-size-2">{this.state.users.saved_avatar ? 'Change up yo avatar!' : 'Create your avatar!'}</h1>
+        <h1 className="is-size-2">{activeUser.saved_avatar ? 'Change up yo avatar!' : 'Create your avatar!'}</h1>
 
         <div className='columns'>
           <div className='column is-6'>
@@ -103,7 +103,6 @@ class Avatar extends React.Component {
   }
 }
 
-const mapStateToProps = state => state
-
+const mapStateToProps = (state) => state
 
 export default connect(mapStateToProps)(Avatar)
