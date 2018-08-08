@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {getPages} from '../../actions/stories'
 
-import Options from '../popuplayers/Options'
 import EmotionButtons from '../popuplayers/EmotionButtons'
 
 class StoriesPage extends React.Component {
@@ -70,7 +69,14 @@ class StoriesPage extends React.Component {
               <span className="icon"><i className="far fa-arrow-alt-circle-right"></i></span>
             </Link>}
           </p>
-            {this.state.optionsVisible && <Options page={this.state.pageTracker}/>}
+            {this.state.optionsVisible && <div className="box">
+              <button className="button has-text-centered is-rounded is-medium is-size-4 is-info is-pulled-left">
+                {this.state.pages[this.state.pageTracker].optionOne}
+              </button>
+              <button className="button has-text-centered is-rounded is-medium is-size-4 is-info is-pulled-right">
+                {this.state.pages[this.state.pageTracker].optionTwo}
+              </button>
+            </div>}
         </div>
       </div>}
     </div>

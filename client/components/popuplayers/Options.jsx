@@ -24,13 +24,15 @@ componentWillReceiveProps(nextProps){
 }
 
 render () {
+let optionOne = this.state.pages.find(page => page.id == this.state.currentPage)
+console.log(optionOne)
     return (
       <div>
         <button className="button has-text-centered is-rounded is-medium is-size-4 is-info is-pulled-left">
-          {this.state.pages[this.state.currentPage]}
+          {optionOne}
         </button>
         <button className="button has-text-centered is-rounded is-medium is-size-4 is-info is-pulled-right">
-          {this.state.pages[this.state.currentPage]}
+          Two
         </button>
       </div>
 
