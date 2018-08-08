@@ -14,7 +14,8 @@ class StoriesPage extends React.Component {
       pages: [],
       optionsVisible: false,
       buttonsVisible: false,
-      pageTracker: 0
+      pageTracker: 0,
+      selectorVisible: true
     }
     this.showAnswerOptions = this.showAnswerOptions.bind(this)
     this.showEmotionButtons = this.showEmotionButtons.bind(this)
@@ -33,7 +34,8 @@ class StoriesPage extends React.Component {
 
   showAnswerOptions () {
     this.setState({
-      optionsVisible: true
+      optionsVisible: true,
+      selectorVisible: false
     })
   }
 
@@ -51,7 +53,7 @@ class StoriesPage extends React.Component {
     return (
       <div className="columns is-two-thirds">
 
-        <div className="column is-4 box">
+        <div className="column is-2">
           <Link className="button is-medium" to={`#`} onClick={this.showEmotionButtons}>
             How are you feeling?
           </Link>
@@ -59,31 +61,23 @@ class StoriesPage extends React.Component {
           {this.state.buttonsVisible && <EmotionButtons page={this.state.pages} tracker={this.state.pageTracker}/>}
         </div>
 
-        <div className="column is-8">
-
-          {this.state.pages.length > 0 && <div className="column is-10 is-offset-1 page-template box">
+          {this.state.pages.length > 0 && <div className="column is-10 box">
             <h1 className="has-text-centered is-size-2">{this.state.pages[this.state.pageTracker].title}</h1>
             <img className="background-img" src={this.state.pages[this.state.pageTracker].background}/>
 
-            <div className="container is-full-height ">
-              <img style={{width: '20vw', position: 'absolute', top: '-20vw', left: '-2vw', zIndex: '3'}} src={this.state.pages[this.state.pageTracker].population} alt="teacher"/>
 
-              <div className="box column is-10 textarea">
-                <p className="has-text-centered is-size-4">
+              <img className="population-img" src={this.state.pages[this.state.pageTracker].population} alt="people"/>
+
+
+                <p className="textarea box has-text-centered is-size-4">
                   {this.state.pages[this.state.pageTracker].pageText}
-                  <Link className="button is-medium is-pulled-right" to={`#`} onClick={this.showAnswerOptions}>
+                  {this.state.selectorVisible && <Link className="button is-medium is-pulled-right" to={`#`} onClick={this.showAnswerOptions}>
                     Click to answer &nbsp;
                     <span className="icon"><i className="far fa-arrow-alt-circle-right"></i></span>
-                  </Link>
-                </p>
-
-                {this.state.answerVisible && <Answers option={this.state.option}/>}
+                  </Link>}
                 {this.state.optionsVisible && <Options page={this.state.pages} tracker={this.state.pageTracker}/>}
-              </div>
-            </div>
-
+                </p>
           </div>}
-        </div>
       </div>
     )
   }
