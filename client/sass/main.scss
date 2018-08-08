@@ -12,3 +12,11 @@ html {
   flex-wrap: wrap;
   overflow: auto;
 }
+
+.background-img {
+  width: '50vw';
+  position: 'absolute';
+  z-index: '0';
+  top: '5vw';
+  left: '20vw'
+}
