@@ -44,8 +44,9 @@ class StoriesPage extends React.Component {
   }
 
   showEmotionButtons () {
+  let emotionState = this.state.buttonsVisible ? false : true
     this.setState ({
-      buttonsVisible: true
+      buttonsVisible: emotionState
     })
   }
 
@@ -68,8 +69,8 @@ class StoriesPage extends React.Component {
 
               <img className="population-img" src={this.state.pages[this.state.pageTracker].population} alt="people"/>
 
-
-                <p className="textarea box has-text-centered is-size-4">
+              <div className="textarea box">
+                <p className="has-text-centered is-size-4">
                   {this.state.pages[this.state.pageTracker].pageText}
                   {this.state.selectorVisible && <Link className="button is-medium is-pulled-right" to={`#`} onClick={this.showAnswerOptions}>
                     Click to answer &nbsp;
@@ -77,6 +78,7 @@ class StoriesPage extends React.Component {
                   </Link>}
                 {this.state.optionsVisible && <Options page={this.state.pages} tracker={this.state.pageTracker}/>}
                 </p>
+</div>
           </div>}
       </div>
     )
