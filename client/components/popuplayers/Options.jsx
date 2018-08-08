@@ -8,6 +8,7 @@ class Options extends React.Component {
     super (props)
     this.state = {
     pages: [],
+    currentPage: props.page
   }
 }
 
@@ -18,20 +19,21 @@ componentDidMount () {
 componentWillReceiveProps(nextProps){
   this.setState({
     pages: nextProps.pages,
+    currentPage: nextProps.page
   })
 }
 
 render () {
-  console.log(this.state.pages[0], this.state.pages)
     return (
       <div>
         <button className="button has-text-centered is-rounded is-medium is-size-4 is-info is-pulled-left">
-          {this.state.pages[0]}
+          {this.state.pages[this.state.currentPage]}
         </button>
         <button className="button has-text-centered is-rounded is-medium is-size-4 is-info is-pulled-right">
-          {this.state.pages[0]}
+          {this.state.pages[this.state.currentPage]}
         </button>
       </div>
+
     )
   }
 }

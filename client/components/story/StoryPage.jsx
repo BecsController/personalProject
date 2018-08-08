@@ -69,8 +69,8 @@ class StoriesPage extends React.Component {
               Click to answer &nbsp;
               <span className="icon"><i className="far fa-arrow-alt-circle-right"></i></span>
             </Link>}
-            {this.state.optionsVisible && <Options page={this.state.pageTracker}/>}
           </p>
+            {this.state.optionsVisible && <Options page={this.state.pageTracker}/>}
         </div>
       </div>}
     </div>
