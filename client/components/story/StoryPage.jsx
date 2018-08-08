@@ -69,7 +69,7 @@ class StoriesPage extends React.Component {
               <span className="icon"><i className="far fa-arrow-alt-circle-right"></i></span>
             </Link>}
           </p>
-            {this.state.optionsVisible && <div className="box">
+            {this.state.optionsVisible && <div>
               <button className="button has-text-centered is-rounded is-medium is-size-4 is-info is-pulled-left">
                 {this.state.pages[this.state.pageTracker].optionOne}
               </button>
