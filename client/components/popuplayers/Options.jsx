@@ -8,7 +8,7 @@ class Options extends React.Component {
     super (props)
     this.state = {
     pages: [],
-    currentPage: props.page
+    currentPage: props.page,
   }
 }
 
@@ -19,20 +19,18 @@ componentDidMount () {
 componentWillReceiveProps(nextProps){
   this.setState({
     pages: nextProps.pages,
-    currentPage: nextProps.page
+    currentPage: nextProps.page,
   })
 }
 
 render () {
-let optionOne = this.state.pages.find(page => page.id == this.state.currentPage)
-console.log(optionOne)
     return (
       <div>
         <button className="button has-text-centered is-rounded is-medium is-size-4 is-info is-pulled-left">
-          {optionOne}
+          one
         </button>
         <button className="button has-text-centered is-rounded is-medium is-size-4 is-info is-pulled-right">
-          Two
+        Two
         </button>
       </div>
 

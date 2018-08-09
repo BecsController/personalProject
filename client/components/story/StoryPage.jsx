@@ -18,6 +18,7 @@ class StoriesPage extends React.Component {
     }
     this.showAnswerOptions = this.showAnswerOptions.bind(this)
     this.showEmotionButtons = this.showEmotionButtons.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount () {
@@ -43,6 +44,20 @@ class StoriesPage extends React.Component {
       buttonsVisible: emotionState
     })
   }
+
+  handleClick(e) {
+  let currentPageUpdate = this.state.pageTracker
+  console.log(e.currentTarget.value)
+  if (e.currentTarget.value == 'one') {
+    this.setState ({
+      pageTracker: currentPageUpdate + 1
+    })
+  } else {
+    this.setState ({
+      pageTracker: currentPageUpdate + 2
+    })
+  }
+}
 
   render() {
     return (
@@ -70,10 +85,10 @@ class StoriesPage extends React.Component {
             </Link>}
           </p>
             {this.state.optionsVisible && <div>
-              <button className="button has-text-centered is-rounded is-medium is-size-4 is-info is-pulled-left">
+              <button className="button has-text-centered is-rounded is-medium is-size-4 is-info is-pulled-left" onClick={(e) => this.handleClick(e)} value="one">
                 {this.state.pages[this.state.pageTracker].optionOne}
               </button>
-              <button className="button has-text-centered is-rounded is-medium is-size-4 is-info is-pulled-right">
+              <button className="button has-text-centered is-rounded is-medium is-size-4 is-info is-pulled-right" onClick={(e) => this.handleClick(e)} value="two">
                 {this.state.pages[this.state.pageTracker].optionTwo}
               </button>
             </div>}
