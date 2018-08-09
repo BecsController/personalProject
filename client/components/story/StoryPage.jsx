@@ -47,7 +47,6 @@ class StoriesPage extends React.Component {
 
   handleClick(e) {
   let currentPageUpdate = this.state.pageTracker
-  console.log(e.currentTarget.value)
   if (e.currentTarget.value == 'one') {
     this.setState ({
       pageTracker: currentPageUpdate + 1
