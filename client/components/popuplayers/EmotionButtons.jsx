@@ -1,20 +1,41 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
-export default function EmotionButtons ({page, tracker}) {
-
-  return (
-    <div>
-      <button id="anxious" className="is-warning is-fullwidth button is-medium">
-        {page[tracker].emotionOne}
-      </button>
-      <hr />
-      <button id="excited" className="is-warning is-fullwidth button is-medium">
-        {page[tracker].emotionTwo}
-      </button>
-      <hr />
-      <button id="scared" className="is-warning is-fullwidth button is-medium">
-        {page[tracker].emotionThree}
-      </button>
-    </div>
-  )
+class EmotionButtons extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+    chosenEmotion: ''
+  }
+  this.handleClick = this.handleClick.bind(this)
 }
+
+  handleClick(e) {
+    this.setState ({
+      chosenEmotion: e.currentTarget.value
+    })
+}
+
+  render() {
+    return (
+      <div>
+        <button id="anxious" className="is-warning is-fullwidth button is-medium" onClick={(e) => this.handleClick(e)} value="anxious">
+          {this.props.page[this.props.tracker].emotionOne}
+        </button>
+        <hr />
+        <button id="excited" className="is-warning is-fullwidth button is-medium" onClick={(e) => this.handleClick(e)} value="excited">
+          {this.props.page[this.props.tracker].emotionTwo}
+        </button>
+        <hr />
+        <button id="scared" className="is-warning is-fullwidth button is-medium" onClick={(e) => this.handleClick(e)} value="scared">
+          {this.props.page[this.props.tracker].emotionThree}
+        </button>
+      </div>
+    )
+  }
+}
+
+
+const mapStateToProps = state => state
+
+export default connect(mapStateToProps)(EmotionButtons)
