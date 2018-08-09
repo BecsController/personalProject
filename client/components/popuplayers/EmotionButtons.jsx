@@ -19,15 +19,15 @@ class EmotionButtons extends React.Component {
   render() {
     return (
       <div>
-        <button id="anxious" className="is-warning is-fullwidth button is-medium" onClick={(e) => this.handleClick(e)} value="anxious">
+        <button className="is-warning is-fullwidth button is-medium" onClick={(e) => this.handleClick(e)} value="anxious">
           {this.props.page[this.props.tracker].emotionOne}
         </button>
         <hr />
-        <button id="excited" className="is-warning is-fullwidth button is-medium" onClick={(e) => this.handleClick(e)} value="excited">
+        <button className="is-warning is-fullwidth button is-medium" onClick={(e) => this.handleClick(e)} value="excited">
           {this.props.page[this.props.tracker].emotionTwo}
         </button>
         <hr />
-        <button id="scared" className="is-warning is-fullwidth button is-medium" onClick={(e) => this.handleClick(e)} value="scared">
+        <button className="is-warning is-fullwidth button is-medium" onClick={(e) => this.handleClick(e)} value="scared">
           {this.props.page[this.props.tracker].emotionThree}
         </button>
       </div>
