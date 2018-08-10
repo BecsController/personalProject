@@ -22,6 +22,14 @@ test('grab users from db works', () => {
     })
 })
 
+test('getAuthUsers from db returns auth info', () => {
+  return Db.getAuthUsers(testDb)
+    .then(authUsers => {
+    expect(authUsers.length).toBe(4)
+    expect(authUsers[0].hasOwnProperty('id')).toBeTruthy()
+  })
+})
+
 test('can find user by id', () => {
   let id = 3
   return Db.getUser(id, testDb)
@@ -40,5 +48,40 @@ test('can get stories from db', () => {
 })
 
 test('createUser can add new user', () => {
+  let newUser = {
+    name: 'Sally',
+    password: 'Sally'
+  }
+  return Db.createUser(newUser, testDb)
+    .then(newUser => {
+    console.log(newUser)
+    expect(newUser.length).toBe(2)
+  })
+})
 
+test('UserExists can find a user', () => {
+  let name = 'Sally'
+  return Db.getUserByName(name, testDb)
+    .then(user => {
+      expect(user.length).toBe(3)
+      expect(user.hasOwnProperty('name')).toBeTruthy()
+  })
+})
+
+test('getStory returns a single story', () => {
+  let id = 2
+  return Db.getStory(id, testDb)
+    .then(story => {
+      expect(story.length).toBe(1)
+      expect(story.hasOwnProperty('title')).toBeTruthy()
+      expect(story.hasOwnProperty('background')).toBeTruthy()
+  })
+})
+
+test('getPages returns an array of pages', () => {
+  return Db.getPages(testDb)
+    .then(pages => {
+      expect(pages.length).toBe(4)
+      expect(pages[0].hasOwnProperty('population')).toBeTruthy()
+  })
 })
