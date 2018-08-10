@@ -85,3 +85,12 @@ test('getPages returns an array of pages', () => {
       expect(pages[0].hasOwnProperty('population')).toBeTruthy()
   })
 })
+
+test('getPage returns a single page', () => {
+  let id = 2
+  return Db.getPage(id, testDb)
+    .then(page => {
+      expect(page.id).toBe(2)
+      expect(page.hasOwnProperty('background')).toBeTruthy()
+  })
+})

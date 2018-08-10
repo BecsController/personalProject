@@ -63,6 +63,11 @@ function getPages (testDb) {
   return db('pages').select()
 }
 
+function getPage(id, testDb) {
+  const db = testDb || conn
+  return db('pages').select().where({id}).first()
+}
+
 function getUser(id, testDb) {
   const db = testDb || conn
   return db('users').select().where({id}).first()
@@ -86,5 +91,6 @@ module.exports = {
   getStory,
   getPages,
   userExists,
-  getUserByName
+  getUserByName,
+  getPage
 }
