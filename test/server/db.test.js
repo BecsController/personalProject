@@ -35,10 +35,10 @@ test('can get stories from db', () => {
     return Db.getStories(testDb)
       .then(stories => {
         expect(stories.length).toBe(3)
-        expect(stories.hasOwnProperty('title')).toBeTruthy()
+        expect(stories[0].hasOwnProperty('title')).toBeTruthy()
   })
 })
 
 test('createUser can add new user', () => {
-    
+
 })

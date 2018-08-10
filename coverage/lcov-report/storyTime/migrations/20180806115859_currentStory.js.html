@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for storyTime/migrations/20180704133128_associations.js</title>
+    <title>Code coverage report for storyTime/migrations/20180806115859_currentStory.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">All files</a> / <a href="index.html">storyTime/migrations</a> 20180704133128_associations.js
+      <a href="../../index.html">All files</a> / <a href="index.html">storyTime/migrations</a> 20180806115859_currentStory.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">87.5% </span>
+        <span class="strong">90% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>7/8</span>
+        <span class='fraction'>9/10</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>2/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">87.5% </span>
+        <span class="strong">90% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>7/8</span>
+        <span class='fraction'>9/10</span>
       </div>
     </div>
     <p class="quiet">
@@ -59,8 +59,12 @@
 <a name='L11'></a><a href='#L11'>11</a>
 <a name='L12'></a><a href='#L12'>12</a>
 <a name='L13'></a><a href='#L13'>13</a>
-<a name='L14'></a><a href='#L14'>14</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
@@ -74,16 +78,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('associations', function (table){
-    table.increments('id');
-    table.integer('page_id');
-    table.string('emotion');
-    table.integer('user_id');
+  return knex.schema.createTable('currentStory', function (table){
+    table.increments("id");
+    table.integer("story_id");
+    table.integer("user_id");
+    table.integer("current_page");
+    table.string("title");
+    table.string("association_id");
   })
 };
 &nbsp;
 exports.down = <span class="fstat-no" title="function not covered" >fu</span>nction(knex, Promise) {
-<span class="cstat-no" title="statement not covered" >    return knex.schema.dropTable('associations')</span>
+<span class="cstat-no" title="statement not covered" >  return knex.schema.dropTable('currentStory')</span>
 };
 &nbsp;</pre></td></tr>
 </table></pre>

@@ -73,7 +73,6 @@ class Avatar extends React.Component {
 
   render() {
   let activeUser = this.props.users.find(e => e.id == this.props.match.params.id)
-  console.log('da fuck?', activeUser)
     return (
       <div>
         <h1 className="is-size-2">{activeUser.saved_avatar ? 'Change up yo avatar!' : 'Create your avatar!'}</h1>
