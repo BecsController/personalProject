@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {getUser} from '../../apiClient.js'
+
+import {getUserById} from '../../actions/users'
 
 class User extends React.Component {
 
@@ -13,7 +14,7 @@ class User extends React.Component {
   }
 
   componentDidMount () {
-    getUser(this.props.match.params.id)
+    this.props.dispatch(getUserById(this.props.match.params.id))
     .then(user =>{
       this.setState({user})
     })

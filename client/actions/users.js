@@ -7,10 +7,17 @@ export const receiveUsers = (users) => {
   }
 }
 
-export const appendUserWithAvatar = (users) => {
+export const receiveUser = (user) => {
+  return {
+    type: 'RECEIVE_USER',
+    user
+  }
+}
+
+export const appendUserWithAvatar = (user) => {
   return {
     type: 'APPEND_USER_WITH_AVATAR',
-    users
+    user
   }
 }
 
@@ -40,7 +47,7 @@ export function getUserById (id) {
         console.error(err.message)
         return
       }
-      dispatch(getUser(res.body))
+      dispatch(receieveUser(res.body))
     })
   }
 }

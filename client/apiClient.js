@@ -16,20 +16,15 @@ export function getPages () {
 //   })
 // }
 
-export function getUser (id) {
-  return request.get(rootUrl + '/users/' + id)
-  .then(res => {
-    return res.body
-  })
-}
 
-export function appendUserWithAvatar (id, user) {
-  return request.put(rootUrl + '/users/' + id)
-  .send(user)
-  .then(res => {
-    return res.body
-  })
-}
+
+// export function appendUserWithAvatar (id, user) {
+//   return request.put(rootUrl + '/users/' + id)
+//   .send(user)
+//   .then(res => {
+//     return res.body
+//   })
+// }
 
 // export function newUser (newUser) {
 //   return request.post(rootUrl + '/users')
