@@ -14,6 +14,13 @@ export const receivePages = (pages) => {
   }
 }
 
+export const receieveStory = (story) => {
+  return {
+    type: 'RECEIVE_STORY',
+    story
+  }
+}
+
 export function getStories () {
   return (dispatch) => {
     request
@@ -38,6 +45,20 @@ export function getPages () {
         return
       }
       dispatch(receivePages(res.body.pages))
+    })
+  }
+}
+
+export function getStoryById (id) {
+  return (dispatch) => {
+  request
+  .get(`/stories//${id}`)
+  .end((err, res) => {
+    if (err) {
+    console.error(err.message)
+    return
+    }
+    dispatch(receieveStory(res.body.story))
     })
   }
 }
