@@ -1,6 +1,7 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {getStoryById} from '../../apiClient.js'
+import {getStoryById} from '../../actions/stories'
 
 
 class StoryStart extends React.Component {
@@ -12,10 +13,13 @@ class StoryStart extends React.Component {
     }
   }
 
-  componentDidMount () {
-    getStoryById(this.props.match.params.id)
-    .then(story =>{
-      this.setState({story})
+componentDidMount () {
+  this.props.dispatch(getStoryById(this.props.match.params.id))
+}
+
+componentWillReceiveProps (nextProps) {
+    this.setState({
+      story: nextProps.story
     })
   }
 
@@ -41,4 +45,6 @@ class StoryStart extends React.Component {
     }
   }
 
-  export default StoryStart
+  const mapStateToProps = state => state
+
+  export default connect(mapStateToProps)(StoryStart)

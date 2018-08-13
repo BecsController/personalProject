@@ -52,7 +52,7 @@ export function getPages () {
 export function getStoryById (id) {
   return (dispatch) => {
   request
-  .get(`/stories//${id}`)
+  .get(`/api/stories/${id}`)
   .end((err, res) => {
     if (err) {
     console.error(err.message)

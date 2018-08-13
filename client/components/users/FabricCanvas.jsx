@@ -1,7 +1,6 @@
 import React from 'react';
 import {fabric} from 'fabric';
 
-import {appendUserWithAvatar, getUser} from '../../apiClient.js'
 import {getUserById, addAvatar} from '../../actions/users'
 
 class FabricCanvas extends React.Component{
