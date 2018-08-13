@@ -14,7 +14,7 @@ export const receivePages = (pages) => {
   }
 }
 
-export const receieveStory = (story) => {
+export const receiveStory = (story) => {
   return {
     type: 'RECEIVE_STORY',
     story
@@ -58,7 +58,7 @@ export function getStoryById (id) {
     console.error(err.message)
     return
     }
-    dispatch(receieveStory(res.body.story))
+    dispatch(receiveStory(res.body))
     })
   }
 }

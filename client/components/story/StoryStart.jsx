@@ -19,7 +19,7 @@ componentDidMount () {
 
 componentWillReceiveProps (nextProps) {
     this.setState({
-      story: nextProps.story
+      story: nextProps.stories
     })
   }
 
