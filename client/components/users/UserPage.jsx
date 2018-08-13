@@ -25,7 +25,6 @@ componentWillReceiveProps (nextProps) {
 }
 
   render() {
-  console.log(this.state.user);
     let buttonClass = "is-rounded button is-medium"
     return (
       <div className="column has-text-centered is-10 is-offset-1">
