@@ -42,12 +42,8 @@ export function getUserById (id) {
   return (dispatch) => {
     request
     .get(`/api/users/${id}`)
-    .end((err, res) => {
-      if (err) {
-        console.error(err.message)
-        return
-      }
-      dispatch(receieveUser(res.body))
+    .then(res => {
+      dispatch(receiveUser(res.body.user))
     })
   }
 }
