@@ -5,7 +5,6 @@ exports.up = function(knex, Promise) {
     table.integer("story_id");
     table.integer("user_id");
     table.integer("current_page");
-    table.string("title");
     table.string("association_id");
   })
 };

@@ -25,6 +25,7 @@ componentWillReceiveProps (nextProps) {
 }
 
   render() {
+  console.log(this.state.user);
     let buttonClass = "is-rounded button is-medium"
     return (
       <div className="column has-text-centered is-10 is-offset-1">
@@ -70,6 +71,10 @@ componentWillReceiveProps (nextProps) {
       }
     }
 
-const mapStateToProps = state => state
+const mapStateToProps = state => {
+  return {
+    user: state.users
+  }
+}
 
 export default connect(mapStateToProps)(User)

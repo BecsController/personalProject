@@ -43,7 +43,7 @@ export function getUserById (id) {
     request
     .get(`/api/users/${id}`)
     .then(res => {
-      dispatch(receiveUser(res.body.user))
+      dispatch(receiveUser(res.body))
     })
   }
 }
