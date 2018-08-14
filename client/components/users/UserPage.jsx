@@ -68,6 +68,10 @@ returnState() {
                 </Link>
               </div>}
 
+              <Link style={{marginTop: '3vw'}} className={buttonClass} to={`/user/${this.state.user.id}/update`}>
+                  Update Profile
+              </Link>
+
               {this.state.user.saved_stories && <div className="box card-image">
                 <ul>
                   {this.state.user.saved_stories.map(story =><li>story</li>)})}

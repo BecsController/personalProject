@@ -11,6 +11,7 @@ import StoryPage from './story/StoryPage'
 import UserPage from './users/UserPage'
 import Avatar from './users/Avatar'
 import Login from './users/Login'
+import UpdateProfile from './users/UpdateProfile'
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <Route path='/story/:id/1' component={StoryPage}/>
         <Route exact path='/user/:id' component={UserPage} />
         <Route path='/user/:id/avatar' component={Avatar}/>
+        <Route path='/user/:id/update' component={UpdateProfile}/>
         </section>
     </div>
     </Router>
