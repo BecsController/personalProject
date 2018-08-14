@@ -28,7 +28,7 @@ const App = () => {
         <Route path='/story/:id/1' component={StoryPage}/>
         <Route exact path='/user/:id' component={UserPage} />
         <Route path='/user/:id/avatar' component={Avatar}/>
-        <Route path='/user/:id/update' component={UpdateProfile}/>
+        <Route exact path='/user/:id/update' component={UpdateProfile}/>
         </section>
     </div>
     </Router>

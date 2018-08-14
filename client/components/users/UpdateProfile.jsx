@@ -4,19 +4,17 @@ import {connect} from 'react-redux'
 
 import {updateUser} from '../../actions/users'
 
-let baseUser = {
-  name: this.state.user.name,
-  email: this.state.user.email,
-  avatar: this.state.user.avatar,
-  password: this.state.user.password
-}
-
 class UpdateProfile extends React.Component {
       constructor (props) {
         super (props)
 
         this.state = {
-          user: {...baseUser},
+          user: {
+            name: this.props.users.name,
+            email: this.props.users.email,
+            avatar: this.props.users.avatar,
+            password: this.props.users.password
+          },
           userUpdated: false
         }
         this.submit = this.submit.bind(this)
@@ -28,7 +26,12 @@ class UpdateProfile extends React.Component {
         let user = this.state.user
         this.props.dispatch(updateUser(user))
         this.setState({
-          user: {...baseUser},
+          user: {
+            name: this.props.users.name,
+            email: this.props.users.email,
+            avatar: this.props.users.avatar,
+            password: this.props.users.password
+          },
           userUpdated: true
         })
       }
@@ -51,29 +54,29 @@ class UpdateProfile extends React.Component {
           <div style={{width: '50vw', marginTop: '2.5vw'}}>
             <div style={{width: '20vw', float: 'left'}} className="box">
               <figure style={{marginTop: '1.5vw'}} className="image is-3by2">
-                <img src={this.state.user.saved_avatar}/>
+                <img src={this.props.users.saved_avatar}/>
               </figure>
             </div>
 
             <form style={{width: '20vw', float: 'right', marginTop: '1.5vw'}} onSubmit={this.submit}>
               <div className="field control">
-                <input className={inputStyle} placeholder="Name"
+                <input className={inputStyle} placeholder={this.props.users.name}
                   name="name" onChange={this.updateUser} value={this.state.name} />
               </div>
 
               <div className="field control">
-                <input className={inputStyle} placeholder="Email"
+                <input className={inputStyle} placeholder={this.props.users.email}
                   name="email" onChange={this.updateUser} value={this.state.email} />
               </div>
 
               <div className="field control">
-                <input className={inputStyle} placeholder="Image"
+                <input className={inputStyle} placeholder={this.props.users.avatar}
                   name="avatar" onChange={this.updateUser} value={this.state.avatar} />
               </div>
 
               <div className="field control">
-                <input className={inputStyle} placeholder="Password"
-                  name="password" onChange={this.updateUser} value={this.state.password} />
+                <input className={inputStyle} placeholder="New Password"
+                  name="password" onChange={this.updateUser} value='New Password'/>
               </div>
 
               <input style={{marginTop: '.5vw'}} className="button is-info is-medium" type="submit" value="Submit"/>
