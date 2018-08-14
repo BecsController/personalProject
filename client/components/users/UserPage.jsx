@@ -39,8 +39,11 @@ returnState() {
     let buttonClass = "is-rounded button is-medium"
     return (
       <div className="column has-text-centered is-10 is-offset-1">
-        <h3 className="box is-size-1 has-text-grey-dark">{this.state.user.name}</h3>
-
+        <h3 className="box is-size-1 has-text-grey-dark">{this.state.user.name}
+          <Link style={{float: 'right', marginTop: '1.25vw'}} className={`${buttonClass} is-link`} to={`/user/${this.state.user.id}/update`}>
+              Update Profile
+          </Link>
+        </h3>
         <div className="box is-multiline is-flex" id="grid">
 
           <div style={{width: '20vw', height: '25vw'}} className="box card-image">
@@ -60,7 +63,7 @@ returnState() {
 
             {this.state.user.saved_avatar &&
               <div style={{width: '20vw', height: '25vw'}} className="box card-image">
-                <figure className="image is -1by-1">
+                <figure className="image is-1by-1">
                   <img src={this.state.user.saved_avatar} alt={this.state.user.name} />
                 </figure>
                 <Link style={{marginTop: '3vw'}} className={buttonClass} to={`/user/${this.state.user.id}/avatar`}>
@@ -68,9 +71,6 @@ returnState() {
                 </Link>
               </div>}
 
-              <Link style={{marginTop: '3vw'}} className={buttonClass} to={`/user/${this.state.user.id}/update`}>
-                  Update Profile
-              </Link>
 
               {this.state.user.saved_stories && <div className="box card-image">
                 <ul>

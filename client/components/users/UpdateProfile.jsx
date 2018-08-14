@@ -20,7 +20,7 @@ class UpdateProfile extends React.Component {
         }
         this.submit = this.submit.bind(this)
         this.updateUser = this.updateUser.bind(this)
-        this.returnState = this.returnState.bind(this) 
+        this.returnState = this.returnState.bind(this)
       }
 
       submit(e) {
@@ -91,7 +91,11 @@ class UpdateProfile extends React.Component {
 
               <input style={{marginTop: '.5vw'}} className="button is-info is-medium" type="submit" value="Submit"/>
             </form>
-            <button className="button is-medium is-rounded is-link" onClick = {this.returnState}>Back To Users Page</button>
+
+            <button style={{marginTop: '2vw', marginLeft: '9vw'}} className="button is-medium is-rounded" onClick = {this.returnState}>
+              Back To Users Page
+            </button>
+
             {this.state.stateReset === true && <Redirect to='/users'/>}
           </div>
         </div>
