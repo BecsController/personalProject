@@ -27,7 +27,6 @@ class UpdateProfile extends React.Component {
         e.preventDefault()
         let user = this.state.user
         let id = this.props.auth.user.id
-        console.log(user, id)
         this.props.dispatch(updateUserInfo(id, user))
         this.setState({
           user: {
