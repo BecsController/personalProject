@@ -15,10 +15,12 @@ class UpdateProfile extends React.Component {
             avatar: this.props.users.avatar,
             password: this.props.users.password
           },
-          userUpdated: false
+          userUpdated: false,
+          stateReset: false
         }
         this.submit = this.submit.bind(this)
         this.updateUser = this.updateUser.bind(this)
+        this.returnState = this.returnState.bind(this) 
       }
 
       submit(e) {
@@ -44,16 +46,24 @@ class UpdateProfile extends React.Component {
         })
       }
 
+      returnState() {
+        this.props.dispatch(getUsers())
+        this.setState({
+          user: this.state.users,
+          stateReset: true
+        })
+      }
+
   render() {
   let inputStyle = 'input is-medium'
   return (
     <div className="hero-body columns">
         <div className="column is-6 is-offset-3">
-          <h1 className="is-size-1 has-text-grey-light has-text-weight-bold">Let's Update Your Details</h1>
+          <h1 className="is-size-1 has-text-grey-light has-text-weight-bold">Let's Update Your Details {this.props.users.name}</h1>
 
           <div style={{width: '50vw', marginTop: '2.5vw'}}>
-            <div style={{width: '20vw', float: 'left'}} className="box">
-              <figure style={{marginTop: '1.5vw'}} className="image is-3by2">
+            <div style={{width: '20vw', height: '20vw', float: 'left'}} className="box">
+              <figure className="image is-1by1">
                 <img src={this.props.users.saved_avatar}/>
               </figure>
             </div>
@@ -81,7 +91,8 @@ class UpdateProfile extends React.Component {
 
               <input style={{marginTop: '.5vw'}} className="button is-info is-medium" type="submit" value="Submit"/>
             </form>
-            {this.state.userUpdated && <Redirect to='/users'/>}
+            <button className="button is-medium is-rounded is-link" onClick = {this.returnState}>Back To Users Page</button>
+            {this.state.stateReset === true && <Redirect to='/users'/>}
           </div>
         </div>
     </div>
