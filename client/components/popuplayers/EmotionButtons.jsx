@@ -14,11 +14,10 @@ class EmotionButtons extends React.Component {
 }
 
   handleClick(e) {
-let currentEmotion = e.currentTarget.value.toString()
+let currentEmotion = e.currentTarget.value + ''
     this.setState ({
       chosenEmotion: currentEmotion
     })
-  console.log(this.state.chosenEmotion);
   let association = {
     page_id: this.props.tracker,
     emotion: this.state.chosenEmotion,
