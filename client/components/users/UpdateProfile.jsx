@@ -1,8 +1,9 @@
 import React from 'react'
 import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
-import {updateUser} from '../../actions/users'
+import {getUserById, updateUserInfo} from '../../actions/users'
 
 class UpdateProfile extends React.Component {
       constructor (props) {
@@ -13,29 +14,32 @@ class UpdateProfile extends React.Component {
             name: this.props.users.name,
             email: this.props.users.email,
             avatar: this.props.users.avatar,
-            password: this.props.users.password
+            saved_avatar: this.props.users.saved_avatar,
+            saved_stories: this.props.users.saved_stories
           },
           userUpdated: false,
-          stateReset: false
         }
         this.submit = this.submit.bind(this)
         this.updateUser = this.updateUser.bind(this)
-        this.returnState = this.returnState.bind(this)
       }
 
       submit(e) {
         e.preventDefault()
         let user = this.state.user
-        this.props.dispatch(updateUser(user))
+        let id = this.props.auth.user.id
+        console.log(user, id)
+        this.props.dispatch(updateUserInfo(id, user))
         this.setState({
           user: {
             name: this.props.users.name,
             email: this.props.users.email,
             avatar: this.props.users.avatar,
-            password: this.props.users.password
+            saved_avatar: this.props.users.saved_avatar,
+            saved_stories: this.props.users.saved_stories
           },
           userUpdated: true
         })
+        this.props.dispatch(getUserById(this.props.match.params.id))
       }
 
       updateUser(e) {
@@ -43,14 +47,6 @@ class UpdateProfile extends React.Component {
         user[e.target.name] = e.target.value
         this.setState ({
           user
-        })
-      }
-
-      returnState() {
-        this.props.dispatch(getUsers())
-        this.setState({
-          user: this.state.users,
-          stateReset: true
         })
       }
 
@@ -64,7 +60,7 @@ class UpdateProfile extends React.Component {
           <div style={{width: '50vw', marginTop: '2.5vw'}}>
             <div style={{width: '20vw', height: '20vw', float: 'left'}} className="box">
               <figure className="image is-1by1">
-                <img src={this.props.users.saved_avatar}/>
+                <img src={this.props.users.saved_avatar ? this.props.users.saved_avatar : this.props.users.avatar}/>
               </figure>
             </div>
 
@@ -84,19 +80,13 @@ class UpdateProfile extends React.Component {
                   name="avatar" onChange={this.updateUser} value={this.state.avatar} />
               </div>
 
-              <div className="field control">
-                <input className={inputStyle} placeholder="New Password"
-                  name="password" onChange={this.updateUser} value='New Password'/>
-              </div>
-
               <input style={{marginTop: '.5vw'}} className="button is-info is-medium" type="submit" value="Submit"/>
             </form>
 
-            <button style={{marginTop: '2vw', marginLeft: '9vw'}} className="button is-medium is-rounded" onClick = {this.returnState}>
+            <Link style={{marginTop: '2vw', marginLeft: '9vw'}} className="button is-medium is-rounded" to='/users'>
               Back To Users Page
-            </button>
+            </Link>
 
-            {this.state.stateReset === true && <Redirect to='/users'/>}
           </div>
         </div>
     </div>
@@ -104,10 +94,7 @@ class UpdateProfile extends React.Component {
  }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    users: state.users
-  }
-}
+const mapStateToProps = state => state
+
 
 export default connect(mapStateToProps)(UpdateProfile)
