@@ -20,7 +20,7 @@ let currentEmotion = e.currentTarget.value + ''
     })
   let association = {
     page_id: this.props.tracker,
-    emotion: this.state.chosenEmotion,
+    emotion: currentEmotion,
     user_id: this.props.auth.user.id
   }
 console.log(association);
