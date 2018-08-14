@@ -14,18 +14,16 @@ class EmotionButtons extends React.Component {
 }
 
   handleClick(e) {
-let currentEmotion = e.currentTarget.value + ''
-    this.setState ({
-      chosenEmotion: currentEmotion
-    })
+  let currentEmotion = e.currentTarget.value + ''
   let association = {
     page_id: this.props.tracker,
     emotion: currentEmotion,
     user_id: this.props.auth.user.id
   }
-console.log(association);
   this.props.dispatch(newEmotion(association))
-console.log(this.state.associations);
+    this.setState ({
+      chosenEmotion: currentEmotion,
+    })
 }
 
 componentDidMount () {
@@ -34,7 +32,7 @@ componentDidMount () {
 
 componentWillReceiveProps (nextProps) {
   this.setState({
-    assocations: nextProps.associations
+    associations: nextProps.associations
   })
 }
 

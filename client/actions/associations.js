@@ -23,7 +23,7 @@ export function getAssociations () {
         console.error(err.message)
         return
       }
-      dispatch(receiveAssociations(res.body.associations))
+      dispatch(receiveAssociations(res.body))
     })
   }
 }
