@@ -1,9 +1,17 @@
 import React from 'react';
 import {fabric} from 'fabric';
+import {connect} from 'react-redux'
 
 import {getUserById, addAvatar} from '../../actions/users'
 
 class FabricCanvas extends React.Component{
+  constructor (props) {
+    super (props)
+
+    this.state = {
+    user: []
+  }
+}
 
   componentDidMount(){
     // Make a New Canvas
@@ -12,12 +20,18 @@ class FabricCanvas extends React.Component{
       height:375,
       width:375,
     })
+    this.setState({
+      user: this.props.users
+    })
   }
 
-  componentWillReceiveProps = (newprops) =>{
-    if(newprops.activeProperty !== this.props.activeProperty){
-      this.updateCanvasforImage(this.props.activeProperty,newprops.activeProperty);
+  componentWillReceiveProps = (nextProps) =>{
+    if(nextProps.activeProperty !== this.props.activeProperty){
+      this.updateCanvasforImage(this.props.activeProperty,nextProps.activeProperty);
     }
+    this.setState({
+      user: nextProps.user
+    })
   }
 
   updateCanvasforImage = (prev,next) => {
@@ -37,7 +51,6 @@ class FabricCanvas extends React.Component{
   }
 
   saveToCanvas = () => {
-
     let link = document.createElement("a")
     link.href = this.the_canvas.toDataURL({format: 'png'})
     link.download = "avatar.png";
@@ -49,15 +62,8 @@ class FabricCanvas extends React.Component{
     message.classList.remove('is-hidden')
     let saveLink = this.the_canvas.toDataURL({format: 'png'})
     let id = this.props.activeUser
-
-    getUserById(id)
-    .then(user => {
-      user.saved_avatar = saveLink
-      addAvatar(id, user)
-    })
-    .catch((err) => {
-      console.log(err.message)
-    })
+      this.state.user.saved_avatar = saveLink
+      this.props.dispatch(addAvatar(id, this.state.user))
   }
 
   render(){
@@ -83,4 +89,10 @@ class FabricCanvas extends React.Component{
   }
 }
 
-export default FabricCanvas
+const mapStateToProps = state => {
+  return {
+    user: state.users
+  }
+}
+
+export default connect(mapStateToProps)(FabricCanvas)

@@ -16,6 +16,12 @@ class Users extends React.Component {
     this.props.dispatch(getUsers())
   }
 
+  componentWillReceiveProps (nextProps) {
+    this.setState({
+      users: nextProps.users
+    })
+  }
+
   renderUsers (users) {
     return (
       <div className="columns box is-multiline" id="grid">
