@@ -19,7 +19,7 @@ class Users extends React.Component {
   renderUsers (users) {
     return (
       <div className="columns box is-multiline" id="grid">
-        {this.state.users && users.map(item => (
+        {this.props.users && users.map(item => (
           <div key={item.name} className="column is-3 is-3-widescreen is-flex">
             <div className="card is-flex" style={{width: '30vw', height: '20vw'}}>
               <Link to={`/user/${item.id}`}>
