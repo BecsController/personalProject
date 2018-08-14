@@ -28,6 +28,13 @@ export const addUser = (user) => {
   }
 }
 
+export const updateUser = (user) => {
+  return {
+    type: 'UPDATE_USER',
+    user
+  }
+}
+
 export function getUsers () {
   return (dispatch) => {
     request
@@ -66,6 +73,17 @@ export function addAvatar (id, user) {
     .send(user)
     .then(res => {
       dispatch(appendUserWithAvatar(res.body))
+    })
+  }
+}
+
+export function updateUserInfo (id, user) {
+  return (dispatch) => {
+    request
+    .put(`/api/users/${id}`)
+    .send(user)
+    .then(res => {
+      dispatch(updateUser(res.body))
     })
   }
 }

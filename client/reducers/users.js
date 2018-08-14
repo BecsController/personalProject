@@ -10,6 +10,8 @@ function users (state = [], action) {
       return action.user
     case 'APPEND_USER_WITH_AVATAR':
       return action.user
+    case 'UPDATE_USER':
+      return action.user
     default:
       return state
   }
