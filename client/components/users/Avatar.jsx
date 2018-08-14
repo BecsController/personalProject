@@ -1,6 +1,7 @@
 import React from 'react'
 import {fabric} from 'fabric'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 import FabricCanvas from './FabricCanvas'
 import TemplateList from './TemplateList'
@@ -11,7 +12,7 @@ class Avatar extends React.Component {
     super (props)
 
     this.state = {
-      activeTab: 1
+      activeTab: 1,
     }
     this.changeActiveTab = this.changeActiveTab.bind(this)
   }
@@ -22,10 +23,10 @@ class Avatar extends React.Component {
     let elements = document.getElementsByTagName('li')
 
     for (let element of elements){
-    element.classList.remove('is-active')
+      element.classList.remove('is-active')
+    }
+    currentTab.classList.add('is-active')
   }
-  currentTab.classList.add('is-active')
-}
 
   addToCanvas = (imgElement, propertyType, zIndex) => {
     let imgInstance = new fabric.Image(imgElement, {
@@ -71,16 +72,18 @@ class Avatar extends React.Component {
   }
 
   render() {
+  let activeUser = this.props.users
     return (
       <div>
-        <h1 className="is-size-2">Create your avatar!</h1>
+        <h1 className="is-size-2">{activeUser.saved_avatar ? 'Change up yo avatar!' : 'Create your avatar!'}</h1>
 
         <div className='columns'>
           <div className='column is-6'>
             <FabricCanvas activeProperty = {this.state.activeProperty} activeUser = {this.props.match.params.id} />
+            <Link className="is-pulled-center is-size-5" to={`/user/${this.props.match.params.id}`}>Back To Profile Page</Link>
           </div>
 
-          <div style={{marginTop: '5vw'}} className='column is-6'>
+          <div style={{marginTop: '2vw'}} className='column is-6'>
             <div className='tabs is-toggle is-boxed is-full-width is-centered is-medium'>
               <ul>
                 <li className='is-active' onClick={() => this.changeActiveTab(1)} id="1" title="Faces"><a>Faces</a></li>
@@ -93,11 +96,12 @@ class Avatar extends React.Component {
               {this.renderTab(this.state.activeTab)}
             </div>
           </div>
+        </div>
       </div>
-      <Link className="is-pulled-center is-size-5" to={`/user/${this.props.match.params.id}`}>Back To Profile Page</Link>
-    </div>
     )
   }
 }
 
-export default Avatar
+const mapStateToProps = (state) => state
+
+export default connect(mapStateToProps)(Avatar)

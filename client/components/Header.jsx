@@ -1,9 +1,9 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link  } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logoutUser } from '../actions/logout'
 
-const Header = (props) => {
+function Header (props) {
   const navItemStyle = "navbar-item is-size-5 has-text-grey-light"
   return (
     <div>
@@ -14,8 +14,6 @@ const Header = (props) => {
         </div>
 
         <div className="navbar-end">
-          <Link className="navbar-item is-size-4" to="/stories"><i className="fas fa-book"></i>&nbsp; Stories</Link>
-
           <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link is-size-4" href="#"><i className="fas fa-align-right"></i>&nbsp;Users</a>
 

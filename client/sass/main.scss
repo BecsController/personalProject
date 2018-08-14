@@ -1,1 +1,26 @@
-@import './my_bulma.scss'
+@import './my_bulma.scss';
+
+html {
+  overflow: auto;
+}
+
+.description {
+  height: 10vw;
+}
+
+#avatar {
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.background-img {
+  width: 50vw;
+  height: 30vw;
+  z-index: 0;
+}
+
+.population-img {
+  width: 15vw;
+  z-index: 99;
+  position: relative;
+}

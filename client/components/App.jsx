@@ -7,11 +7,11 @@ import Signup from './users/Signup'
 import Users from './users/Users'
 import StoriesHome from './story/StoriesHome'
 import StoryStart from './story/StoryStart'
-import StoryPageOne from './story/StoryPageOne'
+import StoryPage from './story/StoryPage'
 import UserPage from './users/UserPage'
 import Avatar from './users/Avatar'
-import EditAvatar from './users/EditAvatar'
 import Login from './users/Login'
+import UpdateProfile from './users/UpdateProfile'
 
 const App = () => {
   return (
@@ -25,10 +25,10 @@ const App = () => {
         <Route path='/stories' component={StoriesHome}/>
         <Route path='/login' component={Login} />
         <Route exact path='/story/:id' component={StoryStart}/>
-        <Route path='/story/:id/1' component={StoryPageOne}/>
+        <Route path='/story/:id/1' component={StoryPage}/>
         <Route exact path='/user/:id' component={UserPage} />
-        <Route path='/user/:id/createAvatar' component={Avatar}/>
-        <Route path='/user/:id/editAvatar' component={EditAvatar}/>
+        <Route path='/user/:id/avatar' component={Avatar}/>
+        <Route exact path='/user/:id/update' component={UpdateProfile}/>
         </section>
     </div>
     </Router>

@@ -14,30 +14,51 @@ export const receivePages = (pages) => {
   }
 }
 
+export const receiveStory = (story) => {
+  return {
+    type: 'RECEIVE_STORY',
+    story
+  }
+}
+
 export function getStories () {
   return (dispatch) => {
     request
-      .get(`/api/stories`)
-      .end((err, res) => {
-        if (err) {
-          console.error(err.message)
-          return
-        }
-        dispatch(receiveStories(res.body.stories))
-      })
+    .get(`/api/stories`)
+    .end((err, res) => {
+      if (err) {
+        console.error(err.message)
+        return
+      }
+      dispatch(receiveStories(res.body.stories))
+    })
   }
 }
 
 export function getPages () {
-return (dispatch) => {
+  return (dispatch) => {
     request
-      .get(`/api/pages`)
-      .end((err, res) => {
-        if (err) {
-          console.error(err.message)
-          return
-        }
-        dispatch(receivePages(res.body.pages))
-      })
+    .get(`/api/pages`)
+    .end((err, res) => {
+      if (err) {
+        console.error(err.message)
+        return
+      }
+      dispatch(receivePages(res.body.pages))
+    })
+  }
+}
+
+export function getStoryById (id) {
+  return (dispatch) => {
+  request
+  .get(`/api/stories/${id}`)
+  .end((err, res) => {
+    if (err) {
+    console.error(err.message)
+    return
+    }
+    dispatch(receiveStory(res.body))
+    })
   }
 }

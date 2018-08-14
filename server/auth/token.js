@@ -2,16 +2,17 @@ const jwt = require('jsonwebtoken')
 const verifyJwt = require('express-jwt')
 var {compare} = require('./hash')
 
-const db = require('../db/db')
+const userDb = require('../db/user')
 
 module.exports = {
   issue,
   decode,
-  createToken
+  createToken,
+  getSecret
 }
 
 function issue (req, res) {
-  db.getUserByName(req.body.name)
+  userDb.getUserByName(req.body.name)
     .then(user => {
       if (!user) return res.status(403).json({message: 'User does not exist'})
     compare(req.body.password, user.password, (err, match) => {
@@ -31,7 +32,9 @@ function issue (req, res) {
 function createToken (user, secret) {
   return jwt.sign({
     id: user.id,
-    username: user.name
+    username: user.name,
+    email: user.email,
+    avatar: user.avatar
   }, secret, {
     expiresIn: '24h'
   })

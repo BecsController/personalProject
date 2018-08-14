@@ -1,7 +1,7 @@
 import React from 'react'
 import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
-
+import {registerUserRequest} from '../../actions/register'
 import {newUser} from '../../actions/users'
 
 let baseUser = {
@@ -42,7 +42,7 @@ class Signup extends React.Component {
       }
 
   render() {
-
+  let inputStyle = 'input is-medium'
   return (
     <div className="hero-body columns">
         <div className="column is-6 is-offset-3">
@@ -59,26 +59,26 @@ class Signup extends React.Component {
 
             <form style={{width: '20vw', float: 'right', marginTop: '1.5vw'}} onSubmit={this.submit}>
               <div className="field control">
-                <input className="input is-medium" placeholder="Enter your name"
+                <input className={inputStyle} placeholder="Enter your name"
                   name="name" onChange={this.updateUser} value={this.state.name} />
               </div>
 
               <div className="field control">
-                <input className="input is-medium" placeholder="Enter your email"
+                <input className={inputStyle} placeholder="Enter your email"
                   name="email" onChange={this.updateUser} value={this.state.email} />
               </div>
 
               <div className="field control">
-                <input className="input is-medium" placeholder="Insert Image URL"
+                <input className={inputStyle} placeholder="Insert Image URL"
                   name="avatar" onChange={this.updateUser} value={this.state.avatar} />
               </div>
 
               <div className="field control">
-                <input className="input is-medium" placeholder="Choose a password"
+                <input className={inputStyle} placeholder="Choose a password"
                   name="password" onChange={this.updateUser} value={this.state.password} />
               </div>
 
-                <input style={{marginTop: '.5vw'}} className="button is-info is-medium" type="submit" value="Create Profile"/>
+              <input style={{marginTop: '.5vw'}} className="button is-info is-medium" type="submit" value="Create Profile"/>
             </form>
             {this.state.userCreated === true ? <Redirect to='/users'/> : <Redirect to='/signup'/>}
           </div>

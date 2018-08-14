@@ -6,6 +6,11 @@ function getUsers(testDb) {
   return db('users').select()
 }
 
+function getUser(id, testDb) {
+  const db = testDb || conn
+  return db('users').select().where({id}).first()
+}
+
 function getAuthUsers(testDb) {
   const db = testDb || conn
   return db('userAuth').select()
@@ -48,25 +53,6 @@ function getUserByName (name, testDb) {
   .where('name', name).first()
 }
 
-function getStories (testDb) {
-  const db = testDb || conn
-  return db('stories').select()
-}
-
-function getStory (id, testDb) {
-  const db = testDb || conn
-  return db('stories').select().where({id}).first()
-}
-
-function getPages (testDb) {
-  const db = testDb || conn
-  return db('pages').select()
-}
-
-function getUser(id, testDb) {
-  const db = testDb || conn
-  return db('users').select().where({id}).first()
-}
 
 function updateUser(id, updatedInfo, testDb) {
   const db = testDb || conn
@@ -75,16 +61,12 @@ function updateUser(id, updatedInfo, testDb) {
   .update(updatedInfo)
 }
 
-
 module.exports = {
   createUser,
   getUsers,
   getUser,
   getAuthUsers,
   updateUser,
-  getStories,
-  getStory,
-  getPages,
   userExists,
   getUserByName
 }
