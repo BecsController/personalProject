@@ -1,19 +1,42 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+import {newEmotion, getAssociations} from '../../actions/associations'
+
 class EmotionButtons extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-    chosenEmotion: ''
+    chosenEmotion: '',
+    associations: []
   }
   this.handleClick = this.handleClick.bind(this)
 }
 
   handleClick(e) {
+let currentEmotion = e.currentTarget.value.toString()
     this.setState ({
-      chosenEmotion: e.currentTarget.value
+      chosenEmotion: currentEmotion
     })
+  console.log(this.state.chosenEmotion);
+  let association = {
+    page_id: this.props.tracker,
+    emotion: this.state.chosenEmotion,
+    user_id: this.props.auth.user.id
+  }
+console.log(association);
+  this.props.dispatch(newEmotion(association))
+console.log(this.state.associations);
+}
+
+componentDidMount () {
+  this.props.dispatch(getAssociations())
+}
+
+componentWillReceiveProps (nextProps) {
+  this.setState({
+    assocations: nextProps.associations
+  })
 }
 
   render() {

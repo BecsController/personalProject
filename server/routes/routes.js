@@ -3,7 +3,7 @@ const token = require('../auth/token')
 const router = require('express').Router()
 const userDb = require('../db/user')
 const storyDb = require('../db/stories')
-const assocDb = require('../db/assocations')
+const assocDb = require('../db/associations')
 
 
 router.get('/users', (req, res) => {
@@ -73,7 +73,7 @@ router.get('/associations', (req, res) => {
 router.post('/associations', (req, res) => {
   assocDb.createAssociations(req.body)
   .then(association => {
-    res.status(202).json(assocation)
+    res.status(202).json(association)
   })
 })
 // router.post('/updateUser/:id', (req, res) => {

@@ -1,5 +1,4 @@
 const conn = require('./connection')
-const hash = require('../auth/hash')
 
 function getStories (testDb) {
   const db = testDb || conn

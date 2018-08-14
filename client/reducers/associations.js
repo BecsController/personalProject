@@ -10,4 +10,4 @@ function associations (state = [], action) {
   }
 }
 
-export default users
+export default associations
