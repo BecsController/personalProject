@@ -1,8 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 
-import {getUserById} from '../../actions/users'
+import {getUserById, getUsers} from '../../actions/users'
 
 class User extends React.Component {
 
@@ -10,17 +11,27 @@ class User extends React.Component {
     super (props)
 
     this.state = {
-      user: []
+      user: [],
+      stateReset: false,
     }
+  this.returnState = this.returnState.bind(this)
   }
 
-  componentDidMount () {
-    this.props.dispatch(getUserById(this.props.match.params.id))
+componentDidMount () {
+  this.props.dispatch(getUserById(this.props.match.params.id))
 }
 
 componentWillReceiveProps (nextProps) {
   this.setState({
     user: nextProps.user
+  })
+}
+
+returnState() {
+  this.props.dispatch(getUsers())
+  this.setState({
+    user: this.state.users,
+    stateReset: true
   })
 }
 
@@ -64,7 +75,8 @@ componentWillReceiveProps (nextProps) {
               </div>}
 
             </div>
-            <Link to={`/users`}><button className="button is-medium is-rounded is-link">Back To Users Page</button></Link>
+            <button className="button is-medium is-rounded is-link" onClick = {this.returnState}>Back To Users Page</button>
+            {this.state.stateReset === true && <Redirect to='/users'/>}
           </div>
         )
       }

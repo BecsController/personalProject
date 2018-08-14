@@ -16,16 +16,10 @@ class Users extends React.Component {
     this.props.dispatch(getUsers())
   }
 
-  componentWillReceiveProps (nextProps) {
-    this.setState({
-      users: nextProps.users
-    })
-  }
-
   renderUsers (users) {
     return (
       <div className="columns box is-multiline" id="grid">
-        {users.map(item => (
+        {this.state.users && users.map(item => (
           <div key={item.name} className="column is-3 is-3-widescreen is-flex">
             <div className="card is-flex" style={{width: '30vw', height: '20vw'}}>
               <Link to={`/user/${item.id}`}>
