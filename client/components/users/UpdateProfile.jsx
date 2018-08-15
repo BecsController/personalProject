@@ -26,8 +26,7 @@ class UpdateProfile extends React.Component {
       submit(e) {
         e.preventDefault()
         let user = this.state.user
-        let id = this.props.auth.user.id
-        console.log(user, id)
+        let id = this.props.users.id
         this.props.dispatch(updateUserInfo(id, user))
         this.setState({
           user: {
@@ -83,8 +82,8 @@ class UpdateProfile extends React.Component {
               <input style={{marginTop: '.5vw'}} className="button is-info is-medium" type="submit" value="Submit"/>
             </form>
 
-            <Link style={{marginTop: '2vw', marginLeft: '9vw'}} className="button is-medium is-rounded" to='/users'>
-              Back To Users Page
+            <Link style={{marginTop: '2vw', marginLeft: '9vw'}} className="button is-medium is-rounded" to={`/user/${this.props.users.id}`}>
+              Back To Profile
             </Link>
 
           </div>
