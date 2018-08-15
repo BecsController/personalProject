@@ -17,9 +17,14 @@ function Header (props) {
           <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link is-size-4" href="#"><i className="fas fa-align-right"></i>&nbsp;Users</a>
 
+            {props.auth.isAuthenticated ?
               <div className="navbar-dropdown is-right is-boxed">
                 <Link className={navItemStyle} to="/stories"><i className="fas fa-book"></i>&nbsp; Stories</Link>
+                <div className={navItemStyle} onClick={() => props.dispatch(logoutUser())}><i className="fas fa-sign-out-alt"></i>&nbsp; LogOut</div>
                 <Link className={navItemStyle} to="/users"><i className="far fa-user"></i>&nbsp; Profiles</Link>
+              </div>
+              :
+              <div className="navbar-dropdown is-right is-boxed">
                 <Link className={navItemStyle} to="/signup"><i className="far fa-address-card"></i>&nbsp; Sign Up</Link>
                 <Link className={navItemStyle} to="/login"><i className="fas fa-unlock-alt"></i>&nbsp; Login</Link>
               </div>
