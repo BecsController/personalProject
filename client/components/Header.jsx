@@ -14,13 +14,20 @@ function Header (props) {
         </div>
 
         <div className="navbar-end">
+          {props.auth.isAuthenticated && <div className="navbar-item has-dropdown is-hoverable">
+            <a className="navbar-link is-size-4" href="#"><i className="fas fa-align-right"></i>&nbsp;Stories</a>
+              <div className="navbar-dropdown is-right is-boxed">
+                <Link className={navItemStyle} to="/stories"><i className="fas fa-book"></i>&nbsp; Start New Story</Link>
+                <Link className={navItemStyle} to="/#"><i className="fas fa-book"></i>&nbsp; Saved Stories</Link>
+              </div>
+          </div>}
+
           <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link is-size-4" href="#"><i className="fas fa-align-right"></i>&nbsp;Users</a>
 
             {props.auth.isAuthenticated ?
               <div className="navbar-dropdown is-right is-boxed">
-                <Link className={navItemStyle} to="/stories"><i className="fas fa-book"></i>&nbsp; Stories</Link>
-                <div className={navItemStyle} onClick={() => props.dispatch(logoutUser())}><i className="fas fa-sign-out-alt"></i>&nbsp; LogOut</div>
+                <Link className={navItemStyle} to="/" onClick={() => props.dispatch(logoutUser())}><i className="fas fa-sign-out-alt"></i>&nbsp; LogOut</Link>
                 <Link className={navItemStyle} to="/users"><i className="far fa-user"></i>&nbsp; Profiles</Link>
               </div>
               :
