@@ -9,7 +9,7 @@ class Filter extends React.Component {
     super (props)
     this.state = {
       stories: [],
-      activeGenre: 'All'
+      activeGenre: this.props.activeGenre
     }
   this.changeActiveListItem = this.changeActiveListItem.bind(this)
   }
