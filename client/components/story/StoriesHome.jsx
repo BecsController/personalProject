@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import {getStories} from '../../actions/stories'
+import Filter from './Filter'
 
 class StoriesHome extends React.Component {
   constructor (props){
@@ -33,19 +34,7 @@ class StoriesHome extends React.Component {
 
         <div className="columns is-two-thirds">
 
-          <div className="column is-offset-1 is-2 is-2-widescreen">
-            <div className="menu box">
-              <p className="menu-label">
-                Filter by genre
-              </p>
-              <ul className="menu-list">
-                <li><a className="is-active" data-action="filter" data-group href="#">All</a></li>
-                <li><a data-action="filter" data-group="school" href="#">School stories</a></li>
-                <li><a data-action="filter" data-group href="#">Out and About</a></li>
-                <li><a data-action="filter" data-group href="#">Behaviour</a></li>
-              </ul>
-            </div>
-          </div>
+          <Filter />
 
           <div className="column is-8 box">
             <div className="columns is-multiline" id="grid">
