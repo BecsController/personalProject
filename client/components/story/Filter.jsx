@@ -9,7 +9,7 @@ class Filter extends React.Component {
     super (props)
     this.state = {
       stories: [],
-      active: 'All'
+      activeGenre: 'All'
     }
   this.changeActiveListItem = this.changeActiveListItem.bind(this)
   }
@@ -28,13 +28,15 @@ class Filter extends React.Component {
     e.preventDefault()
     let current = document.getElementById(value)
     let elements = document.getElementsByTagName('a')
-    console.log(e.currentTarget, e.target.value)
-    console.log(this.state.active)
+
     for (let element of elements){
       element.classList.remove('is-active')
     }
     current.classList.add('is-active')
-    this.setState({active: value})
+
+    this.setState({
+      activeGenre: value
+    })
   }
 
   render() {
