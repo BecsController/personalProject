@@ -79,7 +79,7 @@ returnState() {
               </div>}
 
             </div>
-            <button className="button is-medium is-rounded is-link" onClick = {this.returnState}>Back To Users Page</button>
+            <button className="button is-medium is-rounded is-link" onClick ={this.returnState}>Back To Users Page</button>
             {this.state.stateReset === true && <Redirect to='/users'/>}
           </div>
         )

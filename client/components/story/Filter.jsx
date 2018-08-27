@@ -8,9 +8,10 @@ class Filter extends React.Component {
   constructor (props){
     super (props)
     this.state = {
-      stories: []
+      stories: [],
+      active: 'All'
     }
-  this.handleClick = this.handleClick.bind(this)
+  this.changeActiveListItem = this.changeActiveListItem.bind(this)
   }
 
   componentDidMount () {
@@ -23,10 +24,18 @@ class Filter extends React.Component {
     })
   }
 
-  handleClick(e) {
-  e.preventDefault()
-  console.log(e.currentTarget.value)
-}
+  changeActiveListItem(value, e) {
+    e.preventDefault()
+    let current = document.getElementById(value)
+    let elements = document.getElementsByTagName('a')
+    console.log(e.currentTarget, e.target.value)
+    console.log(this.state.active)
+    for (let element of elements){
+      element.classList.remove('is-active')
+    }
+    current.classList.add('is-active')
+    this.setState({active: value})
+  }
 
   render() {
     return (
@@ -36,10 +45,10 @@ class Filter extends React.Component {
             Filter by genre
           </p>
           <ul className="menu-list">
-            <li><a className="is-active" data-action="filter" href="#" onClick={(e) => this.handleClick(e)} value="all">All</a></li>
-            <li><a data-action="filter" value="school" href="#" onClick={(e) => this.handleClick(e)}>School stories</a></li>
-            <li><a data-action="filter" value="trips" href="#" onClick={(e) => this.handleClick(e)}>Out and About</a></li>
-            <li><a data-action="filter" value="behaviour" href="#" onClick={(e) => this.handleClick(e)}>Behaviour</a></li>
+            <li><a className="is-active" id="All" href="#" onClick={(e) => this.changeActiveListItem("All", e)} value="All">All</a></li>
+            <li><a className='' id="School" href="#" onClick={(e) => this.changeActiveListItem("School", e)} value="School">School stories</a></li>
+            <li><a className='' id="Trips" href="#" onClick={(e) => this.changeActiveListItem("Trips", e)} value="Trips">Out and About</a></li>
+            <li><a className='' id="Behaviour" href="#" onClick={(e) => this.changeActiveListItem("Behaviour", e)} value="Behaviour">Behaviour</a></li>
           </ul>
         </div>
       </div>
