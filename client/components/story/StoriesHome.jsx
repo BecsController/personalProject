@@ -10,8 +10,9 @@ class StoriesHome extends React.Component {
     super (props)
     this.state = {
       stories: [],
-      activeGenre: 'School'
+      activeGenre: 'All'
     }
+    this.changeActiveListItem = this.changeActiveListItem.bind(this)
   }
 
   componentDidMount () {
@@ -23,6 +24,22 @@ class StoriesHome extends React.Component {
       stories: nextProps.stories
     })
   }
+
+  changeActiveListItem(value, e) {
+    e.preventDefault()
+    let current = document.getElementById(value)
+    let elements = document.getElementsByTagName('a')
+
+    for (let element of elements){
+      element.classList.remove('is-active')
+    }
+    current.classList.add('is-active')
+
+    this.setState({
+      activeGenre: value
+    })
+  }
+
   render() {
     let currentStories = this.state.stories.filter(story => story.genre == this.state.activeGenre)
     return (
@@ -35,7 +52,19 @@ class StoriesHome extends React.Component {
 
         <div className="columns is-two-thirds">
 
-          <Filter activeGenre={this.state.activeGenre}/>
+          <div className="column is-offset-1 is-2 is-2-widescreen">
+            <div className="menu box">
+              <p className="menu-label">
+                Filter by genre
+              </p>
+              <ul className="menu-list">
+                <li><a className='is-active' id="All" href="#" onClick={(e) => this.changeActiveListItem("All", e)} value="All">All</a></li>
+                <li><a className='' id="School" href="#" onClick={(e) => this.changeActiveListItem("School", e)} value="School">School stories</a></li>
+                <li><a className='' id="Trips" href="#" onClick={(e) => this.changeActiveListItem("Trips", e)} value="Trips">Out and About</a></li>
+                <li><a className='' id="Behaviour" href="#" onClick={(e) => this.changeActiveListItem("Behaviour", e)} value="Behaviour">Behaviour</a></li>
+              </ul>
+            </div>
+          </div>
 
           <div className="column is-8 box">
             <div className="columns is-multiline" id="grid">
