@@ -6,6 +6,7 @@ const storyDb = require('../db/stories')
 const assocDb = require('../db/associations')
 
 
+
 router.get('/users', (req, res) => {
   userDb.getUsers().then(users => {
     res.json({users})
