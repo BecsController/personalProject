@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import {getStories} from '../../actions/stories'
-import Filter from './Filter'
 
 class StoriesHome extends React.Component {
   constructor (props){
@@ -41,7 +40,9 @@ class StoriesHome extends React.Component {
   }
 
   render() {
-    let currentStories = this.state.stories.filter(story => story.genre == this.state.activeGenre)
+    let currentStories = this.state.activeGenre == 'All' ?
+    this.state.stories :
+    this.state.stories.filter(story => story.genre == this.state.activeGenre)
     return (
       <div>
         <div className="column is-10 is-offset-1 box">
