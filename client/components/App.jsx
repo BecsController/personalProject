@@ -9,7 +9,7 @@ import StoriesHome from './story/StoriesHome'
 import StoryStart from './story/StoryStart'
 import StoryPage from './story/StoryPage'
 import UserPage from './users/UserPage'
-import Avatar from './users/Avatar'
+import Avatar from './users/avatars/Avatar'
 import Login from './users/Login'
 import UpdateProfile from './users/UpdateProfile'
 

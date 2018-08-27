@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 
 import FabricCanvas from './FabricCanvas'
 import TemplateList from './TemplateList'
-import {facelist, eyeslist, hairlist} from '../../../public/images/templates/templatelist.js'
+import {facelist, eyeslist, hairlist} from '../../../../public/images/templates/templatelist.js'
 
 class Avatar extends React.Component {
   constructor (props) {
