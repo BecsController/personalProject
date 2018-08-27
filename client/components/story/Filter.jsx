@@ -16,6 +16,8 @@ class Filter extends React.Component {
 
   componentDidMount () {
     this.props.dispatch(getStories())
+    let activeGenreA = document.getElementById(this.state.activeGenre)
+    activeGenreA.classList.add('is-active')
   }
 
   componentWillReceiveProps (nextProps) {
@@ -40,6 +42,7 @@ class Filter extends React.Component {
   }
 
   render() {
+  console.log(this.state.activeGenre)
     return (
       <div className="column is-offset-1 is-2 is-2-widescreen">
         <div className="menu box">
@@ -47,7 +50,7 @@ class Filter extends React.Component {
             Filter by genre
           </p>
           <ul className="menu-list">
-            <li><a className="is-active" id="All" href="#" onClick={(e) => this.changeActiveListItem("All", e)} value="All">All</a></li>
+            <li><a className='' id="All" href="#" onClick={(e) => this.changeActiveListItem("All", e)} value="All">All</a></li>
             <li><a className='' id="School" href="#" onClick={(e) => this.changeActiveListItem("School", e)} value="School">School stories</a></li>
             <li><a className='' id="Trips" href="#" onClick={(e) => this.changeActiveListItem("Trips", e)} value="Trips">Out and About</a></li>
             <li><a className='' id="Behaviour" href="#" onClick={(e) => this.changeActiveListItem("Behaviour", e)} value="Behaviour">Behaviour</a></li>
