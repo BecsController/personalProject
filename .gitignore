@@ -6,3 +6,6 @@ bundle.js
 bundle.js.map
 coverage.data
 coverage
+*coverage
+/coverage.data
+/coverage/
