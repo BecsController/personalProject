@@ -11,7 +11,7 @@ class UpdateProfile extends React.Component {
 
         this.state = {
           user: {
-            name: this.props.users.name,
+            username: this.props.users.username,
             email: this.props.users.email,
             avatar: this.props.users.avatar,
             saved_avatar: this.props.users.saved_avatar,
@@ -30,7 +30,7 @@ class UpdateProfile extends React.Component {
         this.props.dispatch(updateUserInfo(id, user))
         this.setState({
           user: {
-            name: this.props.users.name,
+            username: this.props.users.username,
             email: this.props.users.email,
             avatar: this.props.users.avatar,
             saved_avatar: this.props.users.saved_avatar,
@@ -54,7 +54,7 @@ class UpdateProfile extends React.Component {
   return (
     <div className="hero-body columns">
         <div className="column is-6 is-offset-3">
-          <h1 className="is-size-1 has-text-grey-light has-text-weight-bold">Let's Update Your Details {this.props.users.name}</h1>
+          <h1 className="is-size-1 has-text-grey-light has-text-weight-bold">Let's Update Your Details {this.props.users.username}</h1>
 
           <div style={{width: '50vw', marginTop: '2.5vw'}}>
             <div style={{width: '20vw', height: '20vw', float: 'left'}} className="box">
@@ -65,8 +65,8 @@ class UpdateProfile extends React.Component {
 
             <form style={{width: '20vw', float: 'right', marginTop: '1.5vw'}} onSubmit={this.submit}>
               <div className="field control">
-                <input className={inputStyle} placeholder={this.props.users.name}
-                  name="name" onChange={this.updateUser} value={this.state.name} />
+                <input className={inputStyle} placeholder={this.props.users.username}
+                  name="username" onChange={this.updateUser} value={this.state.username} />
               </div>
 
               <div className="field control">

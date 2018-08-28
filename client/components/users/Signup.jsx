@@ -5,7 +5,7 @@ import {registerUserRequest} from '../../actions/register'
 import {newUser} from '../../actions/users'
 
 let baseUser = {
-  name: '',
+  username: '',
   email: '',
   avatar: '',
   password: ''
@@ -59,8 +59,8 @@ class Signup extends React.Component {
 
             <form style={{width: '20vw', float: 'right', marginTop: '1.5vw'}} onSubmit={this.submit}>
               <div className="field control">
-                <input className={inputStyle} placeholder="Enter your name"
-                  name="name" onChange={this.updateUser} value={this.state.name} />
+                <input className={inputStyle} placeholder="Enter your username"
+                  name="username" onChange={this.updateUser} value={this.state.username} />
               </div>
 
               <div className="field control">

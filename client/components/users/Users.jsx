@@ -20,16 +20,16 @@ class Users extends React.Component {
     return (
       <div className="columns box is-multiline" id="grid">
         {this.state.users && users.map(item => (
-          <div key={item.name} className="column is-3 is-3-widescreen is-flex">
+          <div key={item.username} className="column is-3 is-3-widescreen is-flex">
             <div className="card is-flex" style={{width: '30vw', height: '20vw'}}>
               <Link to={`/user/${item.id}`}>
                 <div className="card-title title is-3">
-                  <h3 className="has-text-grey-dark">{item.name}</h3>
+                  <h3 className="has-text-grey-dark">{item.username}</h3>
                 </div>
 
                 <div style={{marginLeft: '1.7vw', width: '15vw', height: '15vw'}} className="box card-image">
                   <figure className="image is-1by1">
-                    {!item.saved_avatar ? <img src={item.avatar} alt={item.name}/> : <img src={item.saved_avatar} alt={item.name}/>}
+                    {!item.saved_avatar ? <img src={item.avatar} alt={item.username}/> : <img src={item.saved_avatar} alt={item.username}/>}
                   </figure>
                 </div>
               </Link>

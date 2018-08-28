@@ -2,7 +2,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('users', function (table){
     table.increments("id");
-    table.string("name");
+    table.string("username");
     table.string("email");
     table.string("avatar");
     table.string("saved_stories");

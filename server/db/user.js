@@ -19,12 +19,12 @@ function getAuthUsers(testDb) {
 function createUser(newUser, testDb) {
   return new Promise(function(resolve, reject) {
     const db = testDb || conn
-    const {name, password} = newUser
+    const {username, password} = newUser
 
     hash.generate(password, (err, hash) => {
       let authInfo = {
         password: hash,
-        name,
+        username,
       }
       delete newUser.password
       return db('users')
@@ -43,14 +43,14 @@ function createUser(newUser, testDb) {
 function userExists (name, testDb) {
   const db = testDb || conn
   return db('users')
-    .where('name', name)
+    .where('username', username)
     .first()
 }
 
 function getUserByName (name, testDb) {
   const db = testDb || conn
   return db('userAuth').select()
-  .where('name', name).first()
+  .where('username', username).first()
 }
 
 

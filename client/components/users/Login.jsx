@@ -8,7 +8,7 @@ class Login extends React.Component {
     super (props)
 
     this.state = {
-      name: '',
+      username: '',
       password: ''
     }
     this.updateDetails = this.updateDetails.bind(this)
@@ -22,8 +22,8 @@ class Login extends React.Component {
     }
     submit(e) {
       e.preventDefault()
-      let {name, password} = this.state
-      this.props.dispatch(loginUser({name, password}))
+      let {username, password} = this.state
+      this.props.dispatch(loginUser({username, password}))
     }
 
   render() {
@@ -35,8 +35,8 @@ class Login extends React.Component {
         <form style={{marginBottom: '7vw'}} onSubmit={this.submit}>
           {auth.errorMessage && <span className="has-text-danger is-large">{auth.errorMessage}</span>}
           <div className="field control">
-            <input className="input is-medium is-fullwidth" placeholder="Enter your name"
-              name="name" onChange={this.updateDetails} value={this.state.name} />
+            <input className="input is-medium is-fullwidth" placeholder="Enter your username"
+              name="username" onChange={this.updateDetails} value={this.state.username} />
           </div>
 
           <div className="field control">
