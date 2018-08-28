@@ -2,21 +2,21 @@ const request = require('supertest')
 
 jest.mock('../../server/db/user', () => ({
   getUsers: () => Promise.resolve([
-    {id: 1, name: 'Sam'},
-    {id: 2, name: 'Holly'}
+    {id: 1, username: 'Sam'},
+    {id: 2, username: 'Holly'}
   ]),
   getUser: () => Promise.resolve([
-    {id: 6, name: 'Dafnis'}
+    {id: 6, username: 'Dafnis'}
   ]),
   createUser: () => Promise.resolve([
-    {name: 'Fenix', password: 'FenFen'}
+    {username: 'Fenix', password: 'FenFen'}
   ]),
   updateUser: () => Promise.resolve([
-    {name: 'Sofie'}
+    {username: 'Sofie'}
   ]),
   getAuthUsers: () => Promise.resolve([
-    {id: 3, password: 'thingOne', name: 'thingTwo'},
-    {id: 4, password: 'hey', name: 'someone'}
+    {id: 3, password: 'thingOne', username: 'thingTwo'},
+    {id: 4, password: 'hey', username: 'someone'}
   ])
 }))
 
@@ -29,7 +29,7 @@ test('Get all users', () => {
     .then(res => {
       expect(res.body.users.length).toBe(2)
       expect(res.body.users[0].id).toBe(1)
-      expect(res.body.users[1].name).toBe('Holly')
+      expect(res.body.users[1].username).toBe('Holly')
     })
     .catch(err => {
       expect(err).toBeFalsy()
@@ -43,7 +43,7 @@ test('Get all users from auth db', () => {
     .then(res => {
       expect(res.body.auth.length).toBe(2)
       expect(res.body.auth[0].id).toBe(3)
-      expect(res.body.auth[1].name).toBe('someone')
+      expect(res.body.auth[1].username).toBe('someone')
       expect(res.body.auth[0]).toHaveProperty('password')
     })
     .catch(err => {
@@ -57,7 +57,7 @@ test('Get single user', () => {
     .get('/api/users/:id')
     .expect(200)
     .then(res => {
-      expect(res.body[0].name).toBe('Dafnis')
+      expect(res.body[0].username).toBe('Dafnis')
       expect(res.body.length).toBe(1)
       expect(res.body[0].id).toBe(6)
     })
@@ -71,7 +71,7 @@ test('Update user information', () => {
   const id = 2
   return request(server)
     .put('api/users/:id')
-    .send({name: 'Sofie'})
+    .send({username: 'Sofie'})
     .expect(202)
     .then(res => {
       console.log(res.body)
@@ -88,7 +88,7 @@ test('create a user', () => {
     .expect(202)
     .then(res => {
       expect(res.body).toBeTruthy()
-      expect(res.body[0].name).toBe('Fenix')
+      expect(res.body[0].username).toBe('Fenix')
       expect(res.body.length).toBe(1)
     })
     .catch(err => {
