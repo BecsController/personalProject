@@ -12,7 +12,7 @@ jest.mock('../../server/db/user', () => ({
     {name: 'Fenix', password: 'FenFen'}
   ]),
   updateUser: () => Promise.resolve([
-    {id: 2, name: 'Sofie'}
+    {name: 'Sofie'}
   ]),
   getAuthUsers: () => Promise.resolve([
     {id: 3, password: 'thingOne', name: 'thingTwo'},
@@ -70,7 +70,8 @@ test('Update user information', () => {
   const name = 'Sofie'
   const id = 2
   return request(server)
-    .get('api/users/:id')
+    .put('api/users/:id')
+    .send({name: 'Sofie'})
     .expect(202)
     .then(res => {
       console.log(res.body)
