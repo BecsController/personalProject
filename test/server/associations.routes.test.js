@@ -7,7 +7,7 @@ jest.mock('../../server/db/associations', () => ({
     {id: 3, page_id: 3, emotion: 'scared', user_id: 5}
   ]),
   createAssociations: () => Promise.resolve([
-    {id: 4, page_id: 4, emotion: 'angry', user_id: 7}
+    {page_id: 4, emotion: 'angry', user_id: 7}
   ])
 }))
 
@@ -26,4 +26,20 @@ test('Get all associations', () => {
     .catch(err => {
       expect(err).toBeFalsy()
     })
+})
+
+test('Can insert a new association to db', () => {
+  return request(server)
+    .post('/api/associations')
+    .send({page_id: 4, emotion: 'angry', user_id: 7})
+    .expect(202)
+    .then(res => {
+      expect(res.body.length).toBe(1)
+      expect(res.body[0].emotion).toBe('angry')
+      expect(res.body[0].user_id).toBe(7)
+      expect(res.body[0].page_id).toBe(4)
+  })
+  .catch(err => {
+    expect(err).toBeFalsy()
+  })
 })
