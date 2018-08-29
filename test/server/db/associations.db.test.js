@@ -17,8 +17,8 @@ afterEach(() => env.cleanup(testDb))
 test('getAssociations from db returns array of associations', () => {
   return Db.getAssociations(testDb)
     .then(associations => {
-    console.log(associations)
-    expect(associations.length).toBe(4)
+    expect(associations.length).toBe(1)
     expect(associations[0].hasOwnProperty('id')).toBeTruthy()
+    expect(associations[0].emotion).toBe('angry')
   })
 })
