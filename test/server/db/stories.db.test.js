@@ -24,9 +24,9 @@ test('getStory returns a single story', () => {
   let id = 2
   return Db.getStory(id, testDb)
     .then(story => {
-      expect(story.length).toBe(1)
       expect(story.hasOwnProperty('title')).toBeTruthy()
-      expect(story.hasOwnProperty('background')).toBeTruthy()
+      expect(story.hasOwnProperty('description')).toBeTruthy()
+      expect(story.description).toBe('Crowds and noise can be difficult to cope with, this story looks at potential scenarios that might develop when out and about at the mall.')
   })
 })
 
