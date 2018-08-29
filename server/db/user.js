@@ -40,14 +40,14 @@ function createUser(newUser, testDb) {
   });
 }
 
-function userExists (name, testDb) {
+function userExists (username, testDb) {
   const db = testDb || conn
   return db('users')
     .where('username', username)
     .first()
 }
 
-function getUserByName (name, testDb) {
+function getUserByName (username, testDb) {
   const db = testDb || conn
   return db('userAuth').select()
   .where('username', username).first()

@@ -12,7 +12,7 @@ module.exports = {
 }
 
 function issue (req, res) {
-  userDb.getUserByName(req.body.name)
+  userDb.getUserByName(req.body.username)
     .then(user => {
       if (!user) return res.status(403).json({message: 'User does not exist'})
     compare(req.body.password, user.password, (err, match) => {
