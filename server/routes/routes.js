@@ -30,8 +30,10 @@ router.get('/users/:id', (req, res) => {
 router.put('/users/:id', (req, res) => {
   let id = req.params.id
   let user = req.body
+  console.log(user)
   userDb.updateUser(id, user)
   .then(user => {
+    console.log(user)
     res.json(user)
   })
 })
