@@ -49,18 +49,18 @@ test('createUser can add new user', () => {
     password: 'Sally'
   }
   return Db.createUser(newUser, testDb)
-    .then(res => {
-    console.log(res)
-    expect(res.length).toBe(1)
+    .then(user => {
+    console.log(user)
+    expect(user.username).toBe('Sally')
   })
 })
 
 test('UserExists can find a user', () => {
-  let name = 'Sally'
+  let username = 'Spiderman'
   return Db.getUserByName(username, testDb)
     .then(user => {
-      console.log(user)
-      expect(user.length).toBe(3)
+      expect(user.username).toBe('Spiderman')
       expect(user.hasOwnProperty('username')).toBeTruthy()
+      expect(user.id).toBe(1)
   })
 })
