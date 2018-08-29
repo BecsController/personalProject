@@ -16,7 +16,8 @@ test('grab users from db works', () => {
   return Db.getUsers(testDb)
     .then(users => {
       expect(users.length).toBe(4)
-      expect(users[0].hasOwnProperty('name')).toBeTruthy()
+      expect(users[0].hasOwnProperty('username')).toBeTruthy()
+      expect(users[2].email).toBe('FenFen@ix.com')
     })
 })
 
@@ -25,6 +26,8 @@ test('getAuthUsers from db returns auth info', () => {
     .then(authUsers => {
     expect(authUsers.length).toBe(4)
     expect(authUsers[0].hasOwnProperty('id')).toBeTruthy()
+    expect(authUsers[3].hasOwnProperty('password')).toBeTruthy()
+    expect(authUsers[2].password).toBe('Fuego')
   })
 })
 
@@ -34,26 +37,30 @@ test('can find user by id', () => {
     .then(user => {
       expect(user.id).toBe(id)
       expect(user.hasOwnProperty('email')).toBeTruthy()
+      expect(user.username).toBe('FenFen')
   })
 })
 
 test('createUser can add new user', () => {
   let newUser = {
-    name: 'Sally',
+    username: 'Sally',
+    email: 'Sally@sally.com',
+    avatar: null,
     password: 'Sally'
   }
   return Db.createUser(newUser, testDb)
-    .then(newUser => {
-    console.log(newUser)
-    expect(newUser.length).toBe(2)
+    .then(res => {
+    console.log(res)
+    expect(res.length).toBe(1)
   })
 })
 
 test('UserExists can find a user', () => {
   let name = 'Sally'
-  return Db.getUserByName(name, testDb)
+  return Db.getUserByName(username, testDb)
     .then(user => {
+      console.log(user)
       expect(user.length).toBe(3)
-      expect(user.hasOwnProperty('name')).toBeTruthy()
+      expect(user.hasOwnProperty('username')).toBeTruthy()
   })
 })
