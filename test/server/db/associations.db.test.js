@@ -22,3 +22,15 @@ test('getAssociations from db returns array of associations', () => {
     expect(associations[0].emotion).toBe('angry')
   })
 })
+
+test('createAssociations adds a new association to the db', () => {
+  const newAssociation = {
+    page_id: 2,
+    emotion: 'scared',
+    user_id: 3
+  }
+  return Db.createAssociations(newAssociation, testDb)
+    .then(res => {
+      expect(res[0]).toBe(2)
+  })
+})
