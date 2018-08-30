@@ -4,7 +4,7 @@ import { shallow, mount } from 'enzyme'
 import App from '../../client/components/App'
 import './setup-dom'
 
-test('Hello World renders on App', () => {
+test('Test that App renders', () => {
   const wrapper = shallow(<App />)
-  expect(wrapper.find('h1').text()).toBe('Hello World')
+  expect(wrapper.find('section')).toBeTruthy()
 })

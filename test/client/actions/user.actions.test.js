@@ -1,4 +1,4 @@
-import {receiveUsers, getUsers, addUser} from '../../client/actions/users'
+import {receiveUsers, getUsers, addUser} from '../../../client/actions/users'
 import nock from 'nock'
 
 test('Receive users action creator', () => {
@@ -16,6 +16,22 @@ test('Receive users action creator', () => {
   const actual = receiveUsers(fakeUsers)
 
   expect(actual.users.length).toBe(3)
+  expect(actual).toEqual(expected)
+})
+
+test('Add users action creator adds another user', () => {
+  const newFakeUser = [
+    'John'
+  ]
+
+  const expected = {
+    type: 'ADD_USER',
+    user: newFakeUser
+  }
+
+  const actual = addUser(newFakeUser)
+
+  expect(actual.user.length).toBe(1)
   expect(actual).toEqual(expected)
 })
 
@@ -52,20 +68,4 @@ test('getUsers error', () => {
 
   const actual = getUsers()()
   expect(actual).toBe(undefined)
-})
-
-test('Add users action creator adds another user', () => {
-  const newFakeUser = [
-    'John'
-  ]
-
-  const expected = {
-    type: 'ADD_USER',
-    user: newFakeUser
-  }
-
-  const actual = addUser(newFakeUser)
-
-  expect(actual.user.length).toBe(1)
-  expect(actual).toEqual(expected)
 })

@@ -1,4 +1,4 @@
-import {getPages, receivePages} from '../../client/actions/stories'
+import {getPages, receivePages} from '../../../client/actions/stories'
 import nock from 'nock'
 
 test('Receive pages action creator', () => {
