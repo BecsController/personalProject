@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">37.5% </span>
+        <span class="strong">75% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/24</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">16.67% </span>
-        <span class="quiet">Branches</span>
-        <span class='fraction'>1/6</span>
+        <span class='fraction'>18/24</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">33.33% </span>
-        <span class="quiet">Functions</span>
-        <span class='fraction'>4/12</span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">37.5% </span>
+        <span class="strong">91.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>11/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>9/24</span>
+        <span class='fraction'>18/24</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -120,14 +120,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -148,8 +148,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -162,13 +162,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -183,15 +183,15 @@ export const receiveStories = (stories) =&gt; {
   }
 }
 &nbsp;
-export const receivePages = <span class="fstat-no" title="function not covered" >(p</span>ages) =&gt; {
-<span class="cstat-no" title="statement not covered" >  return {</span>
+export const receivePages = (pages) =&gt; {
+  return {
     type: 'RECEIVE_PAGES',
     pages
   }
 }
 &nbsp;
-export const receieveStory = <span class="fstat-no" title="function not covered" >(s</span>tory) =&gt; {
-<span class="cstat-no" title="statement not covered" >  return {</span>
+export const receiveStory = (story) =&gt; {
+  return {
     type: 'RECEIVE_STORY',
     story
   }
@@ -211,9 +211,9 @@ export function getStories () {
   }
 }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >getPages </span>() {
-<span class="cstat-no" title="statement not covered" >  return <span class="fstat-no" title="function not covered" >(d</span>ispatch) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    request</span>
+export function getPages () {
+  return (dispatch) =&gt; {
+    request
     .get(`/api/pages`)
     .end(<span class="fstat-no" title="function not covered" >(e</span>rr, res) =&gt; {
 <span class="cstat-no" title="statement not covered" >      if (err) {</span>
@@ -225,16 +225,16 @@ export function <span class="fstat-no" title="function not covered" >getPages </
   }
 }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >getStoryById </span>(id) {
-<span class="cstat-no" title="statement not covered" >  return <span class="fstat-no" title="function not covered" >(d</span>ispatch) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  request</span>
-  .get(`/stories//${id}`)
-  .end(<span class="fstat-no" title="function not covered" >(e</span>rr, res) =&gt; {
-<span class="cstat-no" title="statement not covered" >    if (err) {</span>
-<span class="cstat-no" title="statement not covered" >    console.error(err.message)</span>
-<span class="cstat-no" title="statement not covered" >    return</span>
+export function getStoryById (id) {
+  return (dispatch) =&gt; {
+  request
+  .get(`/api/stories/${id}`)
+  .end((err, res) =&gt; {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (err) {
+    console.error(err.message)
+    return
     }
-<span class="cstat-no" title="statement not covered" >    dispatch(receieveStory(res.body.story))</span>
+<span class="cstat-no" title="statement not covered" >    dispatch(receiveStory(res.body))</span>
     })
   }
 }
@@ -244,7 +244,7 @@ export function <span class="fstat-no" title="function not covered" >getStoryByI
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Aug 10 2018 15:06:37 GMT+1200 (NZST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Aug 30 2018 15:09:06 GMT+1200 (NZST)
 </div>
 </div>
 <script src="prettify.js"></script>

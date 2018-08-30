@@ -1,8 +1,6 @@
 import {
   receiveStories,
-  receivePages,
   getStories,
-  getPages,
   getStoryById,
   receiveStory
 } from '../../../client/actions/stories'
@@ -38,23 +36,6 @@ test('Receive story action creator', () => {
   const actual = receiveStory(fakeStory)
 
   expect(actual.story.length).toBe(1)
-  expect(actual).toEqual(expected)
-})
-
-test('Receive pages action creator', () => {
-  const fakePages = [
-    'One',
-    'Two'
-  ]
-
-  const expected = {
-    type: 'RECEIVE_PAGES',
-    pages: fakePages
-  }
-
-  const actual = receivePages(fakePages)
-
-  expect(actual.pages.length).toBe(2)
   expect(actual).toEqual(expected)
 })
 
@@ -112,28 +93,4 @@ test('getStories error', () => {
 
   const actual = getStories()()
   expect(actual).toBe(undefined)
-})
-
-test('getPages will dispatch an action on success', () => {
-  const fakePages = [
-    'One',
-    'Two',
-    'Three'
-  ]
-  const scope = nock('http://localhost:80')
-    .get('/api/pages')
-    .reply(200, fakePages);
-
-  const expectedAction = {
-    type: 'RECEIVE_PAGES',
-    pages: fakePages
-  }
-
-  const dispatch = jest.fn()
-    .mockImplementationOnce(action => {
-      expect(action).toEqual(expectedAction)
-      scope.done()
-    })
-  getPages()(dispatch)
-
 })
