@@ -113,3 +113,27 @@ test('getStories error', () => {
   const actual = getStories()()
   expect(actual).toBe(undefined)
 })
+
+test('getPages will dispatch an action on success', () => {
+  const fakePages = [
+    'One',
+    'Two',
+    'Three'
+  ]
+  const scope = nock('http://localhost:80')
+    .get('/api/pages')
+    .reply(200, fakePages);
+
+  const expectedAction = {
+    type: 'RECEIVE_PAGES',
+    pages: fakePages
+  }
+
+  const dispatch = jest.fn()
+    .mockImplementationOnce(action => {
+      expect(action).toEqual(expectedAction)
+      scope.done()
+    })
+  getPages()(dispatch)
+
+})
