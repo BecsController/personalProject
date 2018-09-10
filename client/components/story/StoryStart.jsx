@@ -35,7 +35,7 @@ componentWillReceiveProps (nextProps) {
             <img style={{width: '45vw', marginLeft: '10vw'}} src={this.state.story.image} />
           </figure>
 
-          <Link className="button is-primary is-rounded is-outlined is-large" to={`/story/${this.state.story.id}/1`}>
+          <Link className="button is-primary is-rounded is-outlined is-large" to={`/story/${this.state.story.id}/current`}>
             <i className="fas fa-play"></i>&nbsp;Click here to start
             </Link>
 

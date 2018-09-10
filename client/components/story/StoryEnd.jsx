@@ -1,15 +1,15 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {Redirect} from 'react-router-dom'
 
 import {saveStory} from '../../actions/currentStory'
 
-class StoryEnd extends React.component {
+class StoryEnd extends React.Component {
   constructor (props) {
     super (props)
 
     this.state = {
+      currentStory: this.props.currentStory
     }
   }
 
@@ -23,7 +23,20 @@ class StoryEnd extends React.component {
             </header>
 
           <div className="modal-card-body modal-color">
+
           </div>
+
+          <footer className="modal-card-foot">
+            <button className="button is-medium is-link is-fullwidth is-rounded">
+              Save Story
+            </button>
+            <Link to={`/user/${this.props.auth.user.id}`} className="button is-medium is-link is-fullwidth is-rounded">
+              Back To Profile
+            </Link>
+            <Link to={`/stories`} className="button is-medium is-link is-fullwidth is-rounded">
+              Start A New Story
+            </Link>
+          </footer>
         </div>
       </div>
     )
