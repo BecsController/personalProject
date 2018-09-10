@@ -25,7 +25,7 @@ const App = () => {
         <Route path='/stories' component={StoriesHome}/>
         <Route path='/login' component={Login} />
         <Route exact path='/story/:id' component={StoryStart}/>
-        <Route path='/story/:id/1' component={StoryPage}/>
+        <Route path='/story/:id/current' component={StoryPage}/>
         <Route exact path='/user/:id' component={UserPage} />
         <Route path='/user/:id/avatar' component={Avatar}/>
         <Route exact path='/user/:id/update' component={UpdateProfile}/>
