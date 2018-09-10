@@ -80,7 +80,7 @@ class StoriesPage extends React.Component {
           {this.state.buttonsVisible && <EmotionButtons page={this.state.pages} tracker={this.state.pageTracker}/>}
         </div>
 
-        {this.state.pages.length > 0 && <div className="column is-10 box">
+        {(this.state.pages.length > 0 && this.state.pageTracker < this.state.pages.length) && <div className="column is-10 box">
           <h1 className="has-text-centered is-size-2">{this.state.pages[this.state.pageTracker].title}</h1>
           <img className="background-img" src={this.state.pages[this.state.pageTracker].background}/>
           <img className="population-img" src={this.state.pages[this.state.pageTracker].population} alt="people"/>
