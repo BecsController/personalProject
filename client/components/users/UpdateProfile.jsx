@@ -38,7 +38,7 @@ class UpdateProfile extends React.Component {
           },
           userUpdated: true
         })
-        this.props.dispatch(getUserById(this.props.match.params.id))
+        this.props.dispatch(getUserById(this.props.users.id))
       }
 
       updateUser(e) {
@@ -51,20 +51,22 @@ class UpdateProfile extends React.Component {
 
   render() {
   let inputStyle = 'input is-medium'
-  console.log(this.state, this.props);
   return (
     <div className="modal is-active">
-        <div className="column is-6 is-offset-3">
-          <h1 className="is-size-1 has-text-grey-light has-text-weight-bold">Let's Update Your Details {this.props.users.username}</h1>
+      <div className="modal-background"></div>
+        <div className="modal-card">
+          <header className="modal-card-head modal-color">
+          <h1 className="modal-card-title is-size-1 has-text-link has-text-weight-bold">Let's Update Your Details {this.props.users.username}</h1>
+          </header>
 
-          <div style={{width: '50vw', marginTop: '2.5vw'}}>
+          <div className="modal-card-body modal-color">
             <div style={{width: '20vw', height: '20vw', float: 'left'}} className="box">
               <figure className="image is-1by1">
                 <img src={this.props.users.saved_avatar ? this.props.users.saved_avatar : this.props.users.avatar}/>
               </figure>
             </div>
 
-            <form style={{width: '20vw', float: 'right', marginTop: '1.5vw'}} onSubmit={this.submit}>
+            <form className="modal-color" style={{width: '37vw', float: 'right', marginTop: '1.5vw'}} onSubmit={this.submit}>
               <div className="field control">
                 <input className={inputStyle} placeholder={this.props.users.username}
                   name="username" onChange={this.updateUser} value={this.state.username} />
@@ -82,13 +84,13 @@ class UpdateProfile extends React.Component {
 
               <input style={{marginTop: '.5vw'}} className="button is-info is-medium" type="submit" value="Submit"/>
             </form>
+          </div>
 
           <footer className="modal-card-foot">
-            <button style={{marginTop: '2vw', marginLeft: '9vw'}} className="button is-medium is-rounded" onClick={this.props.hideModal}>
+            <button className="button is-medium is-link is-fullwidth is-rounded" onClick={this.props.hideModal}>
               Back To Profile
             </button>
           </footer>
-          </div>
         </div>
     </div>
   )
