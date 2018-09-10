@@ -2,12 +2,12 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
-import {UpdateProfile} from './UpdateProfile'
-import {BlankModal} from './BlankModal'
+
+import UpdateProfile from './UpdateProfile'
 
 import {getUserById, getUsers} from '../../actions/users'
 
-class User extends React.Component {
+class UserPage extends React.Component {
 
   constructor(props) {
     super (props)
@@ -43,7 +43,6 @@ showModal() {
   this.setState({
     updateProfile: true,
   })
-console.log(this.state);
 }
 
 hideModal() {
@@ -60,9 +59,7 @@ hideModal() {
           <button style={{float: 'right', marginTop: '1.25vw'}} className={`${buttonClass} is-link`} onClick={this.showModal}>
               Update Profile
           </button>
-        <div>
-        {this.state.updateProfile && <BlankModal hideModal={this.hideModal.bind(this)} />}
-        </div>
+        {this.state.updateProfile && <UpdateProfile hideModal={this.hideModal.bind(this)} users={this.state.user} />}
         </h3>
         <div className="box is-multiline is-flex" id="grid">
 
@@ -112,4 +109,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(User)
+export default connect(mapStateToProps)(UserPage)
