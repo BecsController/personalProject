@@ -63,17 +63,16 @@ class StoriesPage extends React.Component {
 }
 
   render() {
-    let currentStory = {
+    let currentStoryInFull = {
       user_id: this.props.auth.user.id,
       story_id: this.props.match.params.id,
       questions: this.state.questions,
       emotions: this.state.emotions,
       answers: this.state.answers
     }
-    console.log(this.state.pages.length, this.state.pageTracker, this.props.match.params.id)
     return (
       <div className="columns is-two-thirds">
-        {(this.state.pageTracker >= this.state.pages.length) && <StoryEnd currentStory={currentStory} />}
+        {(this.state.pageTracker >= this.state.pages.length) && <StoryEnd storyUpdate={currentStoryInFull} />}
         <div className="column is-2">
           <Link className="button is-medium" to={`#`} onClick={this.showEmotionButtons}>How are you feeling?</Link>
           <hr />

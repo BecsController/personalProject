@@ -9,17 +9,24 @@ class StoryEnd extends React.Component {
     super (props)
 
     this.state = {
-      currentStory: this.props.currentStory
+      currentStory: props.storyUpdate
     }
   }
 
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      currentStory: nextProps.currentStory
+    })
+  }
+
   render() {
+    console.log(this.state.currentStory)
     return (
       <div className="modal is-active">
         <div className="modal-background"></div>
           <div className="modal-card">
             <header className="modal-card-head modal-color">
-              <h1 className="modal-card-title is-size-1 has-text-link has-text-weight-bold">Congratulations {this.props.users.username}</h1>
+              <h1 className="modal-card-title is-size-1 has-text-link has-text-weight-bold">Congratulations {this.props.auth.user.username}</h1>
             </header>
 
           <div className="modal-card-body modal-color">
