@@ -1,19 +1,25 @@
 import request from '../utils/api'
 
 
-export function updateCurrentStory (currentStory) {
+export const addCurrentStory = (currentStory) {
     return {
-        type: 'UPDATE_STORY',
+        type: 'ADD_STORY',
         currentStory
     }
 }
 
+export const receiveSavedStories = (stories) => {
+  return {
+    type: 'RECEIVE_SAVED_STORIES',
+    stories
+  }
+}
 
-export function getStoryState() {
+export function getSavedStories() {
     return (dispatch) => {
-        request('get', `story/current`)
+        request('get', `stories/saved`)
         .then((res) => {
-            dispatch(updateCurrentStory(res.body.currentStory))
+            dispatch(receieveSavedStories(res.body.stories))
         })
         .catch(err =>{
             console.log('Err', err)
