@@ -51,6 +51,20 @@ router.get('/stories/:id', (req, res) => {
   })
 })
 
+router.post('/stories/saved', (req, res) => {
+  storyDb.saveStory(req.body)
+  .then((story) => {
+    res.status(202).json(story)
+  })
+})
+
+router.get('/stories/saved', (req, res) => {
+  storyDb.getSaved()
+  .then(stories => {
+    res.json({stories})
+  })
+})
+
 router.get('/pages', (req, res) => {
   storyDb.getPages()
   .then(pages => {

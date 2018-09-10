@@ -20,9 +20,21 @@ function getPage(id, testDb) {
   return db('pages').select().where({id}).first()
 }
 
+function saveStory (story, testDb) {
+  const db = testDb || conn
+  return db('savedStories').insert(story)
+}
+
+function getSaved (testDb) {
+  const db = testDb || conn
+  return db('savedStories').select()
+}
+
 module.exports = {
   getStories,
   getStory,
   getPages,
-  getPage
+  getPage,
+  saveStory,
+  getSaved,
 }
