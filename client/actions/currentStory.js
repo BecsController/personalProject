@@ -27,3 +27,15 @@ export function getSavedStories() {
     }
 
 }
+
+export function saveStory(story){
+  return (dispatch) => {
+    request('post', 'stories/saved', story)
+      .then(res => {
+        dispatch(addCurrentStory(res.body.story))
+      })
+      .catch(err =>{
+          console.log('Err', err)
+      })
+  }
+}

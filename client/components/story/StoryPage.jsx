@@ -12,7 +12,6 @@ class StoriesPage extends React.Component {
     this.state = {
       pages: [],
       answers: [],
-      questions: [],
       emotions: [],
       buttonsVisible: false,
       pageTracker: 0,
@@ -54,13 +53,11 @@ class StoriesPage extends React.Component {
       pageTracker: currentPageUpdate + 1,
       answers: [...this.state.answers, this.state.pages[this.state.pageTracker].optionOne]
     })
-    console.log(this.state.answers)
   } else {
     this.setState ({
       pageTracker: currentPageUpdate + 2,
       answers: [...this.state.answers, this.state.pages[this.state.pageTracker].optionTwo]
     })
-    console.log(this.state.answers)
   }
 }
 
