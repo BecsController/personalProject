@@ -51,6 +51,7 @@ class UpdateProfile extends React.Component {
 
   render() {
   let inputStyle = 'input is-medium'
+  console.log(this.state, this.props);
   return (
     <div className="modal is-active">
         <div className="column is-6 is-offset-3">
@@ -83,9 +84,9 @@ class UpdateProfile extends React.Component {
             </form>
 
           <footer className="modal-card-foot">
-            <a style={{marginTop: '2vw', marginLeft: '9vw'}} className="button is-medium is-rounded" onClick={this.props.hideModal}>
+            <button style={{marginTop: '2vw', marginLeft: '9vw'}} className="button is-medium is-rounded" onClick={this.props.hideModal}>
               Back To Profile
-            </a>
+            </button>
           </footer>
           </div>
         </div>

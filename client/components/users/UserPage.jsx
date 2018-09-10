@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import {UpdateProfile} from './UpdateProfile'
+import {BlankModal} from './BlankModal'
 
 import {getUserById, getUsers} from '../../actions/users'
 
@@ -42,6 +43,7 @@ showModal() {
   this.setState({
     updateProfile: true,
   })
+console.log(this.state);
 }
 
 hideModal() {
@@ -52,14 +54,15 @@ hideModal() {
 
   render() {
     let buttonClass = "is-rounded button is-medium"
-    console.log(this.state);
     return (
       <div className="column has-text-centered is-10 is-offset-1">
         <h3 className="box is-size-1 has-text-grey-dark">{this.state.user.username}
-          <a style={{float: 'right', marginTop: '1.25vw'}} className={`${buttonClass} is-link`} onClick={this.showModal}>
+          <button style={{float: 'right', marginTop: '1.25vw'}} className={`${buttonClass} is-link`} onClick={this.showModal}>
               Update Profile
-          </a>
-        {this.state.updateProfile && <UpdateProfile hideModal={this.hideModal.bind(this)} user={this.state.user} />}
+          </button>
+        <div>
+        {this.state.updateProfile && <BlankModal hideModal={this.hideModal.bind(this)} />}
+        </div>
         </h3>
         <div className="box is-multiline is-flex" id="grid">
 

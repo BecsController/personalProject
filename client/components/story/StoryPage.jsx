@@ -63,9 +63,7 @@ class StoriesPage extends React.Component {
       <div className="columns is-two-thirds">
 
         <div className="column is-2">
-          <Link className="button is-medium" to={`#`} onClick={this.showEmotionButtons}>
-            How are you feeling?
-          </Link>
+          <Link className="button is-medium" to={`#`} onClick={this.showEmotionButtons}>How are you feeling?</Link>
           <hr />
           {this.state.buttonsVisible && <EmotionButtons page={this.state.pages} tracker={this.state.pageTracker}/>}
         </div>
