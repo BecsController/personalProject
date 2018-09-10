@@ -52,7 +52,7 @@ class UpdateProfile extends React.Component {
   render() {
   let inputStyle = 'input is-medium'
   return (
-    <div className="hero-body columns">
+    <div className="modal is-active">
         <div className="column is-6 is-offset-3">
           <h1 className="is-size-1 has-text-grey-light has-text-weight-bold">Let's Update Your Details {this.props.users.username}</h1>
 
@@ -82,10 +82,11 @@ class UpdateProfile extends React.Component {
               <input style={{marginTop: '.5vw'}} className="button is-info is-medium" type="submit" value="Submit"/>
             </form>
 
-            <Link style={{marginTop: '2vw', marginLeft: '9vw'}} className="button is-medium is-rounded" to={`/user/${this.props.users.id}`}>
+          <footer className="modal-card-foot">
+            <a style={{marginTop: '2vw', marginLeft: '9vw'}} className="button is-medium is-rounded" onClick={this.props.hideModal}>
               Back To Profile
-            </Link>
-
+            </a>
+          </footer>
           </div>
         </div>
     </div>

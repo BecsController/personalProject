@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
+import {UpdateProfile} from './UpdateProfile'
 
 import {getUserById, getUsers} from '../../actions/users'
 
@@ -13,8 +14,10 @@ class User extends React.Component {
     this.state = {
       user: [],
       stateReset: false,
+      updateProfile: false,
     }
   this.returnState = this.returnState.bind(this)
+  this.showModal = this.showModal.bind(this)
   }
 
 componentDidMount () {
@@ -35,14 +38,28 @@ returnState() {
   })
 }
 
+showModal() {
+  this.setState({
+    updateProfile: true,
+  })
+}
+
+hideModal() {
+  this.setState({
+    updateProfile: false
+  })
+}
+
   render() {
     let buttonClass = "is-rounded button is-medium"
+    console.log(this.state);
     return (
       <div className="column has-text-centered is-10 is-offset-1">
         <h3 className="box is-size-1 has-text-grey-dark">{this.state.user.username}
-          <Link style={{float: 'right', marginTop: '1.25vw'}} className={`${buttonClass} is-link`} to={`/user/${this.state.user.id}/update`}>
+          <a style={{float: 'right', marginTop: '1.25vw'}} className={`${buttonClass} is-link`} onClick={this.showModal}>
               Update Profile
-          </Link>
+          </a>
+        {this.state.updateProfile && <UpdateProfile hideModal={this.hideModal.bind(this)} user={this.state.user} />}
         </h3>
         <div className="box is-multiline is-flex" id="grid">
 
