@@ -1,7 +1,7 @@
 import request from '../utils/api'
 
 
-export const addCurrentStory = (currentStory) {
+export const addCurrentStory = (currentStory) => {
     return {
         type: 'ADD_STORY',
         currentStory
@@ -28,14 +28,16 @@ export function getSavedStories() {
 
 }
 
-export function saveStory(story){
+export function saveStory (currentStory) {
   return (dispatch) => {
-    request('post', 'stories/saved', story)
+      request
+      .post(`/stories/saved`)
+      .send(currentStory)
       .then(res => {
-        dispatch(addCurrentStory(res.body.story))
-      })
-      .catch(err =>{
-          console.log('Err', err)
-      })
+        dispatch(addCurrentStory(res.body))
+    })
+    .catch(err =>{
+        console.log('Err', err)
+    })
   }
 }
