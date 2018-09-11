@@ -15,25 +15,24 @@ export const receiveSavedStories = (stories) => {
 }
 export function getSavedStories () {
   return (dispatch) => {
-    return request('get', `/saved`)
+    return request('get','/saved')
     .then(res => {
       dispatch(receiveSavedStories(res.body))
     })
     .catch(err => {
-      console.log('Err in actions get saved stories', err.message);
+      console.log('Err in actions get saved', err.message);
     })
   }
 }
 
-export function saveStory(currentStory) {
+export function saveStory (currentStory) {
   return (dispatch) => {
     return request('post', '/saved', currentStory)
     .then(res => {
-      console.log('am I here?', res.body)
       dispatch(addCurrentStory(res.body))
     })
     .catch(err => {
-      console.log('Err in actions save story', err.message);
+      console.log('Err in actions post saved', err.message);
     })
   }
 }

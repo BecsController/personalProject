@@ -35,7 +35,7 @@ class StoryEnd extends React.Component {
             </header>
 
           <div className="modal-card-body modal-color">
-            <p>
+            <p className="is-4 has-text-black">
               Well done, you have completed your story.  You have gained a new star.  What would you like to do now?
             </p>
           </div>

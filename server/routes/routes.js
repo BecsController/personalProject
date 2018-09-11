@@ -4,7 +4,7 @@ const router = require('express').Router()
 const userDb = require('../db/user')
 const storyDb = require('../db/stories')
 const assocDb = require('../db/associations')
-
+const saveDb = require('../db/saved')
 
 
 router.get('/users', (req, res) => {
@@ -52,14 +52,14 @@ router.get('/stories/:id', (req, res) => {
 })
 
 router.post('/saved', (req, res) => {
-  storyDb.saveStory(req.body)
+  saveDb.saveStory(req.body)
   .then(newStory => {
     res.status(202).json(newStory)
   })
 })
 
 router.get('/saved', (req, res) => {
-  storyDb.getSaved()
+  saveDb.getSaved()
   .then(savedStories => {
     res.json({savedStories})
   })

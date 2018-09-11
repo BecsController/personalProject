@@ -68,7 +68,8 @@ class StoriesPage extends React.Component {
   render() {
     let currentStoryInFull = {
       user_id: this.props.auth.user.id,
-      story_id: this.props.match.params.id,
+      story_id: Number(this.props.match.params.id),
+      title: this.props.stories.title,
       questions: this.state.questions,
       emotions: this.state.emotions,
       answers: this.state.answers
