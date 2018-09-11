@@ -25,7 +25,6 @@ class StoryEnd extends React.Component {
   }
 
   render() {
-  console.log(this.state.currentStory);
     return (
       <div className="modal is-active">
         <div className="modal-background"></div>
@@ -35,7 +34,12 @@ class StoryEnd extends React.Component {
             </header>
 
           <div className="modal-card-body modal-color">
-            <p className="is-4 has-text-black">
+            <div style={{width: '15vw', height: '15vw', marginLeft: '21vw'}} className="box">
+              <figure className="image">
+                <img src="../../images/star.jpeg"/>
+              </figure>
+            </div>
+            <p className="is-size-4 has-text-black">
               Well done, you have completed your story.  You have gained a new star.  What would you like to do now?
             </p>
           </div>
