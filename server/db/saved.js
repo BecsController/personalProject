@@ -4,6 +4,7 @@ function saveStory (currentStory, testDb) {
   const db = testDb || conn
   const tempStory = {...currentStory}
   tempStory.answers = JSON.stringify(tempStory.answers, null, 2)
+  tempStory.questions = JSON.stringify(tempStory.questions, null, 2)
   return db('savedStories')
   .insert(tempStory)
 }
