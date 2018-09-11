@@ -7,17 +7,17 @@ export const addCurrentStory = (currentStory) => {
     }
 }
 
-export const receiveSavedStories = (stories) => {
+export const receiveSavedStories = (savedStories) => {
   return {
     type: 'RECEIVE_SAVED_STORIES',
-    stories
+    savedStories
   }
 }
 export function getSavedStories () {
   return (dispatch) => {
     return request('get','/saved')
     .then(res => {
-      dispatch(receiveSavedStories(res.body))
+      dispatch(receiveSavedStories(res.body.savedStories))
     })
     .catch(err => {
       console.log('Err in actions get saved', err.message);

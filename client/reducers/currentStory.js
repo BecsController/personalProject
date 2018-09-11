@@ -13,7 +13,7 @@ export default function currentStory(state = initialState, action) {
         case 'ADD_STORY':
             return [...state, action.currentStory]
         case 'RECEIVE_SAVED_STORIES':
-            return action.stories
+            return [...state, action.savedStories]
         default:
             return state;
     }

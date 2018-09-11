@@ -6,6 +6,7 @@ import {Redirect} from 'react-router-dom'
 import UpdateProfile from './UpdateProfile'
 
 import {getUserById, getUsers} from '../../actions/users'
+import {getSavedStories} from '../../actions/currentStory'
 
 class UserPage extends React.Component {
 
@@ -14,6 +15,7 @@ class UserPage extends React.Component {
 
     this.state = {
       user: [],
+      savedStories: [],
       stateReset: false,
       updateProfile: false,
     }
@@ -22,12 +24,14 @@ class UserPage extends React.Component {
   }
 
 componentDidMount () {
-  this.props.dispatch(getUserById(this.props.match.params.id))
+    this.props.dispatch(getUserById(this.props.match.params.id)),
+    this.props.dispatch(getSavedStories())
 }
 
 componentWillReceiveProps (nextProps) {
   this.setState({
-    user: nextProps.user
+    user: nextProps.user,
+    savedStories: nextProps.savedStories
   })
 }
 
@@ -52,6 +56,7 @@ hideModal() {
 }
 
   render() {
+  console.log(this.state.savedStories);
     let buttonClass = "is-rounded button is-medium"
     return (
       <div className="column has-text-centered is-10 is-offset-1">
@@ -71,7 +76,12 @@ hideModal() {
 
           <div style={{width: '40vw'}} className="box">
             <h4 className="has-text-grey-dark">Email: {this.state.user.email}</h4>
-            <h4 className="has-text-grey-dark">Stories: {this.state.user.saved_stories}</h4>
+            <h4 className="has-text-grey-dark">Stories:</h4>
+              {this.state.savedStories && this.state.savedStories.map(story => {
+                <div key={story.id}>
+                    <a>{story.title}</a>
+                </div>
+              })}
             {!this.state.user.saved_avatar &&
               <Link to={`/user/${this.state.user.id}/avatar`}>
                 <button style={{marginTop: '3vw'}} className={buttonClass}>Create Avatar</button>
