@@ -11,7 +11,7 @@ export const initialState = {
 export default function currentStory(state = initialState, action) {
     switch(action.type) {
         case 'ADD_STORY':
-            return action.currentStory
+            return [...state, action.currentStory]
         case 'RECEIVE_SAVED_STORIES':
             return action.stories
         default:

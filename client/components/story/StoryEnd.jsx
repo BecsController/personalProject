@@ -11,6 +11,7 @@ class StoryEnd extends React.Component {
     this.state = {
       currentStory: props.storyUpdate
     }
+  this.saveCurrentStory = this.saveCurrentStory.bind(this)
   }
 
   componentWillReceiveProps(nextProps){
@@ -19,8 +20,12 @@ class StoryEnd extends React.Component {
     })
   }
 
+  saveCurrentStory() {
+   this.props.dispatch(saveStory(this.state.currentStory))
+  }
+
   render() {
-    console.log(this.state.currentStory)
+  console.log(this.state.currentStory);
     return (
       <div className="modal is-active">
         <div className="modal-background"></div>
@@ -36,7 +41,7 @@ class StoryEnd extends React.Component {
           </div>
 
           <footer className="modal-card-foot">
-            <button className="button is-medium is-link is-fullwidth is-rounded">
+            <button className="button is-medium is-link is-fullwidth is-rounded" onClick={() => this.saveCurrentStory()}>
               Save Story
             </button>
             <Link to={`/user/${this.props.auth.user.id}`} className="button is-medium is-link is-fullwidth is-rounded">

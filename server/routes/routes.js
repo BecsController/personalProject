@@ -51,17 +51,17 @@ router.get('/stories/:id', (req, res) => {
   })
 })
 
-router.post('/stories/saved', (req, res) => {
+router.post('/saved', (req, res) => {
   storyDb.saveStory(req.body)
-  .then((story) => {
-    res.status(202).json(story)
+  .then(newStory => {
+    res.status(202).json(newStory)
   })
 })
 
-router.get('/stories/saved', (req, res) => {
+router.get('/saved', (req, res) => {
   storyDb.getSaved()
-  .then(stories => {
-    res.json({stories})
+  .then(savedStories => {
+    res.json({savedStories})
   })
 })
 
