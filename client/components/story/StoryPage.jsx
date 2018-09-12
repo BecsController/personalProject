@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {getPages} from '../../actions/stories'
+import {getAssociations} from '../../actions/associations'
 
 import EmotionButtons from '../popuplayers/EmotionButtons'
 import StoryEnd from './StoryEnd'
@@ -25,12 +26,14 @@ class StoriesPage extends React.Component {
   }
 
   componentDidMount () {
-    this.props.dispatch(getPages())
+    this.props.dispatch(getPages()),
+    this.props.dispatch(getAssociations())
   }
 
   componentWillReceiveProps (nextProps) {
     this.setState({
-      pages: nextProps.pages
+      pages: nextProps.pages,
+      emotions: nextProps.associations
     })
   }
 
