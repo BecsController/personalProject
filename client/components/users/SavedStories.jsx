@@ -19,13 +19,17 @@ class SavedStories extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    let saved = nextProps.currentStory[0]
+    console.log(saved);
+    saved.filter(stories => stories.user_id != this.props.auth.user.id)
+    console.log(saved);
     this.setState({
-      currentStory: nextProps.currentStory[0]
+      currentStory: saved
     })
   }
 
   displayStoryInfo(){
-  alert("Display stuff")
+    alert("Display stuff")
   }
 
   render() {
