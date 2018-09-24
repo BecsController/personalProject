@@ -9,7 +9,9 @@ class SavedStories extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentStory: []
+      currentStory: [],
+      clickedStory: {},
+      displayCurrent: false
     }
   this.displayStoryInfo = this.displayStoryInfo.bind(this)
   }
@@ -26,8 +28,11 @@ class SavedStories extends React.Component {
     })
   }
 
-  displayStoryInfo(){
-    alert("Display stuff")
+  displayStoryInfo(story_id){
+    this.setState({
+      clickedStory: this.state.currentStory.find(story => story.id == story_id),
+      displayCurrent: true
+    })
   }
 
   render() {
@@ -39,7 +44,7 @@ class SavedStories extends React.Component {
             {this.state.currentStory && this.state.currentStory.map(story => {
               return (
                 <div className="columns is-4 is-flex">
-                  <a onClick={() => this.displayStoryInfo()}>{story.title}</a>
+                  <a onClick={() => this.displayStoryInfo(story.id)}>{story.title}</a>
                 </div>
               )
             })}
