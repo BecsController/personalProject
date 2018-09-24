@@ -57,7 +57,7 @@ class SavedStories extends React.Component {
             })}
           </div>
           <div className="column">
-            {answers && answers.map((answer, i) => {
+            {this.state.displayCurrent && answers.map((answer, i) => {
               let currentEmotion = emotions == null ? "No emotion selected" : emotions[i]
               return (
                 <div className="has-text-left" key={i}>
@@ -71,6 +71,7 @@ class SavedStories extends React.Component {
                 </div>
               )
             })}
+            {this.state.displayCurrent && <div onClick={() => this.setState({displayCurrent: false})} className="button is-full-width">Close</div>}
           </div>
         </div>
       </div>
