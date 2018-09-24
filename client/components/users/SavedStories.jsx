@@ -23,6 +23,11 @@ class SavedStories extends React.Component {
   componentWillReceiveProps(nextProps) {
     let saved = nextProps.currentStory[0]
     saved = saved.filter(stories => stories.user_id == this.props.auth.user.id)
+    saved.map(story => {
+      story.answers = JSON.parse(story.answers)
+      story.questions = JSON.parse(story.questions)
+      story.emotions = JSON.parse(story.emotions)
+    })
     this.setState({
       currentStory: saved
     })
@@ -30,13 +35,11 @@ class SavedStories extends React.Component {
 
   displayStoryInfo(story_id){
     let current = this.state.currentStory.find(story => story.id == story_id)
-      current.answers = JSON.parse(current.answers)
-      current.questions = JSON.parse(current.questions)
-      current.emotions = JSON.parse(current.emotions)
     this.setState({
       clickedStory: current,
       displayCurrent: true
     })
+    console.log(this.state.clickedStory)
   }
 
   render() {
