@@ -14,8 +14,7 @@ class FabricCanvas extends React.Component{
 }
 
   componentDidMount(){
-    // Make a New Canvas
-    this.the_canvas = new fabric.StaticCanvas('main-canvas', {
+    this.theCanvas = new fabric.StaticCanvas('main-canvas', {
       preserveObjectStacking: true,
       height:375,
       width:375,
@@ -27,32 +26,30 @@ class FabricCanvas extends React.Component{
 
   componentWillReceiveProps = (nextProps) =>{
     if(nextProps.activeProperty !== this.props.activeProperty){
-      this.updateCanvasforImage(this.props.activeProperty,nextProps.activeProperty);
+      this.updateCanvasforImage(this.props.activeProperty, nextProps.activeProperty);
     }
     this.setState({
       user: nextProps.user
     })
   }
 
-  updateCanvasforImage = (prev,next) => {
+  updateCanvasforImage = (prev, next) => {
     if(next){
-      let to_remove
-      // Find the same kind of element
-      this.the_canvas.forEachObject( (object) => {
-
-        if(object.the_type === next.the_type){
-          to_remove = object
+      let toRemove
+      this.theCanvas.forEachObject(object => {
+        if(object.theType === next.theType){
+          toRemove = object
         }
-      } )
-      this.the_canvas.remove(to_remove)
-      this.the_canvas.add(next)
-      this.the_canvas.moveTo(next, next.zIndex)
+      })
+      this.theCanvas.remove(toRemove)
+      this.theCanvas.add(next)
+      this.theCanvas.moveTo(next, next.zIndex)
     }
   }
 
   saveToCanvas = () => {
     let link = document.createElement("a")
-    link.href = this.the_canvas.toDataURL({format: 'png'})
+    link.href = this.theCanvas.toDataURL({format: 'png'})
     link.download = "avatar.png";
     link.click()
   }
@@ -60,7 +57,7 @@ class FabricCanvas extends React.Component{
   saveToProfile = () => {
     let message = document.getElementsByTagName('h3')[0]
     message.classList.remove('is-hidden')
-    let saveLink = this.the_canvas.toDataURL({format: 'png'})
+    let saveLink = this.theCanvas.toDataURL({format: 'png'})
     let id = this.props.activeUser
       this.state.user.saved_avatar = saveLink
       this.props.dispatch(addAvatar(id, this.state.user))

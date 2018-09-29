@@ -32,7 +32,7 @@ class Avatar extends React.Component {
     let imgInstance = new fabric.Image(imgElement, {
       width: 400,
       height: 400,
-      the_type: propertyType,
+      theType: propertyType,
       zIndex: zIndex
     })
     this.setState({activeProperty: imgInstance})
