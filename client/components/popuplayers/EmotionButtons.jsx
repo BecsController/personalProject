@@ -37,17 +37,18 @@ componentWillReceiveProps (nextProps) {
 }
 
   render() {
+    let buttonClass = "is-warning is-fullwidth button is-medium"
     return (
       <div>
-        <button className="is-warning is-fullwidth button is-medium" onClick={(e) => this.handleClick(e)} value="anxious">
+        <button className={buttonClass} onClick={(e) => this.handleClick(e)} value="anxious">
           {this.props.page[this.props.tracker].emotionOne}
         </button>
         <hr />
-        <button className="is-warning is-fullwidth button is-medium" onClick={(e) => this.handleClick(e)} value="excited">
+        <button className={buttonClass} onClick={(e) => this.handleClick(e)} value="excited">
           {this.props.page[this.props.tracker].emotionTwo}
         </button>
         <hr />
-        <button className="is-warning is-fullwidth button is-medium" onClick={(e) => this.handleClick(e)} value="scared">
+        <button className={buttonClass} onClick={(e) => this.handleClick(e)} value="scared">
           {this.props.page[this.props.tracker].emotionThree}
         </button>
       </div>
