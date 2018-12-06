@@ -71,7 +71,7 @@ class SavedStories extends React.Component {
                 </div>
               )
             })}
-            {this.state.displayCurrent && <div onClick={() => this.setState({displayCurrent: false})} className="button is-full-width">Close</div>}
+            {this.state.displayCurrent && <div onClick={() => this.setState({displayCurrent: false})} className="button is-full-width is-link">Close</div>}
           </div>
         </div>
       </div>
