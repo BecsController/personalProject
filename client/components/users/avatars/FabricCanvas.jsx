@@ -2,7 +2,7 @@ import React from 'react';
 import {fabric} from 'fabric';
 import {connect} from 'react-redux'
 
-import {getUserById, addAvatar} from '../../../actions/users'
+import {addAvatar} from '../../../actions/users'
 
 class FabricCanvas extends React.Component{
   constructor (props) {
