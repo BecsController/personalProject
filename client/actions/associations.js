@@ -1,13 +1,13 @@
 import request from 'superagent'
 
-export const receiveAssociations = (associations) => {
+export const receiveAssociations = associations => {
   return {
     type: 'RECEIVE_ASSOCIATIONS',
     associations
   }
 }
 
-export const addAssociation = (association) => {
+export const addAssociation = association => {
   return {
     type: 'ADD_ASSOCIATION',
     association
@@ -15,7 +15,7 @@ export const addAssociation = (association) => {
 }
 
 export function getAssociations () {
-  return (dispatch) => {
+  return dispatch => {
     request
     .get(`/api/associations`)
     .end((err, res) => {
@@ -29,7 +29,7 @@ export function getAssociations () {
 }
 
 export function newEmotion (newEmotion) {
-  return (dispatch) => {
+  return dispatch => {
     request
     .post(`/api/associations`)
     .send(newEmotion)

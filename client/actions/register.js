@@ -1,9 +1,9 @@
 import request from 'superagent'
-import {saveUserToken} from '../utils/auth'
-import {receiveLogin, loginError} from './login'
+import { saveUserToken } from '../utils/auth'
+import { receiveLogin, loginError } from './login'
 
 export function registerUserRequest (creds) {
-  return (dispatch) => {
+  return dispatch => {
     request
       .post('/api/v1/auth/register')
       .send(creds)

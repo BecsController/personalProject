@@ -1,20 +1,20 @@
 import request from '../utils/api'
 
-export const addCurrentStory = (currentStory) => {
+export const addCurrentStory = currentStory => {
     return {
         type: 'ADD_STORY',
         currentStory
     }
 }
 
-export const receiveSavedStories = (savedStories) => {
+export const receiveSavedStories = savedStories => {
   return {
     type: 'RECEIVE_SAVED_STORIES',
     savedStories
   }
 }
 export function getSavedStories () {
-  return (dispatch) => {
+  return dispatch => {
     return request('get','/saved')
     .then(res => {
       dispatch(receiveSavedStories(res.body.savedStories))
@@ -26,7 +26,7 @@ export function getSavedStories () {
 }
 
 export function saveStory (currentStory) {
-  return (dispatch) => {
+  return dispatch => {
     return request('post', '/saved', currentStory)
     .then(res => {
       dispatch(addCurrentStory(res.body))

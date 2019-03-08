@@ -1,20 +1,20 @@
 import request from 'superagent'
 
-export const receiveStories = (stories) => {
+export const receiveStories = stories => {
   return {
     type: 'RECEIVE_STORIES',
     stories
   }
 }
 
-export const receivePages = (pages) => {
+export const receivePages = pages => {
   return {
     type: 'RECEIVE_PAGES',
     pages
   }
 }
 
-export const receiveStory = (story) => {
+export const receiveStory = story => {
   return {
     type: 'RECEIVE_STORY',
     story
@@ -22,7 +22,7 @@ export const receiveStory = (story) => {
 }
 
 export function getStories () {
-  return (dispatch) => {
+  return dispatch => {
     request
     .get(`/api/stories`)
     .end((err, res) => {
@@ -36,7 +36,7 @@ export function getStories () {
 }
 
 export function getPages () {
-  return (dispatch) => {
+  return dispatch => {
     request
     .get(`/api/pages`)
     .end((err, res) => {
@@ -50,7 +50,7 @@ export function getPages () {
 }
 
 export function getStoryById (id) {
-  return (dispatch) => {
+  return dispatch => {
   request
   .get(`/api/stories/${id}`)
   .end((err, res) => {

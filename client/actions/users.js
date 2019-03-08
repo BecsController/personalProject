@@ -1,34 +1,34 @@
 import request from 'superagent'
 
-export const receiveUsers = (users) => {
+export const receiveUsers = users => {
   return {
     type: 'RECEIVE_USERS',
     users
   }
 }
 
-export const receiveUser = (user) => {
+export const receiveUser = user => {
   return {
     type: 'RECEIVE_USER',
     user
   }
 }
 
-export const appendUserWithAvatar = (user) => {
+export const appendUserWithAvatar = user => {
   return {
     type: 'APPEND_USER_WITH_AVATAR',
     user
   }
 }
 
-export const addUser = (user) => {
+export const addUser = user => {
   return {
     type: 'ADD_USER',
     user
   }
 }
 
-export const updateUser = (user) => {
+export const updateUser = user => {
   return {
     type: 'UPDATE_USER',
     user
@@ -36,7 +36,7 @@ export const updateUser = (user) => {
 }
 
 export function getUsers () {
-  return (dispatch) => {
+  return dispatch => {
     request
     .get(`/api/users`)
     .then(res => {
@@ -46,7 +46,7 @@ export function getUsers () {
 }
 
 export function getUserById (id) {
-  return (dispatch) => {
+  return dispatch => {
     request
     .get(`/api/users/${id}`)
     .then(res => {
@@ -56,7 +56,7 @@ export function getUserById (id) {
 }
 
 export function newUser (newUser) {
-  return (dispatch) => {
+  return dispatch => {
     request
     .post(`/api/users`)
     .send(newUser)
@@ -67,7 +67,7 @@ export function newUser (newUser) {
 }
 
 export function addAvatar (id, user) {
-  return (dispatch) => {
+  return dispatch => {
     request
     .put(`/api/users/${id}`)
     .send(user)
@@ -78,7 +78,7 @@ export function addAvatar (id, user) {
 }
 
 export function updateUserInfo (id, user) {
-  return (dispatch) => {
+  return dispatch => {
     request
     .put(`/api/users/${id}`)
     .send(user)
